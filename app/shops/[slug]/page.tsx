@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Badge from "@/components/Badge";
 import { shops } from "@/lib/shops";
 import { notFound } from "next/navigation";
@@ -19,6 +20,12 @@ export default async function ShopDetailPage({ params }: Props) {
     return (
         <main className="min-h-screen bg-neutral-950 px-6 py-12 text-white">
             <div className="mx-auto max-w-4xl">
+                <Link
+                    href="/shops"
+                    className="mb-6 inline-flex text-sm font-medium text-amber-300 hover:text-amber-200"
+                >
+                    ← Back to Shops
+                </Link>
                 <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
                     Shop Profile
                 </p>
@@ -35,7 +42,18 @@ export default async function ShopDetailPage({ params }: Props) {
 
                 <div className="mt-6 flex flex-wrap gap-2">
                     {shop.hasLounge && <Badge>Lounge</Badge>}
-                    {shop.hasHumidor && <Badge>Humidor</Badge>}
+                    {shop.hasHumidor && <Badge>Humidor</Badge>}                    
+                    {shop.hasPadrons && <Badge>Padrons</Badge>}
+                    {shop.hasDavidoffs && <Badge>Davidoffs</Badge>}
+                    {shop.hasAcid && <Badge>Acid</Badge>}
+                    {shop.hasPipeTobacco && <Badge>Pipe Tobacco</Badge>}
+                    {shop.hasMemberAccess && <Badge>Member Access</Badge>}
+                    {shop.hasliquorlicense && <Badge>Liquor License</Badge>}
+                    {shop.canbringinliquor && <Badge>BYOB</Badge>}
+                    {shop.hasinternetaccess && <Badge>Internet access</Badge>}
+                    {shop.hascoffeemaker && <Badge>Coffee</Badge>}
+                    {shop.hasicemaker && <Badge>Icemaker</Badge>}
+                    {shop.hasBigTV && <Badge>Big screen TV(s)</Badge>}             
                     {shop.sellsAccessories && <Badge>Accessories</Badge>}
                 </div>
 

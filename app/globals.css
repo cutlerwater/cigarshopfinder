@@ -1,24 +1,103 @@
 @import "tailwindcss";
 
 :root {
-  --background: #111111;
-  --foreground: #f5efe6;
+  --background: #ffffff;
+  --foreground: #171717;
 }
 
-html,
+
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+
 body {
-  margin: 0;
-  padding: 0;
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image:
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 28%),
+    linear-gradient(to bottom, #050505, #0a0a0a 35%, #080808 100%),
+    url("/images/texture.png");
+  background-size: auto, auto, cover;
+  background-position: center top, center, center;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-attachment: scroll, scroll, fixed;
+  color: white;
 }
 
-* {
-  box-sizing: border-box;
+.grain-bg {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(245, 158, 11, 0.08), transparent 28%),
+    linear-gradient(to bottom, #050505, #0a0a0a 35%, #080808 100%);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.grain-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: url("/images/texture.png");
+  background-repeat: repeat;
+  background-size: 280px;
+  mix-blend-mode: soft-light;
+}
+
+.grain-bg > * {
+  position: relative;
+  z-index: 1;
+}
+
+.premium-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 20px 70px rgba(0, 0, 0, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes brand-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.brand-marquee {
+  animation: brand-marquee 28s linear infinite;
+  width: max-content;
+}
+
+.brand-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease;
 }
