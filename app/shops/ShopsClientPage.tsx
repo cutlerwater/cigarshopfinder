@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
@@ -448,77 +449,106 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                     <Link
                                         key={`featured-${shop.id}`}
                                         href={`/shops/${shop.slug}`}
-                                        className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10"
+                                        className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10"
                                     >
                                         <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 opacity-0 transition duration-300 group-hover:opacity-100" />
 
                                         <div className="relative">
-                                            <div className="mb-4 flex flex-wrap gap-2">
-                                                {shop.isSponsored && (
-                                                    <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
-                                                        Sponsored
-                                                    </span>
+                                            <div className="relative h-56 overflow-hidden rounded-t-[28px]">
+                                                {shop.image ? (
+                                                    <Image
+                                                        src={shop.image}
+                                                        alt={shop.name}
+                                                        fill
+                                                        className="object-cover transition duration-500 group-hover:scale-105"
+                                                        sizes="(max-width: 1024px) 100vw, 33vw"
+                                                    />
+                                                ) : (
+                                                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-neutral-800 via-neutral-900 to-black">
+                                                        <div className="text-center">
+                                                            <p className="text-sm uppercase tracking-[0.25em] text-amber-300/80">
+                                                                Featured Lounge
+                                                            </p>
+                                                            <p className="mt-2 text-lg font-semibold text-white">
+                                                                {shop.name}
+                                                            </p>
+                                                        </div>
+                                                    </div>
                                                 )}
 
-                                                {shop.isFeatured && !shop.isSponsored && (
-                                                    <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                                                        Featured
-                                                    </span>
-                                                )}
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                                                <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+                                                    {shop.isSponsored && (
+                                                        <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
+                                                            Sponsored
+                                                        </span>
+                                                    )}
+
+                                                    {shop.isFeatured && !shop.isSponsored && (
+                                                        <span className="rounded-full border border-white/10 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-md">
+                                                            Featured
+                                                        </span>
+                                                    )}
+                                                </div>
 
                                                 {typeof shop.rating === "number" && (
-                                                    <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200">
-                                                        ★ {shop.rating.toFixed(1)}
-                                                        {typeof shop.reviewCount === "number"
-                                                            ? ` (${shop.reviewCount})`
-                                                            : ""}
-                                                    </span>
+                                                    <div className="absolute bottom-4 right-4">
+                                                        <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-md">
+                                                            ★ {shop.rating.toFixed(1)}
+                                                            {typeof shop.reviewCount === "number"
+                                                                ? ` (${shop.reviewCount})`
+                                                                : ""}
+                                                        </span>
+                                                    </div>
                                                 )}
                                             </div>
 
-                                            <h3 className="text-2xl font-semibold text-white transition group-hover:text-amber-200">
-                                                {shop.name}
-                                            </h3>
+                                            <div className="p-6">
+                                                <h3 className="text-2xl font-semibold text-white transition group-hover:text-amber-200">
+                                                    {shop.name}
+                                                </h3>
 
-                                            <p className="mt-2 text-sm text-neutral-400">
-                                                {shop.city}, {shop.stateabb}
-                                            </p>
+                                                <p className="mt-2 text-sm text-neutral-400">
+                                                    {shop.city}, {shop.stateabb}
+                                                </p>
 
-                                            <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
-                                                {shop.description}
-                                            </p>
+                                                <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
+                                                    {shop.description}
+                                                </p>
 
-                                            <div className="mt-5 flex flex-wrap gap-2">
-                                                {shop.hasLounge && (
-                                                    <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
-                                                        Lounge
-                                                    </span>
-                                                )}
-                                                {shop.hasHumidor && (
-                                                    <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
-                                                        Humidor
-                                                    </span>
-                                                )}
-                                                {shop.hasDavidoffs && (
-                                                    <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
-                                                        Davidoffs
-                                                    </span>
-                                                )}
-                                                {shop.hasPadrons && (
-                                                    <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
-                                                        Padrons
-                                                    </span>
-                                                )}
-                                                {shop.hasOpusX && (
-                                                    <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
-                                                        OpusX
-                                                    </span>
-                                                )}
-                                            </div>
+                                                <div className="mt-5 flex flex-wrap gap-2">
+                                                    {shop.hasLounge && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Lounge
+                                                        </span>
+                                                    )}
+                                                    {shop.hasHumidor && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Humidor
+                                                        </span>
+                                                    )}
+                                                    {shop.hasDavidoffs && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Davidoffs
+                                                        </span>
+                                                    )}
+                                                    {shop.hasPadrons && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Padrons
+                                                        </span>
+                                                    )}
+                                                    {shop.hasOpusX && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            OpusX
+                                                        </span>
+                                                    )}
+                                                </div>
 
-                                            <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
-                                                View shop
-                                                <span className="transition group-hover:translate-x-1">→</span>
+                                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
+                                                    View shop
+                                                    <span className="transition group-hover:translate-x-1">→</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </Link>
@@ -537,13 +567,24 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                             No shops matched your search or filters.
                         </div>
                     ) : (
-                        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-                            {nonFeaturedShops.map((shop) => (
-                                <Link
-                                    key={shop.id}
-                                    href={`/shops/${shop.slug}`}
-                                    className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6 transition hover:border-amber-400 hover:shadow-xl"
-                                >
+                            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+                                {nonFeaturedShops.map((shop) => (
+                                    <Link
+                                        key={shop.id}
+                                        href={`/shops/${shop.slug}`}
+                                        className="rounded-2xl border border-neutral-800 bg-neutral-900 p-6 transition hover:border-amber-400 hover:shadow-xl"
+                                    >
+                                        {/* 👇 ADD THIS IMAGE BLOCK */}
+                                        <div className="relative h-40 overflow-hidden rounded-xl mb-4">
+                                            <Image
+                                                src={shop.image || "/images/lounge1.jpg"}
+                                                alt={shop.name}
+                                                fill
+                                                className="object-cover transition duration-300 group-hover:scale-105"
+                                                sizes="(max-width: 768px) 100vw, 33vw"
+                                            />
+                                        </div>
+                                        
                                     <div className="mb-3 flex flex-wrap gap-2">
                                         {shop.isSponsored && (
                                             <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
