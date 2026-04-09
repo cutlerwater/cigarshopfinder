@@ -79,7 +79,7 @@ body {
 }
 
 .brand-marquee {
-  animation: brand-marquee 28s linear infinite;
+  animation: brand-marquee 36s linear infinite;
   width: max-content;
 }
 

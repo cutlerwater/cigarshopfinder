@@ -25,8 +25,12 @@ export type Shop = {
     hasicemaker: boolean;
     hasBigTV: boolean;
     sellsAccessories: boolean;
+
     description: string;
-    
+    isFeatured?: boolean;
+    isSponsored?: boolean;
+    rating?: number;
+    reviewCount?: number;
 
 };
 
@@ -59,6 +63,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: false,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        isFeatured: false,
+        isSponsored: true,
+        rating: 2.5,
+        reviewCount: 131,
         },
 
     {
@@ -89,6 +97,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        isFeatured: false,
+        isSponsored: true,
+        rating: 4.2,
+        reviewCount: 100,
         },
     {
         id: "3",
@@ -118,6 +130,10 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 1.9,
+        reviewCount: 15
         },
     {
         id: "4",
@@ -147,6 +163,10 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 2.4,
+        reviewCount: 24,
         },
     {
         id: "5",
@@ -176,6 +196,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Severna Park based Premium cigar shop with a comfortable lounge and curated humidor.",
+        isFeatured: false,
+        isSponsored: true,
+        rating: 3.0,
+        reviewCount: 122,
     },
     {
         id: "6",
@@ -205,6 +229,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Aphelion is the FIRST Black Owned cigar lounge and full bar to open in the state of Maryland. The founder(s) and owners James Price and Robert Monroe are true pioneers with nearly 15 years in this amazing industry.",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 2.1,
+        reviewCount: 44,
         },
     {
         id: "7",
@@ -234,6 +262,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Modern, upscale cigar lounge and cocktail bar with an extensive menu of whiskey, cocktails, spirits, and cigars. Located above Holt’s Cigar Shop in downtown Philadelphia. You can still purchase cigars from the Holt's Cigar Shop online and in store.",
+        isFeatured: false,
+        isSponsored: true,
+        rating: 4.1,
+        reviewCount: 1123,
         },
     {
         id: "8",
@@ -263,6 +295,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Casa De Montecristo New York – one of the finest cigar lounges in NYC. With its superb stogie collection, you’re guaranteed to find a cigar brand, type and size that meets your needs. Don’t worry if you’re a complete novice when it comes to cigars. Simply have a chat with a member of our onsite friendly and educated team.",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 0.1,
+        reviewCount: 1,
         },
     {
         id: "9",
@@ -292,6 +328,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "A cigar lounge for the sophisticated cigar aficionado",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 0.1,
+        reviewCount: 1,
         },
     {
         id: "10",
@@ -321,6 +361,10 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Magoo's Cigar Lounge is a Cigar shop located in Norfolk.",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 0.1,
+        reviewCount: 1,
         },
     {
         id: "11",
@@ -350,5 +394,9 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Discover an unparalleled escape at Boston Cigar Club & Shop, a sophisticated destination where the worlds of premium cigars, exquisite spirits, and gourmet cuisine unite. Explore our extensive selection of fine tobacco in the dedicated cigar shop, boasting its own humidor. Then, unwind in our refined lounge, featuring a …",
+        isFeatured: false,
+        isSponsored: false,
+        rating: 0.1,
+        reviewCount: 1,
         },
 ];
