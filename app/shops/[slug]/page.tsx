@@ -78,7 +78,7 @@ export default async function ShopDetailPage({ params }: Props) {
                         </h1>
 
                         <p className="mt-4 text-base text-neutral-300 md:text-lg">
-                            {shop.address}, {shop.city}, {shop.stateabb} {shop.zip}
+                            {shop.address}
                         </p>
 
                         <div className="mt-6 flex flex-wrap gap-2">
@@ -219,8 +219,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                 </p>
                                 <p className="mt-1">
                                     {shop.address}
-                                    <br />
-                                    {shop.city}, {shop.stateabb} {shop.zip}
+                                    
                                 </p>
                             </div>
 
