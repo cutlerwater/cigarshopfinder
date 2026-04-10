@@ -1,12 +1,25 @@
 import Link from "next/link";
 import SearchBar from "@/components/SearchBar";
+import Image from "next/image";
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-neutral-950 px-6 py-12 text-white">
+    <main className="min-h-screen text-white ">
+      <div className="mb-10 flex justify-center">
+        <div className="relative w-[520px] h-[260px] md:w-[660px] md:h-[300px]">
+          <Image
+            src="/images/cutlerwater-logo.png"
+            alt="Cutlerwater Cigar Shop Finder"
+            fill
+            
+            className="object-cover"
+            priority
+          />
+        </div>
+      </div>
       <div className="mx-auto flex max-w-6xl flex-col gap-12">
-        <section className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+        <section className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300  justify-center" >
             Cigar Shops
           </p>
           <h1 className="mt-4 text-5xl font-bold tracking-tight">

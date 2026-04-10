@@ -2,6 +2,7 @@
 
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
 
@@ -63,8 +64,19 @@ export default function Header() {
 
                 {/* RIGHT SIDE */}
                 <div className="ml-6 flex flex-1 items-center justify-between">
+                    <Link href="/" className="flex items-center">
+                        <div className="relative h-32 w-[400px]">
+                            <Image
+                                src="/images/cutlerwater-logo.png"
+                                alt="Cutlerwater"
+                                fill
+                                className="object-contain"
+                            />
+                        </div>
+                    </Link>
                     <div className="flex items-center gap-6">
                         <div className="hidden xl:block">
+                            
                             <p className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
                                 Premium Directory
                             </p>

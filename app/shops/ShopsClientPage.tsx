@@ -222,7 +222,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     ];
 
     return (
-        <main className="min-h-screen bg-neutral-950 px-6 py-12 text-white">
+        <main className="min-h-screen text-white">
             <div className="mx-auto flex max-w-6xl flex-col gap-12">
                 <div className="w-full">
                     <BrandMarquee />

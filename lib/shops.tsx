@@ -335,13 +335,12 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Casa De Montecristo New York – one of the finest cigar lounges in NYC. With its superb stogie collection, you’re guaranteed to find a cigar brand, type and size that meets your needs. Don’t worry if you’re a complete novice when it comes to cigars. Simply have a chat with a member of our onsite friendly and educated team.",
-        image: "/images/casalogo.svg",
+        image: "",
         gallery: [
-            "/images/casademonte/casalogo.svg",
-            
+            "",
         ],
-        isFeatured: true,
-        isSponsored: true,
+        isFeatured: false,
+        isSponsored: false,
         rating: 0.1,
         reviewCount: 1,
         },

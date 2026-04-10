@@ -27,7 +27,7 @@ export default async function ShopDetailPage({ params }: Props) {
 
     return (
         
-        <main className="min-h-screen bg-neutral-950 text-white">
+        <main className="min-h-screen text-white">
             {/* hero */}
             <section className="relative overflow-hidden border-b border-white/10">
                 <div className="relative h-[420px] w-full md:h-[520px]">
