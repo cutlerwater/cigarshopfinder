@@ -451,8 +451,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                         href={`/shops/${shop.slug}`}
                                         className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10"
                                     >
-                                        <div className="absolute inset-0 bg-gradient-to-br from-amber-400/10 via-transparent to-white/5 opacity-0 transition duration-300 group-hover:opacity-100" />
-
+                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                                        
                                         <div className="relative">
                                             <div className="relative h-56 overflow-hidden rounded-t-[28px]">
                                                 {shop.image ? (
@@ -584,7 +584,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                                 sizes="(max-width: 768px) 100vw, 33vw"
                                             />
                                         </div>
-                                        
+
                                     <div className="mb-3 flex flex-wrap gap-2">
                                         {shop.isSponsored && (
                                             <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">

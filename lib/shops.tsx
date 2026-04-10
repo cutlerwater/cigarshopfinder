@@ -27,6 +27,7 @@ export type Shop = {
     sellsAccessories: boolean;
     description: string;
     image?: string;
+    gallery?: string[];
     isFeatured?: boolean;
     isSponsored?: boolean;
     rating?: number;
@@ -64,6 +65,13 @@ export const shops: Shop[] = [
         sellsAccessories: false,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
         image: "/images/front.jpg",
+        gallery: [
+            "/images/cl-annapolis-3.jpg",
+            "/images/Davidus_Logo.png",
+            "/images/front.jpg",
+            "/images/cl-annapolis-11.jpg",
+            "/images/JohnS.jpg"
+        ],
         isFeatured: true,
         isSponsored: true,
         rating: 2.5,
