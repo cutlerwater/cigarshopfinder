@@ -72,10 +72,58 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     const [locationLoading, setLocationLoading] = useState(false);
     const [locationError, setLocationError] = useState("");
 
+    function handleUseMyLocation() {
+        if (!navigator.geolocation) {
+            setLocationError("Geolocation is not supported in this browser.");
+            return;
+        }
+
+        setLocationLoading(true);
+        setLocationError("");
+
+        navigator.geolocation.getCurrentPosition(
+            (position) => {
+                setUserCoords({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                });
+                setLocationLoading(false);
+            },
+            () => {
+                setLocationError("Could not get your location.");
+                setLocationLoading(false);
+            },
+            {
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 300000,
+            }
+        );
+    } 
+
     const filteredShops = useMemo(() => {
         const query = search.trim().toLowerCase();
 
-        const filtered = shops.filter((shop) => {
+        const enriched = shops.map((shop) => {
+            const distance =
+                userCoords &&
+                    typeof shop.latitude === "number" &&
+                    typeof shop.longitude === "number"
+                    ? getDistanceMiles(
+                        userCoords.latitude,
+                        userCoords.longitude,
+                        shop.latitude,
+                        shop.longitude
+                    )
+                    : null;
+
+            return {
+                ...shop,
+                distance,
+            };
+        });
+
+        const filtered = enriched.filter((shop) => {
             const matchesSearch =
                 !query ||
                 shop.name.toLowerCase().includes(query) ||
@@ -175,6 +223,11 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                     return a.state.localeCompare(b.state);
                 case "state-desc":
                     return b.state.localeCompare(a.state);
+                case "distance-asc":
+                    if (a.distance == null && b.distance == null) return 0;
+                    if (a.distance == null) return 1;
+                    if (b.distance == null) return -1;
+                    return a.distance - b.distance;
                 default:
                     return getShopScore(b) - getShopScore(a);
             }
@@ -200,6 +253,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
         onlyIceMaker,
         onlyBigTV,
         onlyAccessories,
+        userCoords,
     ]);
 
     const featuredShops = useMemo(() => {
@@ -353,6 +407,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                     <option value="city-desc">City (Z–A)</option>
                                     <option value="state-asc">State (A–Z)</option>
                                     <option value="state-desc">State (Z–A)</option>
+                                    <option value="distance-asc">Nearest to me</option>
                                 </select>
 
                                 <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
@@ -377,7 +432,20 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                 Clear Filters
                             </button>
                         </div>
+                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                            <button
+                                type="button"
+                                onClick={handleUseMyLocation}
+                                disabled={locationLoading}
+                                className="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm font-medium text-amber-200 transition hover:bg-amber-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                            >
+                                {locationLoading ? "Finding your location..." : "Use My Location"}
+                            </button>
 
+                            {locationError ? (
+                                <p className="text-sm text-amber-300/80">{locationError}</p>
+                            ) : null}
+                        </div>
                         <div className="mt-5">
                             <div className="mb-2 flex items-center gap-2">
                                 <span className="text-neutral-500">
@@ -647,15 +715,22 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                         )}
                                     </div>
 
-                                    <h2 className="text-2xl font-semibold">{shop.name}</h2>
+                                        <h2 className="text-2xl font-semibold">{shop.name}</h2>
 
-                                    <p className="mt-2 text-neutral-400">
-                                        {shop.city}, {shop.stateabb}
-                                    </p>
+                                        <p className="mt-2 text-sm text-neutral-400">
+                                            {shop.city}, {shop.stateabb}
+                                        </p>
 
-                                    <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
-                                        {shop.description}
-                                    </p>
+                                        {/* 👇 ADD DISTANCE RIGHT UNDER THIS */}
+                                        {shop.distance != null ? (
+                                            <div className="mt-2 inline-flex rounded-full border border-amber-400/20 bg-amber-400/10 px-3 py-1 text-xs font-medium text-amber-200">
+                                                {shop.distance.toFixed(1)} miles away
+                                            </div>
+                                        ) : null}
+
+                                        <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
+                                            {shop.description}
+                                        </p>
 
                                     <div className="mt-5 flex flex-wrap gap-2">
                                         {shop.hasLounge && (

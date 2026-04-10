@@ -33,7 +33,7 @@ export default async function ShopDetailPage({ params }: Props) {
             <section className="relative overflow-hidden border-b border-white/10">
                 <div className="relative h-[420px] w-full md:h-[520px]">
                     <Image
-                        src={shop.image || "/images/lounge1.jpg"}
+                        src={shop.image || "/images/DavidusAnnapolis/lounge1.jpg"}
                         alt={shop.name}
                         fill
                         priority
