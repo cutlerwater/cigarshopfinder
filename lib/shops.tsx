@@ -26,6 +26,8 @@ export type Shop = {
     hasBigTV: boolean;
     sellsAccessories: boolean;
     description: string;
+    latitude: number;
+    longitude: number;
     image?: string;
     gallery?: string[];
     isFeatured?: boolean;
@@ -64,7 +66,9 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: false,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
-        image: "/images/front.jpg",
+        latitude: 38.9784,
+        longitude: -76.5434,
+        image: "/images/DavidusAnnapolis/front.jpg",
         gallery: [
             "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
             "/images/DavidusAnnapolis/Davidus_Logo.png",
@@ -105,6 +109,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.27794,
+        longitude: -76.612265,
         image: "/images/fedhill/baltimore_light_st._8.jpg",
         gallery: [
             "/images/fedhill/baltimore_light_st._8.jpg",
@@ -146,6 +152,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.278012,
+        longitude: -76.829263,
         image: "/images/DavidusEllicott/Ellicottfront.jpg",
         gallery: [
             "/images/DavidusEllicott/Ellicott_Citymgr.jpg",
@@ -186,6 +194,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.149909,
+        longitude: -77.013536,
         image: "/images/Davidus-Ashton/ashtonmdlounge.jpg",
         gallery: [
             "/images/Davidus-Ashton/ashtonmdlounge.jpg",
@@ -224,6 +234,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Severna Park based Premium cigar shop with a comfortable lounge and curated humidor.",
+        latitude: 39.083265,
+        longitude: -76.549876,
         image: "/images/BLT/bltlounge1.jpg",
         gallery: [
             "/images/BLT/BLTlogo.png",
@@ -263,7 +275,12 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Aphelion is the FIRST Black Owned cigar lounge and full bar to open in the state of Maryland. The founder(s) and owners James Price and Robert Monroe are true pioneers with nearly 15 years in this amazing industry.",
+        latitude: 39.021416,
+        longitude: -76.697973,
         image: "",
+        gallery: [
+            "",
+        ],
         isFeatured: false,
         isSponsored: false,
         rating: 2.1,
@@ -297,6 +314,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Modern, upscale cigar lounge and cocktail bar with an extensive menu of whiskey, cocktails, spirits, and cigars. Located above Holt’s Cigar Shop in downtown Philadelphia. You can still purchase cigars from the Holt's Cigar Shop online and in store.",
+        latitude: 39.949464,
+        longitude: -75.167106,
         image: "/images/ashtonpa/ashtonpa1.jpg",
         gallery: [
             "/images/ashtonpa/ashtonpa1.jpg",
@@ -335,6 +354,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Casa De Montecristo New York – one of the finest cigar lounges in NYC. With its superb stogie collection, you’re guaranteed to find a cigar brand, type and size that meets your needs. Don’t worry if you’re a complete novice when it comes to cigars. Simply have a chat with a member of our onsite friendly and educated team.",
+        latitude: 40.757073,
+        longitude: -73.966604,
         image: "",
         gallery: [
             "",
@@ -372,6 +393,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "A cigar lounge for the sophisticated cigar aficionado",
+        latitude: 41.816167,
+        longitude: -87.620028,
         image: "",
         gallery: [
             "",
@@ -409,6 +432,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Magoo's Cigar Lounge is a Cigar shop located in Norfolk.",
+        latitude: 42.37747,
+        longitude: -71.06699,
         image: "/images/magoos/magooslogo.jpg",
         gallery: [
             "/images/magoos/magooslogo.jpg",
@@ -447,6 +472,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Discover an unparalleled escape at Boston Cigar Club & Shop, a sophisticated destination where the worlds of premium cigars, exquisite spirits, and gourmet cuisine unite. Explore our extensive selection of fine tobacco in the dedicated cigar shop, boasting its own humidor. Then, unwind in our refined lounge, featuring a …",
+        latitude: 42.373532,
+        longitude: -71.061562,
         image: "/images/bostoncigar/bostonlounge1.jpg",
         gallery: [
             "/images/bostoncigar/bostonlounge1.jpg",
@@ -485,6 +512,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "Welcome to Atlanta’s Most Premier Cigar Lounge. Let’s dine, drink, smoke.  Enjoy from a selection of our handcrafted cocktails or one of your favorite premium drinks. Our bartender will be sure to have you coming back all night long.",
+        latitude: 33.782868,
+        longitude: -84.383753,
         image: "/images/atlantaprime/InteriorShot-scaled.jpg",
         gallery: [
             "/images/atlantaprime/InteriorShot-scaled.jpg",
@@ -521,6 +550,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: false,
         description: "Visit us in The Village at Waugh Chapel, Gambrills, Maryland. We offer a wide variety of premium and hard-to-find cigars, as well as accessories like humidors, lighters, and cutters. Our friendly and knowledgeable staff are here to assist you with your selections.",
+        latitude: 39.039779,
+        longitude: -76.680763,
         image: "/images/titan/titanfront.jpg",
         gallery: [
             "/images/titan/titanfront.jpg"
@@ -558,6 +589,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.401555,
+        longitude: -76.604001,
         image: "/images/towson/cl-towson-1.jpg",
         gallery: [
             "/images/towson/cl-towson-1.jpg",
@@ -598,6 +631,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.574814,
+        longitude: -76.995304,
         image: "/images/westminster/cl-westminster-1.jpg",
         gallery: [
             "/images/westminster/wedsite-managerWES.jpg",
@@ -639,6 +674,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.4127,
+        longitude: -77.42426,
         image: "/images/frederick/cl-frederick-7.jpg",
         gallery: [
             "/images/frederick/Frederick-manager.jpg",
@@ -679,6 +716,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.325074,
+        longitude: -77.348089,
         image: "/images/urbana/cl-urbanasouthfrederick-1.jpg",
         gallery: [
             "/images/urbana/cl-urbanasouthfrederick-6.jpg",
@@ -719,6 +758,8 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.118357,
+        longitude: -77.183874,
         image: "/images/shady/cl-shadygroveroad-14.jpg",
         gallery: [
             "/images/shady/cl-shadygroveroad-manager-bc-jen.jpg",
@@ -759,6 +800,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.118357,
+        longitude: -77.183894,
         image: "/images/owings/cl-owingsmills-2.jpg",
         gallery: [
             "/images/owings/Owings_Mills-_Reisterstown.jpg",
@@ -799,6 +842,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.286622,
+        longitude: -76.598793,
         image: "/images/Daviduslittleitaly/image_10.jpg",
         gallery: [
             "/images/Daviduslittleitaly/image_6.jpg.jpg",
@@ -838,8 +883,10 @@ export const shops: Shop[] = [
         hasicemaker: false,
         hasBigTV: true,
         sellsAccessories: true,
+        latitude: 39.048158,
+        longitude: -77.114255,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
-        image: "/images/image_6.jpg",
+        image: "/images/rockville/cl-rockvillepike-1.jpg",
         gallery: [
             "/images/rocvkille/wedsite-managerROC_copy.jpg",
             "/images/rockville/cl-rockvillepike-1.jpg",
@@ -879,6 +926,8 @@ export const shops: Shop[] = [
         hasBigTV: true,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
+        latitude: 39.396577,
+        longitude: -76.922275,
         image: "/images/eldersburg/cl-eldersburg-7.jpg",
         gallery: [
             "/images/eldersburg/cl-eldersburg-7.jpg",

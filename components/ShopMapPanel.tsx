@@ -62,39 +62,6 @@ export default function ShopMapPanel({
             }
         );
     }
-    function handleDirectionsFromMe() {
-        const fullAddress = `${address}, ${city}, ${stateabb} ${zip}`;
-        const encodedAddress = encodeURIComponent(fullAddress);
-
-        if (!navigator.geolocation) {
-            window.open(
-                `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`,
-                "_blank"
-            );
-            return;
-        }
-
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                const { latitude, longitude } = position.coords;
-
-                const url =
-                    `https://www.google.com/maps/dir/?api=1` +
-                    `&origin=${latitude},${longitude}` +
-                    `&destination=${encodedAddress}` +
-                    `&travelmode=driving`;
-
-                window.open(url, "_blank");
-            },
-            () => {
-                // fallback if user blocks location
-                window.open(
-                    `https://www.google.com/maps/search/?api=1&query=${encodedAddress}`,
-                    "_blank"
-                );
-            }
-        );
-    }
 
     return (
         <section className="rounded-3xl border border-amber-500/20 bg-black/40 p-6 shadow-[0_0_30px_rgba(0,0,0,0.25)] backdrop-blur">
