@@ -4,6 +4,7 @@ import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { shops } from "@/lib/shops";
+import ShopMapPanel from "@/components/ShopMapPanel";
 
 type Props = {
     params: Promise<{
@@ -246,9 +247,17 @@ export default async function ShopDetailPage({ params }: Props) {
                                 </div>
                             )}
                         </div>
+                        
                     </aside>
                 </div>
             </section>
+            <ShopMapPanel
+                name={shop.name}
+                address={shop.address}
+                city={shop.city}
+                stateabb={shop.stateabb}
+                zip={shop.zip}
+            />
         </main>
     );
 }
