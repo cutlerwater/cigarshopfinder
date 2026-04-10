@@ -1,4 +1,6 @@
+
 import Image from "next/image";
+import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { shops } from "@/lib/shops";
@@ -24,7 +26,9 @@ export default async function ShopDetailPage({ params }: Props) {
             : [shop.image || "/images/front1.jpg"];
 
     return (
+        
         <main className="min-h-screen bg-neutral-950 text-white">
+            {/* hero */}
             <section className="relative overflow-hidden border-b border-white/10">
                 <div className="relative h-[420px] w-full md:h-[520px]">
                     <Image
@@ -157,6 +161,8 @@ export default async function ShopDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
+
+            {/* gallery */}
             <section className="border-b border-white/10 bg-neutral-950/80">
                 <div className="mx-auto max-w-6xl px-6 py-6">
                     <div className="mb-4 flex items-center justify-between gap-4">
@@ -174,30 +180,10 @@ export default async function ShopDetailPage({ params }: Props) {
                         </p>
                     </div>
 
-                    <div className="relative">
-                        <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-16 bg-gradient-to-r from-neutral-950 to-transparent" />
-                        <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-16 bg-gradient-to-l from-neutral-950 to-transparent" />
-
-                        <div className="flex gap-4 overflow-x-auto pb-2">
-                            {galleryImages.map((image, index) => (
-                                <div
-                                    key={`${shop.slug}-gallery-${index}`}
-                                    className="relative h-40 w-[280px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 shadow-lg shadow-black/20"
-                                >
-                                    <Image
-                                        src={image}
-                                        alt={`${shop.name} gallery image ${index + 1}`}
-                                        fill
-                                        className="object-cover transition duration-300 hover:scale-105"
-                                        sizes="280px"
-                                    />
-                                    <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-                                </div>
-                            ))}
-                        </div>
-                    </div>
+                    <GalleryLightbox images={galleryImages} shopName={shop.name} />
                 </div>
             </section>
+            {/* MAIN CONTENT */}
             <section className="mx-auto max-w-6xl px-6 py-10">
                 <div className="mb-8">
                     <Link

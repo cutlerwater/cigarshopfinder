@@ -107,6 +107,9 @@ export const shops: Shop[] = [
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
         image: "/images/baltimoredavlounge.jpg",
+        gallery: [
+            "/images/baltimoredavlounge.jpg",
+        ],
         isFeatured: false,
         isSponsored: true,
         rating: 4.2,
@@ -209,6 +212,10 @@ export const shops: Shop[] = [
         sellsAccessories: true,
         description: "Severna Park based Premium cigar shop with a comfortable lounge and curated humidor.",
         image: "/images/bltlounge1.jpg",
+        gallery: [
+            "/images/BLTlogo.png",
+            "/images/BLTcrowd.jpg"
+        ],
         isFeatured: false,
         isSponsored: true,
         rating: 3.0,
