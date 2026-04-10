@@ -679,7 +679,7 @@ export const shops: Shop[] = [
         hasBigTV: false,
         sellsAccessories: true,
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
-        image: "/images/cl-urbanasouthfrederick-1.jpg",
+        image: "/images/urbana/cl-urbanasouthfrederick-1.jpg",
         gallery: [
             "/images/urbana/cl-urbanasouthfrederick-6.jpg",
             "/images/urbana/wedsite-managerURB.jpg",
