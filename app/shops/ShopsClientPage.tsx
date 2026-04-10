@@ -6,6 +6,7 @@ import { useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { shops } from "@/lib/shops";
 import BrandMarquee from "@/components/BrandMarquee";
+import CigarMarquee from "@/components/CigarMarquee";
 
 type Props = {
     initialQuery: string;
@@ -226,6 +227,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
             <div className="mx-auto flex max-w-6xl flex-col gap-12">
                 <div className="w-full">
                     <BrandMarquee />
+                    <CigarMarquee />
                 </div>
 
                 <section className="max-w-3xl">
