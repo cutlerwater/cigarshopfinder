@@ -2,18 +2,55 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { shops } from "@/lib/shops";
 import BrandMarquee from "@/components/BrandMarquee";
 import CigarMarquee from "@/components/CigarMarquee";
 
 type Props = {
     initialQuery: string;
+    initialShops: Shop[];
 };
 
 {/* helper functions */}
-type Shop = (typeof shops)[number];
+type Shop = {
+    id: string;
+    slug: string;
+    name: string;
+    city: string;
+    stateabb: string;
+    state: string;
+    zip: string;
+    address: string;
+    phone: string;
+    website?: string;
+    description: string;
+    image?: string;
+    hasLounge: boolean;
+    hasHumidor: boolean;
+    sellsAccessories: boolean;
+    latitude?: number | null;
+    longitude?: number | null;
+    isFeatured?: boolean;
+    isSponsored?: boolean;
+
+    hasPadrons?: boolean;
+    hasDavidoffs?: boolean;
+    hasOpusX?: boolean;
+    hasAcid?: boolean;
+    hasPipeTobacco?: boolean;
+    hasMemberAccess?: boolean;
+    hasliquorlicense?: boolean;
+    canbringinliquor?: boolean;
+    hasinternetaccess?: boolean;
+    hascoffeemaker?: boolean;
+    hasicemaker?: boolean;
+    hasBigTV?: boolean;
+
+    rating?: number | null;
+    reviewCount?: number | null;
+    distance?: number | null;
+};
 
 function toRadians(value: number) {
     return (value * Math.PI) / 180;
@@ -43,7 +80,10 @@ function getDistanceMiles(
 }
 
 {/*Component */}
-export default function ShopsClientPage({ initialQuery }: Props) {
+export default function ShopsClientPage({
+    initialQuery,
+    initialShops,
+}: Props) {
     const router = useRouter();
 
     const [search, setSearch] = useState(initialQuery);
@@ -104,7 +144,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     const filteredShops = useMemo(() => {
         const query = search.trim().toLowerCase();
 
-        const enriched = shops.map((shop) => {
+        const enriched = initialShops.map((shop) => {
             const distance =
                 userCoords &&
                     typeof shop.latitude === "number" &&
@@ -269,7 +309,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     }, [filteredShops, featuredShops]);
 
     const states = Array.from(
-        new Set(shops.map((shop) => shop.stateabb))
+        new Set(initialShops.map((shop) => shop.stateabb))
     ).sort();
 
     const clearFilters = () => {
@@ -684,7 +724,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                         {/* 👇 ADD THIS IMAGE BLOCK */}
                                         <div className="relative h-40 overflow-hidden rounded-xl mb-4">
                                             <Image
-                                                src={shop.image || "/images/lounge1.jpg"}
+                                                src={shop.image || "/images/DavidusAnnapolis/lounge1.jpg"}
                                                 alt={shop.name}
                                                 fill
                                                 className="object-cover transition duration-300 group-hover:scale-105"

@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Shop {
+  id               String   @id @default(cuid())
+  name             String
+  slug             String   @unique
+  city             String
+  state            String
+  stateabb         String
+  zip              String
+  address          String
+  phone            String
+  website          String?
+  description      String
+  image            String?
+  hasLounge        Boolean  @default(false)
+  hasHumidor       Boolean  @default(false)
+  sellsAccessories Boolean  @default(false)
+  latitude         Float?
+  longitude        Float?
+  isFeatured       Boolean  @default(false)
+  isSponsored      Boolean  @default(false)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  reviews          Review[]
+}
+
+model Review {
+  id         String   @id @default(cuid())
+  rating     Int
+  title      String?
+  body       String?
+  authorName String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  shopId     String
+  shop       Shop     @relation(fields: [shopId], references: [id], onDelete: Cascade)
+}
