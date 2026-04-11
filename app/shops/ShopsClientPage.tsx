@@ -40,6 +40,8 @@ type Shop = {
     hasAcid?: boolean;
     hasPipeTobacco?: boolean;
     hasMemberAccess?: boolean;
+    hasEvents?: boolean;
+    hasHooka?: boolean;
     hasliquorlicense?: boolean;
     canbringinliquor?: boolean;
     hasinternetaccess?: boolean;
@@ -95,6 +97,8 @@ export default function ShopsClientPage({
     const [onlyAcids, setOnlyAcids] = useState(false);
     const [onlyPipetobacco, setOnlyPipetobacco] = useState(false);
     const [onlyMemberAccess, setOnlyMemberAccess] = useState(false);
+    const [onlyEvents, setOnlyEvents] = useState(false);
+    const [onlyHooka, setOnlyHooka] = useState(false);
     const [onlyLiquorLicense, setOnlyLiquorLicense] = useState(false);
     const [onlyBringLiquor, setOnlyBringLiquor] = useState(false);
     const [onlyInternetAccess, setOnlyInternetAccess] = useState(false);
@@ -185,6 +189,8 @@ export default function ShopsClientPage({
             const matchesAcids = !onlyAcids || shop.hasAcid;
             const matchesPipeTobacco = !onlyPipetobacco || shop.hasPipeTobacco;
             const matchesMemberAccess = !onlyMemberAccess || shop.hasMemberAccess;
+            const matchesEvents = !onlyEvents || shop.hasEvents;
+            const matchesHooka = !onlyHooka || shop.hasHooka;
             const matchesLiquorLicense =
                 !onlyLiquorLicense || shop.hasliquorlicense;
             const matchesBringLiquor =
@@ -209,6 +215,8 @@ export default function ShopsClientPage({
                 matchesAcids &&
                 matchesPipeTobacco &&
                 matchesMemberAccess &&
+                matchesEvents &&
+                matchesHooka &&
                 matchesLiquorLicense &&
                 matchesBringLiquor &&
                 matchesInternetAccess &&
@@ -231,7 +239,8 @@ export default function ShopsClientPage({
             if (shop.hasPadrons) score += 20;
             if (shop.hasOpusX) score += 25;
             if (shop.hasMemberAccess) score += 10;
-            if (shop.hasinternetaccess) score += 5;
+            if (shop.hasEvents) score += 10;
+            if (shop.hasHooka) score += 5;
             if (shop.hascoffeemaker) score += 5;
             if (shop.hasicemaker) score += 5;
             if (shop.hasBigTV) score += 5;
@@ -286,6 +295,8 @@ export default function ShopsClientPage({
         onlyAcids,
         onlyPipetobacco,
         onlyMemberAccess,
+        onlyEvents,
+        onlyHooka,
         onlyLiquorLicense,
         onlyBringLiquor,
         onlyInternetAccess,
@@ -322,6 +333,8 @@ export default function ShopsClientPage({
         setOnlyAcids(false);
         setOnlyPipetobacco(false);
         setOnlyMemberAccess(false);
+        setOnlyEvents(false);
+        setOnlyHooka(false);
         setOnlyLiquorLicense(false);
         setOnlyBringLiquor(false);
         setOnlyInternetAccess(false);
@@ -343,6 +356,8 @@ export default function ShopsClientPage({
         { label: "Acids", active: onlyAcids, onClick: () => setOnlyAcids((prev) => !prev) },
         { label: "Pipe Tobacco", active: onlyPipetobacco, onClick: () => setOnlyPipetobacco((prev) => !prev) },
         { label: "Member Access", active: onlyMemberAccess, onClick: () => setOnlyMemberAccess((prev) => !prev) },
+        { label: "Has Special Events", active: onlyEvents, onClick: () => setOnlyEvents((prev) => !prev) },
+        { label: "Hooka", active: onlyHooka, onClick: () => setOnlyHooka((prev) => !prev) },
         { label: "Liquor License", active: onlyLiquorLicense, onClick: () => setOnlyLiquorLicense((prev) => !prev) },
         { label: "Can Bring Liquor", active: onlyBringLiquor, onClick: () => setOnlyBringLiquor((prev) => !prev) },
         { label: "Internet Access", active: onlyInternetAccess, onClick: () => setOnlyInternetAccess((prev) => !prev) },
@@ -724,7 +739,7 @@ export default function ShopsClientPage({
                                         {/* 👇 ADD THIS IMAGE BLOCK */}
                                         <div className="relative h-40 overflow-hidden rounded-xl mb-4">
                                             <Image
-                                                src={shop.image || "/images/DavidusAnnapolis/lounge1.jpg"}
+                                                src={shop.image || "/images/DavidusAnnapolis/front.jpg"}
                                                 alt={shop.name}
                                                 fill
                                                 className="object-cover transition duration-300 group-hover:scale-105"
@@ -813,6 +828,16 @@ export default function ShopsClientPage({
                                                 Member Access
                                             </span>
                                         )}
+                                            {shop.hasEvents && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Special Events
+                                                </span>
+                                            )}
+                                            {shop.hasHooka && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Hooka
+                                                </span>
+                                            )}
                                         {shop.hasliquorlicense && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Liquor License

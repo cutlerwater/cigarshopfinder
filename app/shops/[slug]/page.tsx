@@ -33,7 +33,7 @@ export default async function ShopDetailPage({ params }: Props) {
             <section className="relative overflow-hidden border-b border-white/10">
                 <div className="relative h-[420px] w-full md:h-[520px]">
                     <Image
-                        src={shop.image || "/images/DavidusAnnapolis/lounge1.jpg"}
+                        src={shop.image || "/images/DavidusAnnapolis/front.jpg"}
                         alt={shop.name}
                         fill
                         priority
@@ -121,6 +121,16 @@ export default async function ShopDetailPage({ params }: Props) {
                             {shop.hasMemberAccess && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Member Access
+                                </span>
+                            )}
+                            {shop.hasEvents && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Has Special Events
+                                </span>
+                            )}
+                            {shop.hasHooka && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Hooka
                                 </span>
                             )}
                             {shop.hasliquorlicense && (
