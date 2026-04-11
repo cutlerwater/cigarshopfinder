@@ -2,18 +2,57 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
-import { shops } from "@/lib/shops";
 import BrandMarquee from "@/components/BrandMarquee";
 import CigarMarquee from "@/components/CigarMarquee";
 
 type Props = {
     initialQuery: string;
+    initialShops: Shop[];
 };
 
 {/* helper functions */}
-type Shop = (typeof shops)[number];
+type Shop = {
+    id: string;
+    slug: string;
+    name: string;
+    city: string;
+    stateabb: string;
+    state: string;
+    zip: string;
+    address: string;
+    phone: string;
+    website?: string;
+    description: string;
+    image?: string;
+    hasLounge: boolean;
+    hasHumidor: boolean;
+    sellsAccessories: boolean;
+    latitude?: number | null;
+    longitude?: number | null;
+    isFeatured?: boolean;
+    isSponsored?: boolean;
+
+    hasPadrons?: boolean;
+    hasDavidoffs?: boolean;
+    hasOpusX?: boolean;
+    hasAcid?: boolean;
+    hasPipeTobacco?: boolean;
+    hasMemberAccess?: boolean;
+    hasEvents?: boolean;
+    hasHooka?: boolean;
+    hasliquorlicense?: boolean;
+    canbringinliquor?: boolean;
+    hasinternetaccess?: boolean;
+    hascoffeemaker?: boolean;
+    hasicemaker?: boolean;
+    hasBigTV?: boolean;
+
+    rating?: number | null;
+    reviewCount?: number | null;
+    distance?: number | null;
+};
 
 function toRadians(value: number) {
     return (value * Math.PI) / 180;
@@ -43,7 +82,10 @@ function getDistanceMiles(
 }
 
 {/*Component */}
-export default function ShopsClientPage({ initialQuery }: Props) {
+export default function ShopsClientPage({
+    initialQuery,
+    initialShops,
+}: Props) {
     const router = useRouter();
 
     const [search, setSearch] = useState(initialQuery);
@@ -55,6 +97,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     const [onlyAcids, setOnlyAcids] = useState(false);
     const [onlyPipetobacco, setOnlyPipetobacco] = useState(false);
     const [onlyMemberAccess, setOnlyMemberAccess] = useState(false);
+    const [onlyEvents, setOnlyEvents] = useState(false);
+    const [onlyHooka, setOnlyHooka] = useState(false);
     const [onlyLiquorLicense, setOnlyLiquorLicense] = useState(false);
     const [onlyBringLiquor, setOnlyBringLiquor] = useState(false);
     const [onlyInternetAccess, setOnlyInternetAccess] = useState(false);
@@ -104,7 +148,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     const filteredShops = useMemo(() => {
         const query = search.trim().toLowerCase();
 
-        const enriched = shops.map((shop) => {
+        const enriched = initialShops.map((shop) => {
             const distance =
                 userCoords &&
                     typeof shop.latitude === "number" &&
@@ -145,6 +189,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
             const matchesAcids = !onlyAcids || shop.hasAcid;
             const matchesPipeTobacco = !onlyPipetobacco || shop.hasPipeTobacco;
             const matchesMemberAccess = !onlyMemberAccess || shop.hasMemberAccess;
+            const matchesEvents = !onlyEvents || shop.hasEvents;
+            const matchesHooka = !onlyHooka || shop.hasHooka;
             const matchesLiquorLicense =
                 !onlyLiquorLicense || shop.hasliquorlicense;
             const matchesBringLiquor =
@@ -169,6 +215,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                 matchesAcids &&
                 matchesPipeTobacco &&
                 matchesMemberAccess &&
+                matchesEvents &&
+                matchesHooka &&
                 matchesLiquorLicense &&
                 matchesBringLiquor &&
                 matchesInternetAccess &&
@@ -191,7 +239,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
             if (shop.hasPadrons) score += 20;
             if (shop.hasOpusX) score += 25;
             if (shop.hasMemberAccess) score += 10;
-            if (shop.hasinternetaccess) score += 5;
+            if (shop.hasEvents) score += 10;
+            if (shop.hasHooka) score += 5;
             if (shop.hascoffeemaker) score += 5;
             if (shop.hasicemaker) score += 5;
             if (shop.hasBigTV) score += 5;
@@ -246,6 +295,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
         onlyAcids,
         onlyPipetobacco,
         onlyMemberAccess,
+        onlyEvents,
+        onlyHooka,
         onlyLiquorLicense,
         onlyBringLiquor,
         onlyInternetAccess,
@@ -269,7 +320,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
     }, [filteredShops, featuredShops]);
 
     const states = Array.from(
-        new Set(shops.map((shop) => shop.stateabb))
+        new Set(initialShops.map((shop) => shop.stateabb))
     ).sort();
 
     const clearFilters = () => {
@@ -282,6 +333,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
         setOnlyAcids(false);
         setOnlyPipetobacco(false);
         setOnlyMemberAccess(false);
+        setOnlyEvents(false);
+        setOnlyHooka(false);
         setOnlyLiquorLicense(false);
         setOnlyBringLiquor(false);
         setOnlyInternetAccess(false);
@@ -303,6 +356,8 @@ export default function ShopsClientPage({ initialQuery }: Props) {
         { label: "Acids", active: onlyAcids, onClick: () => setOnlyAcids((prev) => !prev) },
         { label: "Pipe Tobacco", active: onlyPipetobacco, onClick: () => setOnlyPipetobacco((prev) => !prev) },
         { label: "Member Access", active: onlyMemberAccess, onClick: () => setOnlyMemberAccess((prev) => !prev) },
+        { label: "Has Special Events", active: onlyEvents, onClick: () => setOnlyEvents((prev) => !prev) },
+        { label: "Hooka", active: onlyHooka, onClick: () => setOnlyHooka((prev) => !prev) },
         { label: "Liquor License", active: onlyLiquorLicense, onClick: () => setOnlyLiquorLicense((prev) => !prev) },
         { label: "Can Bring Liquor", active: onlyBringLiquor, onClick: () => setOnlyBringLiquor((prev) => !prev) },
         { label: "Internet Access", active: onlyInternetAccess, onClick: () => setOnlyInternetAccess((prev) => !prev) },
@@ -684,7 +739,7 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                         {/* 👇 ADD THIS IMAGE BLOCK */}
                                         <div className="relative h-40 overflow-hidden rounded-xl mb-4">
                                             <Image
-                                                src={shop.image || "/images/lounge1.jpg"}
+                                                src={shop.image || "/images/DavidusAnnapolis/front.jpg"}
                                                 alt={shop.name}
                                                 fill
                                                 className="object-cover transition duration-300 group-hover:scale-105"
@@ -773,6 +828,16 @@ export default function ShopsClientPage({ initialQuery }: Props) {
                                                 Member Access
                                             </span>
                                         )}
+                                            {shop.hasEvents && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Special Events
+                                                </span>
+                                            )}
+                                            {shop.hasHooka && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Hooka
+                                                </span>
+                                            )}
                                         {shop.hasliquorlicense && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Liquor License

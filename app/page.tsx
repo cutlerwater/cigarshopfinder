@@ -11,7 +11,7 @@ export default function HomePage() {
             src="/images/cutlerwater-logo.png"
             alt="Cutlerwater Cigar Shop Finder"
             fill
-            
+            sizes="200px"
             className="object-cover"
             priority
           />
