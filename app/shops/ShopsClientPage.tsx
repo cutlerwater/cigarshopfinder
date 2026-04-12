@@ -12,7 +12,7 @@ type Props = {
     initialShops: Shop[];
 };
 
-{/* helper functions */}
+
 type Shop = {
     id: string;
     slug: string;
@@ -81,7 +81,7 @@ function getDistanceMiles(
     return earthRadiusMiles * c;
 }
 
-{/*Component */}
+
 export default function ShopsClientPage({
     initialQuery,
     initialShops,
@@ -367,7 +367,7 @@ export default function ShopsClientPage({
         { label: "Accessories", active: onlyAccessories, onClick: () => setOnlyAccessories((prev) => !prev) },
     ];
 
-    {/* JSX */}
+    
     return (
         <main className="min-h-screen text-white">
             <div className="mx-auto flex max-w-6xl flex-col gap-12">
@@ -828,12 +828,12 @@ export default function ShopsClientPage({
                                                 Member Access
                                             </span>
                                         )}
-                                            {shop.hasEvents && (
+                                        {shop.hasEvents && (
                                                 <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                     Special Events
                                                 </span>
-                                            )}
-                                            {shop.hasHooka && (
+                                        )}
+                                        {shop.hasHooka && (
                                                 <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                     Hooka
                                                 </span>

@@ -1,9 +1,9 @@
-
+{/* This is the details page */}
 import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { shops } from "@/lib/shops";
+import { prisma } from "@/lib/prisma";
 import ShopMapPanel from "@/components/ShopMapPanel";
 
 type Props = {
@@ -15,16 +15,17 @@ type Props = {
 export default async function ShopDetailPage({ params }: Props) {
     const { slug } = await params;
 
-    const shop = shops.find((item) => item.slug === slug);
+    const shop = await prisma.shop.findUnique({
+        where: { slug },
+    });
 
     if (!shop) {
         notFound();
     }
 
-    const galleryImages =
-        shop.gallery && shop.gallery.length > 0
-            ? shop.gallery
-            : [shop.image || "/images/front1.jpg"];
+    const galleryImages = [
+        shop.image || "/images/cutlerwater-logo.png"
+    ];;
 
     return (
         

@@ -68,9 +68,11 @@ export default function Header() {
                         <div className="relative h-32 w-[400px]">
                             <Image
                                 src="/images/cutlerwater-logo.png"
-                                alt="Cutlerwater"
+                                alt="Cutlerwater Cigar Shop Finder"
                                 fill
-                                className="object-contain"
+                                sizes="200px"
+                                className="object-cover"
+                                priority
                             />
                         </div>
                     </Link>

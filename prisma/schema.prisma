@@ -27,10 +27,28 @@ model Shop {
   longitude        Float?
   isFeatured       Boolean  @default(false)
   isSponsored      Boolean  @default(false)
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+
+  hasPadrons       Boolean  @default(false)
+  hasDavidoffs     Boolean  @default(false)
+  hasOpusX         Boolean  @default(false)
+  hasAcid          Boolean  @default(false)
+  hasPipeTobacco   Boolean  @default(false)
+  hasMemberAccess  Boolean  @default(false)
+  hasEvents        Boolean  @default(false)
+  hasHooka         Boolean  @default(false)
+  hasliquorlicense Boolean  @default(false)
+  canbringinliquor Boolean  @default(false)
+  hasinternetaccess Boolean @default(false)
+  hascoffeemaker   Boolean  @default(false)
+  hasicemaker      Boolean  @default(false)
+  hasBigTV         Boolean  @default(false)
+
+  rating           Float?
+  reviewCount      Int?     @default(0)
 
   reviews          Review[]
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
 }
 
 model Review {
