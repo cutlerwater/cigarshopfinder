@@ -23,9 +23,9 @@ type Shop = {
     zip: string;
     address: string;
     phone: string;
-    website?: string;
+    website?: string | null;
     description: string;
-    image?: string;
+    image?: string | null;
     hasLounge: boolean;
     hasHumidor: boolean;
     sellsAccessories: boolean;
@@ -33,7 +33,6 @@ type Shop = {
     longitude?: number | null;
     isFeatured?: boolean;
     isSponsored?: boolean;
-
     hasPadrons?: boolean;
     hasDavidoffs?: boolean;
     hasOpusX?: boolean;
@@ -850,16 +849,16 @@ export default function ShopsClientPage({
                                                 Member Access
                                             </span>
                                         )}
-                                            {shop.hasEvents && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Special Events
-                                                </span>
-                                            )}
-                                            {shop.hasHooka && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Hooka
-                                                </span>
-                                            )}
+                                        {shop.hasEvents && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Special Events
+                                            </span>
+                                        )}
+                                        {shop.hasHooka && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Hooka
+                                            </span>
+                                        )}
                                         {shop.hasLiquorLicense && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Liquor License

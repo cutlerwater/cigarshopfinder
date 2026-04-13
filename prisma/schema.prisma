@@ -8,24 +8,24 @@ datasource db {
 }
 
 model Shop {
-  id               String   @id @default(cuid())
-  name             String
-  slug             String   @unique
-  city             String
-  state            String
-  stateabb         String
-  zip              String
-  address          String
-  phone            String
-  website          String?
-  description      String
-  image            String?
-  hasLounge        Boolean  @default(false)
-  hasHumidor       Boolean  @default(false)
+  id                String   @id @default(cuid())
+  name              String
+  slug              String   @unique
+  city              String
+  state             String
+  stateabb          String
+  zip               String
+  address           String
+  phone             String
+  website           String?
+  description       String
+  image             String?
+  hasLounge         Boolean  @default(false)
+  hasHumidor        Boolean  @default(false)
   hasDavidoffs      Boolean @default(false)
   hasPadrons        Boolean @default(false)
   hasOpusX          Boolean @default(false)
-  hasAcids          Boolean @default(false)
+  hasAcid           Boolean @default(false)
   hasPipeTobacco    Boolean @default(false)
   hasMemberAccess   Boolean @default(false)
   hasHooka          Boolean @default(false)
@@ -33,16 +33,16 @@ model Shop {
   hasLiquorLicense  Boolean @default(false)
   canBringInLiquor  Boolean @default(false)
   hasInternetAccess Boolean @default(false)
-  hasCoffeMaker     Boolean @default(false)
+  hasCoffeeMaker    Boolean @default(false)
   hasIceMaker       Boolean @default(false)
   hasBigTV          Boolean @default(false)
   sellsAccessories  Boolean  @default(false)
   latitude          Float?
   longitude         Float?
-  isFeatured       Boolean  @default(false)
-  isSponsored      Boolean  @default(false)
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
+  isFeatured        Boolean  @default(false)
+  isSponsored       Boolean  @default(false)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
 
   reviews Review[]
 }
