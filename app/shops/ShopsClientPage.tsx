@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo,  useState } from "react";
 import { useRouter } from "next/navigation";
 import BrandMarquee from "@/components/BrandMarquee";
 import CigarMarquee from "@/components/CigarMarquee";
@@ -12,7 +12,7 @@ type Props = {
     initialShops: Shop[];
 };
 
-{/* helper functions */}
+
 type Shop = {
     id: string;
     slug: string;
@@ -42,16 +42,15 @@ type Shop = {
     hasMemberAccess?: boolean;
     hasEvents?: boolean;
     hasHooka?: boolean;
-    hasliquorlicense?: boolean;
-    canbringinliquor?: boolean;
-    hasinternetaccess?: boolean;
-    hascoffeemaker?: boolean;
-    hasicemaker?: boolean;
+    hasLiquorLicense?: boolean;
+    canBringinLiquor?: boolean;
+    hasInternetAccess?: boolean;
+    hasCoffeeMaker?: boolean;
+    hasIceMaker?: boolean;
     hasBigTV?: boolean;
-
+    distance?: number | null;
     rating?: number | null;
     reviewCount?: number | null;
-    distance?: number | null;
 };
 
 function toRadians(value: number) {
@@ -81,7 +80,26 @@ function getDistanceMiles(
     return earthRadiusMiles * c;
 }
 
-{/*Component */}
+function getShopHighlight(shop: Shop) {
+    if ((shop.rating ?? 0) >= 4.7 && (shop.reviewCount ?? 0) >= 5) {
+        return {
+            label: "Top Rated",
+            className:
+                "border-emerald-300/30 bg-emerald-400/10 text-emerald-200",
+        };
+    }
+
+    if ((shop.reviewCount ?? 0) >= 10) {
+        return {
+            label: "Popular",
+            className:
+                "border-sky-300/30 bg-sky-400/10 text-sky-200",
+        };
+    }
+
+    return null;
+}
+
 export default function ShopsClientPage({
     initialQuery,
     initialShops,
@@ -192,14 +210,14 @@ export default function ShopsClientPage({
             const matchesEvents = !onlyEvents || shop.hasEvents;
             const matchesHooka = !onlyHooka || shop.hasHooka;
             const matchesLiquorLicense =
-                !onlyLiquorLicense || shop.hasliquorlicense;
+                !onlyLiquorLicense || shop.hasLiquorLicense;
             const matchesBringLiquor =
-                !onlyBringLiquor || shop.canbringinliquor;
+                !onlyBringLiquor || shop.canBringinLiquor;
             const matchesInternetAccess =
-                !onlyInternetAccess || shop.hasinternetaccess;
+                !onlyInternetAccess || shop.hasInternetAccess;
             const matchesCoffeeMaker =
-                !onlyCoffeeMaker || shop.hascoffeemaker;
-            const matchesIceMaker = !onlyIceMaker || shop.hasicemaker;
+                !onlyCoffeeMaker || shop.hasCoffeeMaker;
+            const matchesIceMaker = !onlyIceMaker || shop.hasIceMaker;
             const matchesBigTV = !onlyBigTV || shop.hasBigTV;
             const matchesAccessories =
                 !onlyAccessories || shop.sellsAccessories;
@@ -241,8 +259,8 @@ export default function ShopsClientPage({
             if (shop.hasMemberAccess) score += 10;
             if (shop.hasEvents) score += 10;
             if (shop.hasHooka) score += 5;
-            if (shop.hascoffeemaker) score += 5;
-            if (shop.hasicemaker) score += 5;
+            if (shop.hasCoffeeMaker) score += 5;
+            if (shop.hasIceMaker) score += 5;
             if (shop.hasBigTV) score += 5;
             if (shop.sellsAccessories) score += 10;
 
@@ -256,10 +274,6 @@ export default function ShopsClientPage({
             switch (sortBy) {
                 case "featured":
                     return getShopScore(b) - getShopScore(a);
-                case "rating-desc":
-                    return (b.rating ?? 0) - (a.rating ?? 0);
-                case "reviews-desc":
-                    return (b.reviewCount ?? 0) - (a.reviewCount ?? 0);
                 case "name-asc":
                     return a.name.localeCompare(b.name);
                 case "name-desc":
@@ -269,7 +283,14 @@ export default function ShopsClientPage({
                 case "city-desc":
                     return b.city.localeCompare(a.city);
                 case "state-asc":
-                    return a.state.localeCompare(b.state);
+                case "rating-desc":
+                    if (a.rating == null && b.rating == null) return 0;
+                    if (a.rating == null) return 1;
+                    if (b.rating == null) return -1;
+                    return b.rating - a.rating;
+
+                case "reviews-desc":
+                    return (b.reviewCount ?? 0) - (a.reviewCount ?? 0);
                 case "state-desc":
                     return b.state.localeCompare(a.state);
                 case "distance-asc":
@@ -367,7 +388,7 @@ export default function ShopsClientPage({
         { label: "Accessories", active: onlyAccessories, onClick: () => setOnlyAccessories((prev) => !prev) },
     ];
 
-    {/* JSX */}
+ 
     return (
         <main className="min-h-screen text-white">
             <div className="mx-auto flex max-w-6xl flex-col gap-12">
@@ -454,8 +475,6 @@ export default function ShopsClientPage({
                                     className="w-full appearance-none rounded-2xl border border-white/10 bg-black/30 py-3 pl-12 pr-10 text-white outline-none transition focus:border-amber-400/70 focus:bg-black/40"
                                 >
                                     <option value="featured">Best Matches</option>
-                                    <option value="rating-desc">Highest Rated</option>
-                                    <option value="reviews-desc">Most Reviewed</option>
                                     <option value="name-asc">Name (A–Z)</option>
                                     <option value="name-desc">Name (Z–A)</option>
                                     <option value="city-asc">City (A–Z)</option>
@@ -463,6 +482,8 @@ export default function ShopsClientPage({
                                     <option value="state-asc">State (A–Z)</option>
                                     <option value="state-desc">State (Z–A)</option>
                                     <option value="distance-asc">Nearest to me</option>
+                                    <option value="rating-desc">Highest Rated</option>
+                                    <option value="reviews-desc">Most Reviewed</option>
                                 </select>
 
                                 <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
@@ -608,6 +629,7 @@ export default function ShopsClientPage({
 
                             <div className="grid gap-6 lg:grid-cols-3">
                                 {featuredShops.map((shop) => (
+                                    
                                     <Link
                                         key={`featured-${shop.id}`}
                                         href={`/shops/${shop.slug}`}
@@ -652,18 +674,19 @@ export default function ShopsClientPage({
                                                             Featured
                                                         </span>
                                                     )}
+                                                    {(() => {
+                                                        const highlight = getShopHighlight(shop);
+                                                        if (!highlight) return null;
+
+                                                        return (
+                                                            <span className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-md ${highlight.className}`}>
+                                                                {highlight.label}
+                                                            </span>
+                                                        );
+                                                    })()}
                                                 </div>
 
-                                                {typeof shop.rating === "number" && (
-                                                    <div className="absolute bottom-4 right-4">
-                                                        <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-md">
-                                                            ★ {shop.rating.toFixed(1)}
-                                                            {typeof shop.reviewCount === "number"
-                                                                ? ` (${shop.reviewCount})`
-                                                                : ""}
-                                                        </span>
-                                                    </div>
-                                                )}
+                                                
                                             </div>
 
                                             <div className="p-6">
@@ -760,14 +783,13 @@ export default function ShopsClientPage({
                                             </span>
                                         )}
 
-                                        {typeof shop.rating === "number" && (
+                                        {shop.rating != null && (
                                             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200">
-                                                ★ {shop.rating.toFixed(1)}
-                                                {typeof shop.reviewCount === "number"
-                                                    ? ` (${shop.reviewCount})`
-                                                    : ""}
+                                                ★ {shop.rating} ({shop.reviewCount})
                                             </span>
-                                        )}
+                                            )}
+
+                                        
                                     </div>
 
                                         <h2 className="text-2xl font-semibold">{shop.name}</h2>
@@ -838,27 +860,27 @@ export default function ShopsClientPage({
                                                     Hooka
                                                 </span>
                                             )}
-                                        {shop.hasliquorlicense && (
+                                        {shop.hasLiquorLicense && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Liquor License
                                             </span>
                                         )}
-                                        {shop.canbringinliquor && (
+                                        {shop.canBringinLiquor && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Can bring liquor
                                             </span>
                                         )}
-                                        {shop.hasinternetaccess && (
+                                        {shop.hasInternetAccess && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Internet Access
                                             </span>
                                         )}
-                                        {shop.hascoffeemaker && (
+                                        {shop.hasCoffeeMaker && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Coffee Maker
                                             </span>
                                         )}
-                                        {shop.hasicemaker && (
+                                        {shop.hasIceMaker && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Ice Maker
                                             </span>

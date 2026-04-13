@@ -3,8 +3,9 @@ import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { shops } from "@/lib/shops";
 import ShopMapPanel from "@/components/ShopMapPanel";
+import { prisma } from "@/lib/prisma";
+import ReviewForm from "@/components/ReviewForm";
 
 type Props = {
     params: Promise<{
@@ -15,16 +16,29 @@ type Props = {
 export default async function ShopDetailPage({ params }: Props) {
     const { slug } = await params;
 
-    const shop = shops.find((item) => item.slug === slug);
+    const shop = await prisma.shop.findUnique({
+        where: { slug },
+        include: {
+            reviews: {
+                orderBy: { createdAt: "desc" },
+            },
+        },
+    });
 
     if (!shop) {
         notFound();
     }
 
-    const galleryImages =
-        shop.gallery && shop.gallery.length > 0
-            ? shop.gallery
-            : [shop.image || "/images/front1.jpg"];
+    const reviewCount = shop.reviews.length;
+
+    const averageRating =
+        reviewCount > 0
+            ? shop.reviews.reduce((sum, review) => sum + review.rating, 0) / reviewCount
+            : null;
+
+    const galleryImages = [shop.image || "/images/front1.jpg"];
+
+    
 
     return (
         
@@ -60,14 +74,13 @@ export default async function ShopDetailPage({ params }: Props) {
                                 </span>
                             )}
 
-                            {typeof shop.rating === "number" && (
+                            {averageRating !== null && (
                                 <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-md">
-                                    ★ {shop.rating.toFixed(1)}
-                                    {typeof shop.reviewCount === "number"
-                                        ? ` (${shop.reviewCount})`
-                                        : ""}
+                                    ★ {averageRating.toFixed(1)} ({reviewCount})
                                 </span>
                             )}
+
+                            
                         </div>
 
                         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
@@ -93,76 +106,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Humidor
                                 </span>
                             )}
-                            {shop.hasDavidoffs && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Davidoffs
-                                </span>
-                            )}
-                            {shop.hasPadrons && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Padrons
-                                </span>
-                            )}
-                            {shop.hasOpusX && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    OpusX
-                                </span>
-                            )}
-                            {shop.hasAcid && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Acid
-                                </span>
-                            )}
-                            {shop.hasPipeTobacco && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Pipe Tobacco
-                                </span>
-                            )}
-                            {shop.hasMemberAccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Access
-                                </span>
-                            )}
-                            {shop.hasEvents && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Has Special Events
-                                </span>
-                            )}
-                            {shop.hasHooka && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Hooka
-                                </span>
-                            )}
-                            {shop.hasliquorlicense && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Liquor License
-                                </span>
-                            )}
-                            {shop.canbringinliquor && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Bring Your Own Liquor
-                                </span>
-                            )}
-                            {shop.hasinternetaccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Internet Access
-                                </span>
-                            )}
-                            {shop.hascoffeemaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Coffee Maker
-                                </span>
-                            )}
-                            {shop.hasicemaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Ice Maker
-                                </span>
-                            )}
-                            {shop.hasBigTV && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Big TV(s)
-                                </span>
-                            )}
+                           
                             {shop.sellsAccessories && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Accessories
@@ -259,6 +203,76 @@ export default async function ShopDetailPage({ params }: Props) {
                         </div>
                         
                     </aside>
+                </div>
+            </section>
+            <section className="mx-auto max-w-6xl px-6 pb-10">
+                <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_380px]">
+                    <div className="space-y-8">
+                        <section className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-xl">
+                            <div className="flex items-end justify-between gap-4">
+                                <div>
+                                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+                                        Reviews
+                                    </p>
+                                    <h2 className="mt-3 text-2xl font-semibold text-white">
+                                        What visitors are saying
+                                    </h2>
+                                </div>
+
+                                <div className="text-sm text-neutral-400">
+                                    {reviewCount} review{reviewCount === 1 ? "" : "s"}
+                                    {averageRating !== null ? ` • ${averageRating.toFixed(1)} average` : ""}
+                                </div>
+                            </div>
+
+                            {shop.reviews.length === 0 ? (
+                                <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5 text-neutral-300">
+                                    No reviews yet. Be the first to leave one.
+                                </div>
+                            ) : (
+                                <div className="mt-6 space-y-4">
+                                    {shop.reviews.map((review) => (
+                                        <article
+                                            key={review.id}
+                                            className="rounded-2xl border border-white/10 bg-black/20 p-5"
+                                        >
+                                            <div className="flex flex-wrap items-start justify-between gap-3">
+                                                <div>
+                                                    <h3 className="text-lg font-semibold text-white">
+                                                        {review.title || "Untitled Review"}
+                                                    </h3>
+                                                    <p className="mt-1 text-sm text-neutral-400">
+                                                        by {review.authorName || "Anonymous"}
+                                                    </p>
+                                                </div>
+
+                                                <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-amber-300">
+                                                    {"★".repeat(review.rating)}
+                                                    <span className="text-neutral-600">
+                                                        {"☆".repeat(5 - review.rating)}
+                                                    </span>
+                                                </div>
+                                            </div>
+
+                                            {review.body ? (
+                                                <p className="mt-4 leading-7 text-neutral-300">
+                                                    {review.body}
+                                                </p>
+                                            ) : null}
+
+                                            <p className="mt-4 text-xs uppercase tracking-wide text-neutral-500">
+                                                {new Date(review.createdAt).toLocaleDateString()}
+                                            </p>
+                                        </article>
+                                    ))}
+                                </div>
+                            )}
+                        </section>
+                    </div>
+
+                    <div>
+                        <ReviewForm shopId={shop.id} />
+                    </div>
                 </div>
             </section>
             <ShopMapPanel
