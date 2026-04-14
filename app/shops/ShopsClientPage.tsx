@@ -42,7 +42,7 @@ type Shop = {
     hasEvents?: boolean;
     hasHooka?: boolean;
     hasLiquorLicense?: boolean;
-    canBringinLiquor?: boolean;
+    canBringInLiquor?: boolean;
     hasInternetAccess?: boolean;
     hasCoffeeMaker?: boolean;
     hasIceMaker?: boolean;
@@ -211,7 +211,7 @@ export default function ShopsClientPage({
             const matchesLiquorLicense =
                 !onlyLiquorLicense || shop.hasLiquorLicense;
             const matchesBringLiquor =
-                !onlyBringLiquor || shop.canBringinLiquor;
+                !onlyBringLiquor || shop.canBringInLiquor;
             const matchesInternetAccess =
                 !onlyInternetAccess || shop.hasInternetAccess;
             const matchesCoffeeMaker =
@@ -864,7 +864,7 @@ export default function ShopsClientPage({
                                                 Liquor License
                                             </span>
                                         )}
-                                        {shop.canBringinLiquor && (
+                                        {shop.canBringInLiquor && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Can bring liquor
                                             </span>
