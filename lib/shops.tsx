@@ -1577,7 +1577,7 @@ export const shops: Shop[] = [
     {
         id: "37",
         slug: "habana-house-cigar-lounge-south-austin",
-        name: "habana-house-cigar-lounge-south-austin",
+        name: "Habana House Cigar Lounge South Austin",
         city: "Austin",
         stateabb: "TX",
         state: "Texas",
