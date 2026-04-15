@@ -14,6 +14,8 @@ type Props = {
 };
 
 export default async function ShopDetailPage({ params }: Props) {
+    const { slug } = await params;
+
     const shop = await prisma.shop.findUnique({
         where: { slug },
         include: {
@@ -31,6 +33,9 @@ export default async function ShopDetailPage({ params }: Props) {
             },
         },
     });
+
+    // rest of page...
+}
 
     if (!shop) {
         notFound();
