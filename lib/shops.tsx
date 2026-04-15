@@ -1227,10 +1227,10 @@ export const shops: Shop[] = [
         description: "We Believe that wanting the best should never get in the way of wanting to relax..",
         latitude: 47.036296,
         longitude: -122.826037,
-        image: "/images/cigardaddies/McKenna-Wehrer-1.jpg",
+        image: "/images/cigardaddieswa/img1.jpg",
         gallery: [
-            "/images/cigardaddies/McKenna-Wehrer-1.jpg",
-            "/images/cigardaddies/img2.jpg",
+            "/images/cigardaddieswa/img2.jpg",
+            "/images/cigardaddieswa/img1.jpg",
                     ],
         isFeatured: false,
         isSponsored: true,
