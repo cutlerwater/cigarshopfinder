@@ -241,9 +241,23 @@ export default async function ShopDetailPage({ params }: Props) {
                                                     <h3 className="text-lg font-semibold text-white">
                                                         {review.title || "Untitled Review"}
                                                     </h3>
-                                                    <p className="mt-1 text-sm text-neutral-400">
-                                                        by {review.authorName || "Anonymous"}
-                                                    </p>
+                                                    <div className="mt-1 flex items-center gap-2 text-sm text-neutral-400">
+                                                        {review.user?.image ? (
+                                                            <img
+                                                                src={review.user.image}
+                                                                alt={review.user.name ?? "User"}
+                                                                className="h-6 w-6 rounded-full object-cover border border-white/10"
+                                                            />
+                                                        ) : (
+                                                            <div className="h-6 w-6 rounded-full bg-neutral-700 flex items-center justify-center text-[10px] text-white">
+                                                                {(review.user?.name ?? review.authorName ?? "A")[0]}
+                                                            </div>
+                                                        )}
+
+                                                        <span>
+                                                            {review.user?.name ?? review.authorName ?? "Anonymous"}
+                                                        </span>
+                                                    </div>
                                                 </div>
 
                                                 <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-amber-300">

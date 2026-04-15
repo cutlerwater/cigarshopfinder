@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { auth } from "@/auth";
 
 export async function GET(request: Request) {
     try {
@@ -16,6 +17,15 @@ export async function GET(request: Request) {
         const reviews = await prisma.review.findMany({
             where: { shopId },
             orderBy: { createdAt: "desc" },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        image: true,
+                    },
+                },
+            },
         });
 
         return NextResponse.json(reviews);
@@ -30,15 +40,23 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
     try {
-        const body = await request.json();
+        const session = await auth();
+
+        if (!session?.user?.id) {
+            return NextResponse.json(
+                { error: "You must be signed in to leave a review" },
+                { status: 401 }
+            );
+        }
+
+        const reqBody = await request.json();
 
         const {
             shopId,
             rating,
             title,
             body: reviewBody,
-            authorName,
-        } = body;
+        } = reqBody;
 
         if (!shopId) {
             return NextResponse.json(
@@ -77,7 +95,17 @@ export async function POST(request: Request) {
                 rating,
                 title: title?.trim() || null,
                 body: reviewBody?.trim() || null,
-                authorName: authorName?.trim() || "Anonymous",
+                authorName: session.user.name?.trim() || "Anonymous",
+                userId: session.user.id,
+            },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        name: true,
+                        image: true,
+                    },
+                },
             },
         });
 

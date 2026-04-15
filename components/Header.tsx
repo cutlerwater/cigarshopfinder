@@ -1,14 +1,15 @@
 "use client";
 
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
+    const { data: session, status } = useSession();
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [query, setQuery] = useState("");
@@ -56,34 +57,31 @@ export default function Header() {
             <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/50 to-transparent" />
 
             <div className="mx-auto flex max-w-7xl items-center px-4 py-3 sm:px-6">
-                <div className="flex shrink-0 items-center">
-                    
-                </div>
-                {/* 👇 ADD THIS RIGHT HERE */}
+                <div className="flex shrink-0 items-center"></div>
+
                 <div className="ml-4 h-10 w-px bg-white/10" />
 
-                {/* RIGHT SIDE */}
-                <div className="ml-6 flex flex-1 items-center justify-between">
+                <div className="ml-6 flex flex-1 items-center gap-4">
                     <Link href="/" className="flex items-center">
-                        <div className="relative h-32 w-[400px]">
+                        <div className="relative h-22 w-[300px] md:w-[300px]">
                             <Image
                                 src="/images/cutlerwater-logo.png"
                                 alt="Cutlerwater Cigar Shop Finder"
                                 fill
-                                sizes="200px"
+                                sizes="180px"
                                 className="object-cover"
                                 priority
                             />
                         </div>
                     </Link>
+
                     <div className="flex items-center gap-6">
-                        <div className="hidden xl:block">
-                            
+                        <div className="hidden 2xl:block">
                             <p className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
                                 Premium Directory
                             </p>
                             <p className="text-sm text-neutral-400">
-                                Lounges, humidors, and premium cigar destinations
+                                Lounges and premium cigar destinations
                             </p>
                         </div>
 
@@ -96,8 +94,8 @@ export default function Header() {
                                         key={item.href}
                                         href={item.href}
                                         className={`text-sm font-semibold tracking-wide ${active
-                                            ? "text-amber-300"
-                                            : "text-neutral-400 hover:text-white"
+                                                ? "text-amber-300"
+                                                : "text-neutral-400 hover:text-white"
                                             }`}
                                     >
                                         {item.name}
@@ -105,26 +103,56 @@ export default function Header() {
                                 );
                             })}
                         </nav>
+
+                        
                     </div>
 
-                    <form
-                        onSubmit={handleSearch}
-                        className="ml-6 hidden w-full max-w-md items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:flex"
-                    >
-                        <input
-                            ref={inputRef}
-                            value={query}
-                            onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Search shops, cities, states, ZIP..."
-                            className="flex-1 bg-transparent px-4 py-3 text-sm text-white placeholder:text-neutral-500 focus:outline-none"
-                        />
-                        <button
-                            type="submit"
-                            className="bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-3 text-sm font-semibold text-black hover:brightness-110 transition"
+                    <div className="ml-6 flex items-center gap-3">
+                        {/* AUTH */}
+                        {status === "loading" ? null : session?.user ? (
+                            <>
+                                <Link
+                                    href="/account"
+                                    className="text-sm font-semibold text-neutral-300 hover:text-white whitespace-nowrap"
+                                >
+                                    Account
+                                </Link>
+                                <button
+                                    onClick={() => signOut({ callbackUrl: "/" })}
+                                    className="text-sm font-semibold text-amber-300 hover:text-white whitespace-nowrap"
+                                >
+                                    Sign out
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                onClick={() => signIn("google", { callbackUrl: "/account" })}
+                                className="rounded-xl bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-2 text-sm font-semibold text-black whitespace-nowrap"
+                            >
+                                Sign in
+                            </button>
+                        )}
+
+                        {/* SEARCH */}
+                        <form
+                            onSubmit={handleSearch}
+                            className="hidden flex-1 max-w-md items-center overflow-hidden rounded-2xl border border-white/10 bg-white/5 md:flex"
                         >
-                            Search
-                        </button>
-                    </form>
+                            <input
+                                ref={inputRef}
+                                value={query}
+                                onChange={(e) => setQuery(e.target.value)}
+                                placeholder="Search shops, cities, states, ZIP..."
+                                className="flex-1 bg-transparent px-5 py-3 text-sm text-white placeholder:text-neutral-500 focus:outline-none"
+                            />
+                            <button
+                                type="submit"
+                                className="bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-3 text-sm font-semibold text-black"
+                            >
+                                Search
+                            </button>
+                        </form>
+                    </div>
 
                     <button
                         onClick={() => setMenuOpen((prev) => !prev)}
@@ -146,14 +174,47 @@ export default function Header() {
                                     href={item.href}
                                     onClick={() => setMenuOpen(false)}
                                     className={`text-sm ${pathname === item.href
-                                        ? "text-amber-300"
-                                        : "text-neutral-300 hover:text-white"
+                                            ? "text-amber-300"
+                                            : "text-neutral-300 hover:text-white"
                                         }`}
                                 >
                                     {item.name}
                                 </Link>
                             ))}
                         </nav>
+
+                        <div className="flex flex-col gap-3">
+                            {status === "loading" ? null : session?.user ? (
+                                <>
+                                    <Link
+                                        href="/account"
+                                        onClick={() => setMenuOpen(false)}
+                                        className="text-sm font-semibold text-neutral-300 hover:text-white"
+                                    >
+                                        Account
+                                    </Link>
+                                    <button
+                                        onClick={() => {
+                                            setMenuOpen(false);
+                                            signOut({ callbackUrl: "/" });
+                                        }}
+                                        className="text-left text-sm font-semibold text-amber-300 hover:text-white"
+                                    >
+                                        Sign out
+                                    </button>
+                                </>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        setMenuOpen(false);
+                                        signIn("google", { callbackUrl: "/account" });
+                                    }}
+                                    className="rounded-xl bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-3 text-sm font-semibold text-black"
+                                >
+                                    Sign in
+                                </button>
+                            )}
+                        </div>
 
                         <form
                             onSubmit={handleSearch}

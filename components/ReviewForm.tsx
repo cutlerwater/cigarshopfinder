@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 type Props = {
     shopId: string;
@@ -9,8 +10,8 @@ type Props = {
 
 export default function ReviewForm({ shopId }: Props) {
     const router = useRouter();
+    const { data: session, status } = useSession();
 
-    const [authorName, setAuthorName] = useState("");
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [rating, setRating] = useState(5);
@@ -20,6 +21,12 @@ export default function ReviewForm({ shopId }: Props) {
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
+
+        if (!session?.user) {
+            setError("Please sign in to leave a review.");
+            return;
+        }
+
         setSubmitting(true);
         setError("");
         setSuccess("");
@@ -32,7 +39,6 @@ export default function ReviewForm({ shopId }: Props) {
                 },
                 body: JSON.stringify({
                     shopId,
-                    authorName,
                     title,
                     body,
                     rating,
@@ -45,7 +51,6 @@ export default function ReviewForm({ shopId }: Props) {
                 throw new Error(data?.error || "Failed to submit review");
             }
 
-            setAuthorName("");
             setTitle("");
             setBody("");
             setRating(5);
@@ -69,21 +74,25 @@ export default function ReviewForm({ shopId }: Props) {
                 Share your experience
             </h2>
 
-            <form onSubmit={handleSubmit} className="mt-6 space-y-4">
-                <div className="grid gap-4 md:grid-cols-2">
-                    <div>
-                        <label className="mb-2 block text-sm text-neutral-300">
-                            Your name
-                        </label>
-                        <input
-                            type="text"
-                            value={authorName}
-                            onChange={(e) => setAuthorName(e.target.value)}
-                            placeholder="Optional"
-                            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
-                        />
-                    </div>
-
+            {status === "loading" ? (
+                <div className="mt-6">
+                    <p className="text-sm text-neutral-400">Loading...</p>
+                </div>
+            ) : !session?.user ? (
+                <div className="mt-6 rounded-2xl border border-white/10 bg-black/20 p-5">
+                    <p className="text-sm text-neutral-300">
+                        Sign in with Google to leave a review for this shop.
+                    </p>
+                    <button
+                        type="button"
+                        onClick={() => signIn("google", { callbackUrl: window.location.href })}
+                        className="mt-4 rounded-2xl bg-amber-400 px-5 py-3 font-semibold text-black transition hover:opacity-90"
+                    >
+                        Sign in to leave a review
+                    </button>
+                </div>
+            ) : (
+                <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div>
                         <label className="mb-2 block text-sm text-neutral-300">
                             Rating
@@ -100,45 +109,45 @@ export default function ReviewForm({ shopId }: Props) {
                             <option value={1}>1 - Poor</option>
                         </select>
                     </div>
-                </div>
 
-                <div>
-                    <label className="mb-2 block text-sm text-neutral-300">
-                        Title
-                    </label>
-                    <input
-                        type="text"
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        placeholder="Optional review title"
-                        className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
-                    />
-                </div>
+                    <div>
+                        <label className="mb-2 block text-sm text-neutral-300">
+                            Title
+                        </label>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="Optional review title"
+                            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
+                        />
+                    </div>
 
-                <div>
-                    <label className="mb-2 block text-sm text-neutral-300">
-                        Review
-                    </label>
-                    <textarea
-                        value={body}
-                        onChange={(e) => setBody(e.target.value)}
-                        rows={5}
-                        placeholder="Tell others what the lounge, humidor, service, and atmosphere were like..."
-                        className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
-                    />
-                </div>
+                    <div>
+                        <label className="mb-2 block text-sm text-neutral-300">
+                            Review
+                        </label>
+                        <textarea
+                            value={body}
+                            onChange={(e) => setBody(e.target.value)}
+                            rows={5}
+                            placeholder="Tell others what the lounge, humidor, service, and atmosphere were like..."
+                            className="w-full rounded-2xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
+                        />
+                    </div>
 
-                {error ? <p className="text-sm text-red-400">{error}</p> : null}
-                {success ? <p className="text-sm text-emerald-400">{success}</p> : null}
+                    {error ? <p className="text-sm text-red-400">{error}</p> : null}
+                    {success ? <p className="text-sm text-emerald-400">{success}</p> : null}
 
-                <button
-                    type="submit"
-                    disabled={submitting}
-                    className="rounded-2xl bg-amber-400 px-5 py-3 font-semibold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                    {submitting ? "Submitting..." : "Submit Review"}
-                </button>
-            </form>
+                    <button
+                        type="submit"
+                        disabled={submitting}
+                        className="rounded-2xl bg-amber-400 px-5 py-3 font-semibold text-black transition hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
+                    >
+                        {submitting ? "Submitting..." : "Submit Review"}
+                    </button>
+                </form>
+            )}
         </section>
     );
 }
