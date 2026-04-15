@@ -5,8 +5,9 @@ import Link from "next/link";
 import ShopMapPanel from "@/components/ShopMapPanel";
 import { prisma } from "@/lib/prisma";
 import ReviewForm from "@/components/ReviewForm";
-
+import { auth } from "@/auth";
 import { notFound } from "next/navigation";
+import ReviewActions from "@/components/ReviewActions";
 
 type Props = {
     params: Promise<{
@@ -16,6 +17,9 @@ type Props = {
 
 export default async function ShopDetailPage({ params }: Props) {
     const { slug } = await params;
+
+    const session = await auth();
+    const currentUserId = session?.user?.id ?? null;
 
     const shop = await prisma.shop.findUnique({
         where: { slug },
@@ -328,6 +332,13 @@ export default async function ShopDetailPage({ params }: Props) {
                                         <span className="text-neutral-600">
                                             {"☆".repeat(5 - review.rating)}
                                         </span>
+
+
+                                        {review.userId === currentUserId ? (
+                                            <span className="rounded-full border border-amber-300/30 bg-amber-400/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-amber-300">
+                                                You
+                                            </span>
+                                        ) : null}
                                     </div>
                                 </div>
 
@@ -340,6 +351,16 @@ export default async function ShopDetailPage({ params }: Props) {
                                 <p className="mt-4 text-xs uppercase tracking-wide text-neutral-500">
                                     {new Date(review.createdAt).toLocaleDateString()}
                                 </p>
+                                {review.userId === currentUserId ? (
+                                    <ReviewActions
+                                        review={{
+                                            id: review.id,
+                                            title: review.title,
+                                            body: review.body,
+                                            rating: review.rating,
+                                        }}
+                                    />
+                                ) : null}
                             </article>
                         ))}
                     </div>
