@@ -14,13 +14,20 @@ type Props = {
 };
 
 export default async function ShopDetailPage({ params }: Props) {
-    const { slug } = await params;
-
     const shop = await prisma.shop.findUnique({
         where: { slug },
         include: {
             reviews: {
                 orderBy: { createdAt: "desc" },
+                include: {
+                    user: {
+                        select: {
+                            id: true,
+                            name: true,
+                            image: true,
+                        },
+                    },
+                },
             },
         },
     });
