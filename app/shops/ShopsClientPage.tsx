@@ -34,6 +34,7 @@ type Shop = {
     isFeatured?: boolean;
     isSponsored?: boolean;
     hasPadrons?: boolean;
+    hasFuentes?: boolean;
     hasDavidoffs?: boolean;
     hasOpusX?: boolean;
     hasAcid?: boolean;
@@ -119,6 +120,7 @@ export default function ShopsClientPage({
     const [onlyLounge, setOnlyLounge] = useState(false);
     const [onlyHumidor, setOnlyHumidor] = useState(false);
     const [onlyPadrons, setOnlyPadrons] = useState(false);
+    const [onlyFuentes, setOnlyFuentes] = useState(false);
     const [onlyDavidoffs, setOnlyDavidoffs] = useState(false);
     const [onlyOpusX, setOnlyOpusX] = useState(false);
     const [onlyAcids, setOnlyAcids] = useState(false);
@@ -221,6 +223,7 @@ export default function ShopsClientPage({
             const matchesLounge = !onlyLounge || shop.hasLounge;
             const matchesHumidor = !onlyHumidor || shop.hasHumidor;
             const matchesPadrons = !onlyPadrons || shop.hasPadrons;
+            const matchesFuentes = !onlyFuentes || shop.hasFuentes;
             const matchesDavidoffs = !onlyDavidoffs || shop.hasDavidoffs;
             const matchesOpusX = !onlyOpusX || shop.hasOpusX;
             const matchesAcids = !onlyAcids || shop.hasAcid;
@@ -257,6 +260,7 @@ export default function ShopsClientPage({
                 matchesLounge &&
                 matchesHumidor &&
                 matchesPadrons &&
+                matchesFuentes &&
                 matchesDavidoffs &&
                 matchesOpusX &&
                 matchesAcids &&
@@ -294,7 +298,8 @@ export default function ShopsClientPage({
             if (shop.hasHumidor) score += 20;
             if (shop.hasDavidoffs) score += 10;
             if (shop.hasPadrons) score += 10;
-            if (shop.hasOpusX) score += 10;
+            if (shop.hasFuentes) score += 5;
+            if (shop.hasOpusX) score += 5;
             if (shop.hasAcid) score += 5;
             if (shop.hasPerdomos) score += 5;
             if (shop.hasLFDs) score += 5;
@@ -306,13 +311,13 @@ export default function ShopsClientPage({
             if (shop.hasRareOpusX) score += 5;
             if (shop.hasMemberLockers) score += 5;
             if (shop.sellsFood) score += 5;
-            if (shop.hasMemberAccess) score += 10;
+            if (shop.hasMemberAccess) score += 5;
             if (shop.hasEvents) score += 5;
             if (shop.hasHooka) score += 5;
             if (shop.hasCoffeeMaker) score += 5;
             if (shop.hasIceMaker) score += 5;
             if (shop.hasBigTV) score += 5;
-            if (shop.sellsAccessories) score += 10;
+            if (shop.sellsAccessories) score += 5;
 
             score += (shop.rating ?? 0) * 25;
             score += Math.min(shop.reviewCount ?? 0, 100);
@@ -361,6 +366,7 @@ export default function ShopsClientPage({
         onlyLounge,
         onlyHumidor,
         onlyPadrons,
+        onlyFuentes,
         onlyDavidoffs,
         onlyOpusX,
         onlyAcids,
@@ -409,6 +415,7 @@ export default function ShopsClientPage({
         setOnlyLounge(false);
         setOnlyHumidor(false);
         setOnlyPadrons(false);
+        setOnlyFuentes(false);
         setOnlyDavidoffs(false);
         setOnlyOpusX(false);
         setOnlyAcids(false);
@@ -442,6 +449,7 @@ export default function ShopsClientPage({
         { label: "Lounge", active: onlyLounge, onClick: () => setOnlyLounge((prev) => !prev) },
         { label: "Humidor", active: onlyHumidor, onClick: () => setOnlyHumidor((prev) => !prev) },
         { label: "Padrons", active: onlyPadrons, onClick: () => setOnlyPadrons((prev) => !prev) },
+        { label: "Fuentes", active: onlyFuentes, onClick: () => setOnlyFuentes((prev) => !prev) },
         { label: "Davidoffs", active: onlyDavidoffs, onClick: () => setOnlyDavidoffs((prev) => !prev) },
         { label: "OpusX", active: onlyOpusX, onClick: () => setOnlyOpusX((prev) => !prev) },
         { label: "Acid Cigars", active: onlyAcids, onClick: () => setOnlyAcids((prev) => !prev) },
@@ -803,9 +811,119 @@ export default function ShopsClientPage({
                                                             Padrons
                                                         </span>
                                                     )}
+                                                    {shop.hasFuentes && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Fuentes
+                                                        </span>
+                                                    )}
                                                     {shop.hasOpusX && (
                                                         <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
                                                             OpusX
+                                                        </span>
+                                                    )}
+                                                    {shop.hasAcid && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Acids
+                                                        </span>
+                                                    )}
+                                                    {shop.hasPerdomos && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Perdomos
+                                                        </span>
+                                                    )}
+                                                    {shop.hasLFDs && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            LFDs
+                                                        </span>
+                                                    )}
+                                                    {shop.hasOlivas && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Olivas
+                                                        </span>
+                                                    )}
+                                                    {shop.hasAtabeys && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Atabeys
+                                                        </span>
+                                                    )}
+                                                    {shop.hasHouseCigars && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            House Cigars
+                                                        </span>
+                                                    )}
+                                                    {shop.hasAltadis && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Altadis
+                                                        </span>
+                                                    )}
+                                                    {shop.hasGeneralCigar && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            General Cigars
+                                                        </span>
+                                                    )}
+                                                    {shop.hasRareOpusX && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Rare Opus X
+                                                        </span>
+                                                    )}
+                                                    {shop.hasMemberLockers && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Member Lockers
+                                                        </span>
+                                                    )}
+                                                    {shop.sellsFood && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Sells Food
+                                                        </span>
+                                                    )}
+                                                    {shop.hasPipeTobacco && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Pipe Tobacco
+                                                        </span>
+                                                    )}
+                                                    {shop.hasMemberAccess && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Member Access
+                                                        </span>
+                                                    )}
+                                                    {shop.hasEvents && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Special Events
+                                                        </span>
+                                                    )}
+                                                    {shop.hasHooka && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Hooka
+                                                        </span>
+                                                    )}
+                                                    {shop.hasLiquorLicense && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Liquor License
+                                                        </span>
+                                                    )}
+                                                    {shop.canBringInLiquor && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Can bring liquor
+                                                        </span>
+                                                    )}
+                                                    {shop.hasInternetAccess && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Internet Access
+                                                        </span>
+                                                    )}
+                                                    {shop.hasCoffeeMaker && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Coffee Maker
+                                                        </span>
+                                                    )}
+                                                    {shop.hasIceMaker && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Ice Maker
+                                                        </span>
+                                                    )}
+                                                    {shop.hasBigTV && (
+                                                        <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">
+                                                            Big TV(s)
                                                         </span>
                                                     )}
                                                 </div>
@@ -905,6 +1023,11 @@ export default function ShopsClientPage({
                                                 Padrons
                                             </span>
                                         )}
+                                            {shop.hasFuentes && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Fuentes
+                                                </span>
+                                            )}
                                         {shop.hasDavidoffs && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Davidoffs

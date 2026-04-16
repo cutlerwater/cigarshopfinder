@@ -123,6 +123,11 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Padrons
                                 </span>
                             )}
+                            {shop.hasFuentes && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Fuentes
+                                </span>
+                            )}
                             {shop.hasOpusX && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     OpusX
