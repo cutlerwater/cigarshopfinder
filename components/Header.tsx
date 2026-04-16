@@ -41,6 +41,8 @@ export default function Header() {
     const nav = [
         { name: "Home", href: "/" },
         { name: "Shops", href: "/shops" },
+        { name: "About", href: "/about" },
+        
     ];
 
     function handleSearch(e: React.FormEvent) {
