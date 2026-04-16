@@ -9,6 +9,8 @@ import { auth } from "@/auth";
 import { notFound } from "next/navigation";
 import ReviewActions from "@/components/ReviewActions";
 import { shopMedia } from "@/lib/shopMedia";
+import CigarComparePromo from "@/components/CigarComparePromo";
+import CivicsMapPromo from "@/components/CivicsMapPromo";
 
 
 type Props = {
@@ -67,8 +69,8 @@ export default async function ShopDetailPage({ params }: Props) {
         <main className="min-h-screen text-white">
             {/* hero */}
             <section className="relative overflow-hidden border-b border-white/10">
-                <ShopHeroMedia shopName={shop.name} items={mediaItems} />
-                </div>
+                
+                
 
                 <div className="absolute inset-x-0 bottom-0">
                     <div className="mx-auto max-w-6xl px-6 pb-8 md:pb-12">
@@ -268,6 +270,7 @@ export default async function ShopDetailPage({ params }: Props) {
             {/* gallery */}
             <section className="border-b border-white/10 bg-neutral-950/80">
                 <div className="mx-auto max-w-6xl px-6 py-6">
+                    
                     <div className="mb-4 flex items-center justify-between gap-4">
                         <div>
                             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
@@ -288,6 +291,12 @@ export default async function ShopDetailPage({ params }: Props) {
             </section>
             {/* MAIN CONTENT */}
             <section className="mx-auto max-w-6xl px-6 py-10">
+                <div className="hidden lg:block absolute top-12 left-[-400px]">
+                    <CigarComparePromo />
+                </div>
+                <div className="hidden lg:block absolute top-12 right-[-400px]">
+                    <CivicsMapPromo />
+                </div>
                 <div className="mb-8">
                     <Link
                         href="/shops"

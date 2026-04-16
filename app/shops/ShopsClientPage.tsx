@@ -6,6 +6,8 @@ import { useMemo,  useState } from "react";
 import { useRouter } from "next/navigation";
 import BrandMarquee from "@/components/BrandMarquee";
 import CigarMarquee from "@/components/CigarMarquee";
+import CigarComparePromo from "@/components/CigarComparePromo";
+import CivicsMapPromo from "@/components/CivicsMapPromo";
 
 type Props = {
     initialQuery: string;
@@ -478,12 +480,23 @@ export default function ShopsClientPage({
 
  
     return (
+        
         <main className="min-h-screen text-white">
-            <div className="mx-auto flex max-w-6xl flex-col gap-12">
+            
+            <div className="relative mx-auto max-w-6xl px-6">
+                <div className="hidden lg:block absolute top-12 left-[-400px]">
+                    <CigarComparePromo />
+                </div>
+                <div className="hidden lg:block absolute top-12 right-[-400px]">
+                    <CivicsMapPromo />
+                </div>
                 <div className="w-full">
                     <BrandMarquee />
                     <CigarMarquee />
+
                 </div>
+                
+                
 
                 <section className="max-w-3xl">
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
