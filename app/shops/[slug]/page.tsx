@@ -8,6 +8,8 @@ import ReviewForm from "@/components/ReviewForm";
 import { auth } from "@/auth";
 import { notFound } from "next/navigation";
 import ReviewActions from "@/components/ReviewActions";
+import { shopMedia } from "@/lib/shopMedia";
+
 
 type Props = {
     params: Promise<{
@@ -42,29 +44,30 @@ export default async function ShopDetailPage({ params }: Props) {
     if (!shop) {
         notFound();
     }
-    const galleryImages = [
-        shop.image,
-        "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
-        "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
-        "/images/DavidusAnnapolis/JohnS.jpg",
-    ].filter((img): img is string => Boolean(img));
+    const mediaItems = [
+        ...(shop.image
+            ? [{ type: "image" as const, src: shop.image, alt: shop.name }]
+            : []),
+        ...(shopMedia[shop.slug] ?? []),
+    ].filter((item, index, arr) => {
+        return arr.findIndex(
+            (x) => x.type === item.type && x.src === item.src
+        ) === index;
+    });
+
+    // 👇 THIS feeds your existing GalleryLightbox
+    const galleryImages = mediaItems
+        .filter(
+            (item): item is Extract<typeof item, { type: "image" }> =>
+                item.type === "image"
+        )
+        .map((item) => item.src);
 
     return (
         <main className="min-h-screen text-white">
             {/* hero */}
             <section className="relative overflow-hidden border-b border-white/10">
-                <div className="relative h-[420px] w-full md:h-[520px]">
-                    <Image
-                        src={shop.image || "/images/DavidusAnnapolis/front.jpg"}
-                        alt={shop.name}
-                        fill
-                        priority
-                        className="object-cover"
-                        sizes="100vw"
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-black/60 to-black/20" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.16),transparent_28%)]" />
+                <ShopHeroMedia shopName={shop.name} items={mediaItems} />
                 </div>
 
                 <div className="absolute inset-x-0 bottom-0">
