@@ -264,10 +264,9 @@ export default async function ShopDetailPage({ params }: Props) {
                         <p className="hidden text-sm text-neutral-400 md:block">
                             A quick look at the atmosphere, seating, and humidor space.
                         </p>
-                        <GalleryLightbox images={galleryImages} shopName={shop.name} />
                     </div>
 
-                    
+                    <GalleryLightbox images={galleryImages} shopName={shop.name} />
                 </div>
             </section>
             {/* MAIN CONTENT */}
