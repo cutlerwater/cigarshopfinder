@@ -130,7 +130,57 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasAcid && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Acid
+                                    Acid cigars
+                                </span>
+                            )}
+                            {shop.hasPerdomos && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Perdomos
+                                </span>
+                            )}
+                            {shop.hasLFDs && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    LFDs
+                                </span>
+                            )}
+                            {shop.hasOlivas && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Olivas
+                                </span>
+                            )}
+                            {shop.hasAtabeys && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Atabeys
+                                </span>
+                            )}
+                            {shop.hasHouseCigars && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    House Cigars
+                                </span>
+                            )}
+                            {shop.hasAltadis && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Altadis
+                                </span>
+                            )}
+                            {shop.hasGeneralCigars && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    General Cigars
+                                </span>
+                            )}
+                            {shop.hasRareOpusX && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Rare Opus X
+                                </span>
+                            )}
+                            {shop.hasMemberLockers && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Member Lockers
+                                </span>
+                            )}
+                            {shop.sellsFood && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Sells Food
                                 </span>
                             )}
                             {shop.hasPipeTobacco && (
@@ -140,7 +190,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasMemberAccess && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Access
+                                    Member Access 
                                 </span>
                             )}
                             {shop.hasEvents && (
