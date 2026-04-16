@@ -41,7 +41,7 @@ type Shop = {
     hasLFDs?: boolean;
     hasOlivas?: boolean;
     hasAtabeys?: boolean;
-    hasHouseCigar?: boolean;
+    hasHouseCigars?: boolean;
     hasAltadis?: boolean;
     hasGeneralCigar?: boolean;
     hasRareOpusX?: boolean;
@@ -122,7 +122,6 @@ export default function ShopsClientPage({
     const [onlyDavidoffs, setOnlyDavidoffs] = useState(false);
     const [onlyOpusX, setOnlyOpusX] = useState(false);
     const [onlyAcids, setOnlyAcids] = useState(false);
-
     const [onlyPerdomos, setOnlyPerdomos] = useState(false);
     const [onlyLFDs, setOnlyLFDs] = useState(false);
     const [onlyOlivas, setOnlyOlivas] = useState(false);
@@ -133,7 +132,6 @@ export default function ShopsClientPage({
     const [onlyRareOpusX, setOnlyRareOpusX] = useState(false);
     const [onlyMemberLockers, setOnlyMemberLockers] = useState(false);
     const [onlySellsFood, setOnlySellsFood] = useState(false);
-
     const [onlyPipetobacco, setOnlyPipetobacco] = useState(false);
     const [onlyMemberAccess, setOnlyMemberAccess] = useState(false);
     const [onlyEvents, setOnlyEvents] = useState(false);
@@ -230,7 +228,7 @@ export default function ShopsClientPage({
             const matchesLFDs = !onlyLFDs || shop.hasLFDs;
             const matchesOlivas = !onlyOlivas || shop.hasOlivas;
             const matchesAtabeys = !onlyAtabeys || shop.hasAtabeys;
-            const matchesHouseCigars = !onlyHouseCigars || shop.hasHouseCigar;
+            const matchesHouseCigars = !onlyHouseCigars || shop.hasHouseCigars;
             const matchesAltadis = !onlyAltadis || shop.hasAltadis;
             const matchesGeneralCigar = !onlyGeneralCigar || shop.hasGeneralCigar;
             const matchesRareOpusX = !onlyRareOpusX || shop.hasRareOpusX;
@@ -302,7 +300,7 @@ export default function ShopsClientPage({
             if (shop.hasLFDs) score += 5;
             if (shop.hasOlivas) score += 5;
             if (shop.hasAtabeys) score += 5;
-            if (shop.hasHouseCigar) score += 5;
+            if (shop.hasHouseCigars) score += 5;
             if (shop.hasAltadis) score += 5;
             if (shop.hasGeneralCigar) score += 5;
             if (shop.hasRareOpusX) score += 5;
@@ -922,56 +920,56 @@ export default function ShopsClientPage({
                                                 Acids
                                             </span>
                                         )}
-                                            {shop.hasPerdomos && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Perdomos
-                                                </span>
-                                            )}
-                                            {shop.hasLFDs && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    LFDs
-                                                </span>
-                                            )}
-                                            {shop.hasOlivas && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Olivas
-                                                </span>
-                                            )}
-                                            {shop.hasAtabeys && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Atabeys
-                                                </span>
-                                            )}
-                                            {shop.hasHouseCigars && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    House Cigars
-                                                </span>
-                                            )}
-                                            {shop.hasAltadis && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Altadis
-                                                </span>
-                                            )}
-                                            {shop.hasGeneralCigars && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    General Cigars
-                                                </span>
-                                            )}
-                                            {shop.hasRareOpusX && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Rare Opus X
-                                                </span>
-                                            )}
-                                            {shop.hasMemberLockers && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Member Lockers
-                                                </span>
-                                            )}
-                                            {shop.sellsFood && (
-                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                    Sells Food
-                                                </span>
-                                            )}
+                                        {shop.hasPerdomos && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Perdomos
+                                            </span>
+                                        )}
+                                        {shop.hasLFDs && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                LFDs
+                                            </span>
+                                        )}
+                                        {shop.hasOlivas && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Olivas
+                                            </span>
+                                        )}
+                                        {shop.hasAtabeys && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Atabeys
+                                            </span>
+                                        )}
+                                        {shop.hasHouseCigars && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                House Cigars
+                                            </span>
+                                        )}
+                                        {shop.hasAltadis && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Altadis
+                                            </span>
+                                        )}
+                                        {shop.hasGeneralCigar && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                General Cigars
+                                            </span>
+                                        )}
+                                        {shop.hasRareOpusX && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Rare Opus X
+                                            </span>
+                                        )}
+                                        {shop.hasMemberLockers && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Member Lockers
+                                            </span>
+                                        )}
+                                        {shop.sellsFood && (
+                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                Sells Food
+                                            </span>
+                                        )}
                                         {shop.hasPipeTobacco && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Pipe Tobacco

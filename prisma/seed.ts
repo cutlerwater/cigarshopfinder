@@ -24,7 +24,7 @@ async function main() {
                 hasPadrons: shop.hasPadrons ?? false,
                 hasOpusX: shop.hasOpusX ?? false,
                 hasAcid: shop.hasAcid ?? false,
-                hasPeroomos: shop.hasPerdomos ?? false,
+                hasPerdomos: shop.hasPerdomos ?? false,
                 hasLFDs: shop.hasLFDs ?? false,
                 hasOlivas: shop.hasOlivas ?? false,
                 hasAtabeys: shop.hasAtabeys ?? false,
