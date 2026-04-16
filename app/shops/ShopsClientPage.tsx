@@ -28,15 +28,14 @@ type Shop = {
     image?: string | null;
     hasLounge: boolean;
     hasHumidor: boolean;
-    sellsAccessories: boolean;
     latitude?: number | null;
     longitude?: number | null;
     isFeatured?: boolean;
     isSponsored?: boolean;
     hasPadrons?: boolean;
     hasFuentes?: boolean;
-    hasDavidoffs?: boolean;
     hasOpusX?: boolean;
+    hasDavidoffs?: boolean;
     hasAcid?: boolean;
     hasPerdomos?: boolean;
     hasLFDs?: boolean;
@@ -58,6 +57,7 @@ type Shop = {
     hasCoffeeMaker?: boolean;
     hasIceMaker?: boolean;
     hasBigTV?: boolean;
+    sellsAccessories: boolean;
     distance?: number | null;
     rating?: number | null;
     reviewCount?: number | null;
@@ -121,8 +121,8 @@ export default function ShopsClientPage({
     const [onlyHumidor, setOnlyHumidor] = useState(false);
     const [onlyPadrons, setOnlyPadrons] = useState(false);
     const [onlyFuentes, setOnlyFuentes] = useState(false);
-    const [onlyDavidoffs, setOnlyDavidoffs] = useState(false);
     const [onlyOpusX, setOnlyOpusX] = useState(false);
+    const [onlyDavidoffs, setOnlyDavidoffs] = useState(false);
     const [onlyAcids, setOnlyAcids] = useState(false);
     const [onlyPerdomos, setOnlyPerdomos] = useState(false);
     const [onlyLFDs, setOnlyLFDs] = useState(false);
@@ -1028,16 +1028,17 @@ export default function ShopsClientPage({
                                                     Fuentes
                                                 </span>
                                             )}
-                                        {shop.hasDavidoffs && (
-                                            <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
-                                                Davidoffs
-                                            </span>
-                                        )}
+                                        
                                         {shop.hasOpusX && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 OpusX
                                             </span>
                                         )}
+                                            {shop.hasDavidoffs && (
+                                                <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
+                                                    Davidoffs
+                                                </span>
+                                            )}
                                         {shop.hasAcid && (
                                             <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">
                                                 Acids

@@ -168,7 +168,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Altadis
                                 </span>
                             )}
-                            {shop.hasGeneralCigars && (
+                            {shop.hasGeneralCigar && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     General Cigars
                                 </span>
