@@ -42,9 +42,13 @@ export default async function ShopDetailPage({ params }: Props) {
     if (!shop) {
         notFound();
     }
-    const galleryImages = shop.image
-        ? [shop.image]
-        : ["/images/DavidusAnnapolis/front.jpg"];
+    const galleryImages = [
+        shop.image,
+        "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
+        "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
+        "/images/DavidusAnnapolis/JohnS.jpg",
+    ].filter((img): img is string => Boolean(img));
+
     return (
         <main className="min-h-screen text-white">
             {/* hero */}
@@ -89,19 +93,29 @@ export default async function ShopDetailPage({ params }: Props) {
                                 </span>
                             )}
                         </div>
+                        <div className="fade-up">
+                            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
+                                Cigar Shop
+                            </p>
+                        </div>
+                        <div className="fade-up-delay-1">
+                            <p className="text-sm font-semibold uppercase tracking-[0.25em] text-amber-300">
+                                {shop.city}, {shop.stateabb}
+                            </p>
+                        </div>
+                        
+                        <div className="fade-up-delay-2">
+                            <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
+                                {shop.name}
+                            </h1>
+                        </div>
 
-                        <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
-                            Cigar Shop
-                        </p>
-
-                        <h1 className="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white md:text-6xl">
-                            {shop.name}
-                        </h1>
-
-                        <p className="mt-4 text-base text-neutral-300 md:text-lg">
-                            {shop.address}
-                        </p>
-
+                        <div className="fade-up-delay-2">
+                            <p className="mt-4 text-base text-neutral-300 md:text-lg">
+                                {shop.address}
+                            </p>
+                        </div>
+                        
                         <div className="mt-6 flex flex-wrap gap-2">
                             {shop.hasLounge && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">

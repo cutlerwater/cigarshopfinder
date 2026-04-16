@@ -1,0 +1,65 @@
+export type ShopMediaItem =
+    | {
+        type: "image";
+        src: string;
+        alt?: string;
+    }
+    | {
+        type: "video";
+        src: string;
+        poster?: string;
+    };
+
+export const shopMedia: Record<string, ShopMediaItem[]> = {
+    "davidus-cigars": [
+        {
+
+            type: "image",
+            src: "/images/DavidusAnnapolis/JohnS.jpg",
+            alt: "Davidus Cigars storefront",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/lounge.jpg",
+            alt: "Davidus Cigars lounge seating",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
+            alt: "Davidus Cigars lounge seating",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
+            alt: "Davidus Cigars lounge seating",
+        },
+        {
+            type: "video",
+            src: "/images/DavidusAnnapolis/IMG_2801.MOV",
+            poster: "/images/DavidusAnnapolis/lounge.jpg",
+        },
+    ],
+
+    "federal-hill-cigars": [
+        {
+            type: "image",
+            src: "/images/fedhill/baltimore_light_st._6.jpg",
+            alt: "Federal Hill Cigars interior",
+        },
+        {
+            type: "image",
+            src: "/images/fedhill/wedsite-managerBAL-LS.jpeg",
+            alt: "Federal Hill Cigars humidor",
+        },
+        {
+            type: "image",
+            src: "/images/fedhill/baltimore_light_st._7.jpg",
+            alt: "Federal Hill Cigars interior",
+        },
+        {
+            type: "image",
+            src: "/images/fedhill/baltimore_light_st._8.jpg",
+            alt: "Federal Hill Cigars interior",
+        },
+    ],
+};
