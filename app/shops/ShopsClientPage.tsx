@@ -122,18 +122,8 @@ export default function ShopsClientPage({
     const [onlyLounge, setOnlyLounge] = useState(false);
     const [onlyHumidor, setOnlyHumidor] = useState(false);
     const [selectedBrand, setSelectedBrand] = useState("ALL");
-    const [onlyMemberLockers, setOnlyMemberLockers] = useState(false);
-    const [onlySellsFood, setOnlySellsFood] = useState(false);
-    const [onlyPipetobacco, setOnlyPipetobacco] = useState(false);
-    const [onlyMemberAccess, setOnlyMemberAccess] = useState(false);
-    const [onlyEvents, setOnlyEvents] = useState(false);
-    const [onlyHooka, setOnlyHooka] = useState(false);
-    const [onlyLiquorLicense, setOnlyLiquorLicense] = useState(false);
+    const [selectedFeature, setSelectedFeature] = useState("ALL");
     const [onlyBringLiquor, setOnlyBringLiquor] = useState(false);
-    const [onlyInternetAccess, setOnlyInternetAccess] = useState(false);
-    const [onlyCoffeeMaker, setOnlyCoffeeMaker] = useState(false);
-    const [onlyIceMaker, setOnlyIceMaker] = useState(false);
-    const [onlyBigTV, setOnlyBigTV] = useState(false);
     const [onlyAccessories, setOnlyAccessories] = useState(false);
     const [selectedState, setSelectedState] = useState("ALL");
     const [sortBy, setSortBy] = useState("featured");
@@ -226,23 +216,22 @@ export default function ShopsClientPage({
                 (selectedBrand === "ATABEY" && shop.hasAtabeys) ||
                 (selectedBrand === "ALTADIS" && shop.hasAltadis) ||
                 (selectedBrand === "GENERAL_CIGAR" && shop.hasGeneralCigar) ||
-                (selectedBrand === "HOUSE_CIGARS" && shop.hasHouseCigars);
-            const matchesMemberLockers = !onlyMemberLockers || shop.hasMemberLockers;
-            const matchesSellsFood = !onlySellsFood || shop.sellsFood;            
-            const matchesPipeTobacco = !onlyPipetobacco || shop.hasPipeTobacco;
-            const matchesMemberAccess = !onlyMemberAccess || shop.hasMemberAccess;
-            const matchesEvents = !onlyEvents || shop.hasEvents;
-            const matchesHooka = !onlyHooka || shop.hasHooka;
-            const matchesLiquorLicense =
-                !onlyLiquorLicense || shop.hasLiquorLicense;
-            const matchesBringLiquor =
+                (selectedBrand === "HOUSE_CIGARS" && shop.hasHouseCigars) ||
+                (selectedBrand === "PIPE_TOBACCO" && shop.hasPipeTobacco) ||
+                (selectedBrand === "HOOKA" && shop.hasHooka);
+            const matchesFeature =
+                selectedFeature === "ALL" ||
+                (selectedFeature === "MEMBER_LOCKERS" && shop.hasMemberLockers) ||    
+                (selectedFeature === "MEMBER_ACCESS" && shop.hasMemberAccess) ||
+                (selectedFeature === "SELLS_FOOD" && shop.sellsFood) ||
+                (selectedFeature === "LIQUOR_LICENSE" && shop.hasLiquorLicense) ||
+                (selectedFeature === "INTERNET_ACCESS" && shop.hasInternetAccess) ||
+                (selectedFeature === "EVENTS" && shop.hasEvents) ||
+                (selectedFeature === "COFFEE_MAKER" && shop.hasCoffeeMaker) ||
+                (selectedFeature === "ICE_MAKER" && shop.hasIceMaker) ||
+                (selectedFeature === "BIG_TVS" && shop.hasBigTV); 
+           const matchesBringLiquor =
                 !onlyBringLiquor || shop.canBringInLiquor;
-            const matchesInternetAccess =
-                !onlyInternetAccess || shop.hasInternetAccess;
-            const matchesCoffeeMaker =
-                !onlyCoffeeMaker || shop.hasCoffeeMaker;
-            const matchesIceMaker = !onlyIceMaker || shop.hasIceMaker;
-            const matchesBigTV = !onlyBigTV || shop.hasBigTV;
             const matchesAccessories =
                 !onlyAccessories || shop.sellsAccessories;
 
@@ -252,18 +241,8 @@ export default function ShopsClientPage({
                 matchesLounge &&
                 matchesHumidor &&
                 matchesBrand &&
-                matchesMemberLockers &&
-                matchesSellsFood &&
-                matchesPipeTobacco &&
-                matchesMemberAccess &&
-                matchesEvents &&
-                matchesHooka &&
-                matchesLiquorLicense &&
-                matchesBringLiquor &&
-                matchesInternetAccess &&
-                matchesCoffeeMaker &&
-                matchesIceMaker &&
-                matchesBigTV &&
+                matchesFeature &&               
+                matchesBringLiquor &&                
                 matchesAccessories
             );
         });
@@ -275,14 +254,6 @@ export default function ShopsClientPage({
             if (shop.isFeatured) score += 500;
             if (shop.hasLounge) score += 40;
             if (shop.hasHumidor) score += 20;
-            if (shop.hasMemberLockers) score += 5;
-            if (shop.sellsFood) score += 5;
-            if (shop.hasMemberAccess) score += 5;
-            if (shop.hasEvents) score += 5;
-            if (shop.hasHooka) score += 5;
-            if (shop.hasCoffeeMaker) score += 5;
-            if (shop.hasIceMaker) score += 5;
-            if (shop.hasBigTV) score += 5;
             if (shop.sellsAccessories) score += 5;
 
             score += (shop.rating ?? 0) * 25;
@@ -330,23 +301,12 @@ export default function ShopsClientPage({
         search,
         selectedState,
         selectedBrand,
+        selectedFeature,
         sortBy,
         userCoords,
         onlyLounge,
         onlyHumidor,
         onlyAccessories,
-        onlyMemberLockers,
-        onlySellsFood,
-        onlyPipetobacco,
-        onlyMemberAccess,
-        onlyEvents,
-        onlyHooka,
-        onlyLiquorLicense,
-        onlyBringLiquor,
-        onlyInternetAccess,
-        onlyCoffeeMaker,
-        onlyIceMaker,
-        onlyBigTV,
     ]);
 
     const featuredShops = useMemo(() => {
@@ -369,18 +329,6 @@ export default function ShopsClientPage({
         setSearch("");
         setOnlyLounge(false);
         setOnlyHumidor(false);
-        setOnlyMemberLockers(false);
-        setOnlySellsFood(false);
-        setOnlyPipetobacco(false);
-        setOnlyMemberAccess(false);
-        setOnlyEvents(false);
-        setOnlyHooka(false);
-        setOnlyLiquorLicense(false);
-        setOnlyBringLiquor(false);
-        setOnlyInternetAccess(false);
-        setOnlyCoffeeMaker(false);
-        setOnlyIceMaker(false);
-        setOnlyBigTV(false);
         setOnlyAccessories(false);
         setSelectedState("ALL");
         setSortBy("featured");
@@ -390,18 +338,6 @@ export default function ShopsClientPage({
     const filterButtons = [
         { label: "Lounge", active: onlyLounge, onClick: () => setOnlyLounge((prev) => !prev) },
         { label: "Humidor", active: onlyHumidor, onClick: () => setOnlyHumidor((prev) => !prev) },        
-        { label: "Member Lockers", active: onlyMemberLockers, onClick: () => setOnlyMemberLockers((prev) => !prev) },
-        { label: "Sells Food", active: onlySellsFood, onClick: () => setOnlySellsFood((prev) => !prev) },
-        { label: "Pipe Tobacco", active: onlyPipetobacco, onClick: () => setOnlyPipetobacco((prev) => !prev) },
-        { label: "Member Access", active: onlyMemberAccess, onClick: () => setOnlyMemberAccess((prev) => !prev) },
-        { label: "Has Special Events", active: onlyEvents, onClick: () => setOnlyEvents((prev) => !prev) },
-        { label: "Hooka", active: onlyHooka, onClick: () => setOnlyHooka((prev) => !prev) },
-        { label: "Liquor License", active: onlyLiquorLicense, onClick: () => setOnlyLiquorLicense((prev) => !prev) },
-        { label: "Can Bring Liquor", active: onlyBringLiquor, onClick: () => setOnlyBringLiquor((prev) => !prev) },
-        { label: "Internet Access", active: onlyInternetAccess, onClick: () => setOnlyInternetAccess((prev) => !prev) },
-        { label: "Coffee Maker", active: onlyCoffeeMaker, onClick: () => setOnlyCoffeeMaker((prev) => !prev) },
-        { label: "Ice Maker", active: onlyIceMaker, onClick: () => setOnlyIceMaker((prev) => !prev) },
-        { label: "Big TV(s)", active: onlyBigTV, onClick: () => setOnlyBigTV((prev) => !prev) },
         { label: "Accessories", active: onlyAccessories, onClick: () => setOnlyAccessories((prev) => !prev) },
     ];
 
@@ -447,7 +383,7 @@ export default function ShopsClientPage({
                                     Refine Results
                                 </p>
                                 <p className="mt-1 text-sm text-neutral-400">
-                                    Search, sort, and narrow shops by amenities and cigar selection.
+                                    Search, sort, and narrow shops by amenities and cigar brand selection.
                                 </p>
                             </div>
 
@@ -456,8 +392,8 @@ export default function ShopsClientPage({
                             </div>
                         </div>
 
-                        <div className="grid gap-3 lg:grid-cols-[minmax(0,1fr)_220px_220px_180px]">
-                            <div className="relative">
+                        <div className="flex flex-col gap-3 lg:flex-row">
+                            <div className="relative xl:flex-[1.05]">
                                 <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -471,17 +407,17 @@ export default function ShopsClientPage({
                                         <path d="m20 20-3.5-3.5" />
                                     </svg>
                                 </span>
-
+                                
                                 <input
                                     type="text"
                                     placeholder="Search by shop name, city, state, ZIP, or address..."
                                     value={search}
                                     onChange={(e) => setSearch(e.target.value)}
                                     className="w-full rounded-2xl border border-white/10 bg-black/30 py-3 pl-12 pr-4 text-white placeholder:text-neutral-500 outline-none transition focus:border-amber-400/70 focus:bg-black/40"
-                                />
+                                    />
                             </div>
 
-                            <div className="relative">
+                            <div className="relative w-full lg:w-[210px]">
                                 <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -507,6 +443,7 @@ export default function ShopsClientPage({
                                     <option value="PADRON">Padron</option>
                                     <option value="FUENTE">Fuente</option>
                                     <option value="OPUSX">Opus X</option>
+                                    <option value="RARE_OPUS_X">Rare Opus X</option>
                                     <option value="ACID">Acid</option>
                                     <option value="PERDOMO">Perdomo</option>
                                     <option value="LFD">LFD</option>
@@ -514,7 +451,6 @@ export default function ShopsClientPage({
                                     <option value="ATABEY">Atabey</option>
                                     <option value="ALTADIS">Altadis</option>
                                     <option value="GENERAL_CIGAR">General Cigar</option>
-                                    <option value="RARE_OPUS_X">Rare Opus X</option>
                                     <option value="HOUSE_CIGARS">House Cigars</option>
                                 </select>
 
@@ -532,7 +468,7 @@ export default function ShopsClientPage({
                                 </span>
                             </div>
 
-                            <div className="relative">
+                            <div className="relative w-full lg:w-[210px]">
                                 <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -565,6 +501,25 @@ export default function ShopsClientPage({
                                     <option value="reviews-desc">Most Reviewed</option>
                                 </select>
 
+                                <div className="relative w-full xl:w-[210px]">
+                                    <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="h-5 w-5"
+                                            viewBox="0 0 24 24"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            strokeWidth="2"
+                                        >
+                                            <path d="M4 12h16" />
+                                            <path d="M4 6h16" />
+                                            <path d="M4 18h16" />
+                                        </svg>
+                                    </span>
+
+                                    
+                                </div>
+
                                 <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -578,24 +533,77 @@ export default function ShopsClientPage({
                                     </svg>
                                 </span>
                             </div>
+                            <div className="relative w-full xl:w-[210px]">
+                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <path d="M4 12h16" />
+                                        <path d="M4 6h16" />
+                                        <path d="M4 18h16" />
+                                    </svg>
+                                </span>
 
-                            <button
-                                type="button"
-                                onClick={clearFilters}
-                                className="rounded-2xl border border-white/10 bg-white/10 px-4 py-3 font-medium text-white transition hover:border-amber-400/40 hover:bg-white/15"
-                            >
-                                Clear Filters
-                            </button>
+                                <select
+                                    value={selectedFeature}
+                                    onChange={(e) => setSelectedFeature(e.target.value)}
+                                    className="w-full appearance-none rounded-2xl border border-white/10 bg-black/30 py-3 pl-12 pr-10 text-white outline-none transition focus:border-amber-400/70 focus:bg-black/40"
+                                >
+                                    <option value="ALL">Filter by feature</option>
+                                    <option value="LOUNGE">Lounge</option>
+                                    <option value="HUMIDOR">Humidor</option>
+                                    <option value="ACCESSORIES">Accessories</option>
+                                    <option value="MEMBER_LOCKERS">Member Lockers</option>
+                                    <option value="SELLS_FOOD">Sells Food</option>
+                                    <option value="PIPE_TOBACCO">Pipe Tobacco</option>
+                                    <option value="MEMBER_ACCESS">Member Access</option>
+                                    <option value="EVENTS">Special Events</option>
+                                    <option value="HOOKA">Hooka</option>
+                                    <option value="LIQUOR_LICENSE">Liquor License</option>
+                                    <option value="BRING_LIQUOR">Bring Your Own Liquor</option>
+                                    <option value="INTERNET_ACCESS">Internet Access</option>
+                                    <option value="COFFEE_MAKER">Coffee Maker</option>
+                                    <option value="ICE_MAKER">Ice Maker</option>
+                                    <option value="BIG_TV">Big TV(s)</option>
+                                </select>
+
+                                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </span>
+                            </div>
                         </div>
+                        
 
-                        <div className="mt-4 flex flex-wrap items-center gap-3">
+                        <div className="mt-3 flex flex-wrap items-center gap-3">
                             <button
                                 type="button"
                                 onClick={handleUseMyLocation}
                                 disabled={locationLoading}
-                                className="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-4 py-3 text-sm font-medium text-amber-200 transition hover:bg-amber-400/20 disabled:cursor-not-allowed disabled:opacity-60"
+                                className="rounded-2xl border border-amber-400/30 bg-amber-400/10 px-4 py-2 text-sm font-medium text-amber-200 transition hover:bg-amber-400/20 disabled:cursor-not-allowed disabled:opacity-60"
                             >
                                 {locationLoading ? "Finding your location..." : "Use My Location"}
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={clearFilters}
+                                className="rounded-2xl border border-white/10 bg-white/10 px-4 py-2 text-sm font-medium text-white transition hover:border-amber-400/40 hover:bg-white/15"
+                            >
+                                Clear Filters
                             </button>
 
                             {locationError ? (
