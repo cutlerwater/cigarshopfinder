@@ -112,6 +112,59 @@ function getShopHighlight(shop: Shop) {
     return null;
 }
 
+const STATES = [
+    { name: "All States", value: "ALL" },
+    { name: "Alabama", value: "AL" },
+    { name: "Alaska", value: "AK" },
+    { name: "Arizona", value: "AZ" },
+    { name: "Arkansas", value: "AR" },
+    { name: "California", value: "CA" },
+    { name: "Colorado", value: "CO" },
+    { name: "Connecticut", value: "CT" },
+    { name: "Delaware", value: "DE" },
+    { name: "Florida", value: "FL" },
+    { name: "Georgia", value: "GA" },
+    { name: "Hawaii", value: "HI" }, 
+    { name: "Idaho", value: "ID" },
+    { name: "Illinois", value: "IL" },
+    { name: "Indiana", value: "IN" },
+    { name: "Iowa", value: "IA" },
+    { name: "Kansas", value: "KS" },
+    { name: "Kentucky", value: "KY" },
+    { name: "Louisiana", value: "LA" },
+    { name: "Maine", value: "ME" },
+    { name: "Maryland", value: "MD" },
+    { name: "Massachusetts", value: "MA" }, 
+    { name: "Michigan", value: "MI" },
+    { name: "Minnesota", value: "MN" },
+    { name: "Mississippi", value: "MS" },
+    { name: "Missouri", value: "MO" },
+    { name: "Montana", value: "MT" },
+    { name: "Nebraska", value: "NE" },
+    { name: "Nevada", value: "NV" },
+    { name: "New Hampshire", value: "NH" },
+    { name: "New Jersey", value: "NJ" },
+    { name: "New Mexico", value: "NM" },
+    { name: "New York", value: "NY" },
+    { name: "North Carolina", value: "NC" },
+    { name: "North Dakota", value: "ND" },
+    { name: "Ohio", value: "OH" },
+    { name: "Oklahoma", value: "OK" },
+    { name: "Oregon", value: "OR" },
+    { name: "Pennsylvania", value: "PA" },
+    { name: "Rhode Island", value: "RI" },
+    { name: "South Carolina", value: "SC" },
+    { name: "South Dakota", value: "SD" }, 
+    { name: "Texas", value: "TX" },
+    { name: "Utah", value: "UT" },
+    { name: "Virginia", value: "VA" },
+    { name: "Vermont", value: "VT" },
+    { name: "Washington", value: "WA" },
+    { name: "West Virginia", value: "WV" },
+    { name: "Wisconsin", value: "WI" },
+    { name: "Wyoming", value: "WY" },
+];
+
 export default function ShopsClientPage({
     initialQuery,
     initialShops,
@@ -355,7 +408,7 @@ export default function ShopsClientPage({
 
                 <div className="w-full">
                     <BrandMarquee />
-                    <CigarMarquee />
+                    
                 </div>
 
                 <section className="mt-8 max-w-3xl">
@@ -367,7 +420,7 @@ export default function ShopsClientPage({
                         Find local cigar shops, lounges, and premium humidors.
                     </h1>
 
-                    <p className="mt-6 text-lg leading-8 text-neutral-300">
+                    <p className="mt-6 text-lg leading-8 text-blue-300">
                         Discover nearby cigar destinations with lounge information, humidor
                         details, featured retailers, and premium shop highlights.
                     </p>
@@ -427,9 +480,9 @@ export default function ShopsClientPage({
                                         stroke="currentColor"
                                         strokeWidth="2"
                                     >
-                                        <path d="M4 6h16" />
-                                        <path d="M6 12h12" />
-                                        <path d="M8 18h8" />
+                                        <path d="M3 6h18" />
+                                        <path d="M7 12h10" />
+                                        <path d="M10 18h4" />
                                     </svg>
                                 </span>
 
@@ -511,9 +564,7 @@ export default function ShopsClientPage({
                                             stroke="currentColor"
                                             strokeWidth="2"
                                         >
-                                            <path d="M4 12h16" />
-                                            <path d="M4 6h16" />
-                                            <path d="M4 18h16" />
+                                            
                                         </svg>
                                     </span>
 
@@ -543,9 +594,9 @@ export default function ShopsClientPage({
                                         stroke="currentColor"
                                         strokeWidth="2"
                                     >
-                                        <path d="M4 12h16" />
-                                        <path d="M4 6h16" />
-                                        <path d="M4 18h16" />
+                                        <path d="M3 6h18" />
+                                        <path d="M7 12h10" />
+                                        <path d="M10 18h4" />
                                     </svg>
                                 </span>
 
@@ -622,9 +673,9 @@ export default function ShopsClientPage({
                                         stroke="currentColor"
                                         strokeWidth="2"
                                     >
-                                        <path d="M4 12h16" />
-                                        <path d="M4 6h16" />
-                                        <path d="M4 18h16" />
+                                        <path d="M3 6h18" />
+                                        <path d="M7 12h10" />
+                                        <path d="M10 18h4" />
                                     </svg>
                                 </span>
 
@@ -676,30 +727,61 @@ export default function ShopsClientPage({
                                     State
                                 </p>
                             </div>
-
-                            <div className="flex flex-wrap gap-3">
-                                {["ALL", ...states].map((state) => (
-                                    <button
-                                        key={state}
-                                        type="button"
-                                        onClick={() => setSelectedState(state)}
-                                        className={`rounded-full border px-4 py-2 text-sm font-medium transition ${selectedState === state
-                                                ? "border-amber-300/60 bg-amber-400 text-black shadow-lg shadow-amber-500/20"
-                                                : "border-white/10 bg-white/5 text-white hover:border-white/20 hover:bg-white/10"
-                                            }`}
-                                    >
-                                        {state}
-                                    </button>
-                                ))}
-                            </div>
                         </div>
+                        <div className="flex flex-col gap-3 lg:flex-row">
+                            
+
+                            <div className="relative w-full lg:w-[210px]">
+                                <span className="pointer-events-none absolute left-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-5 w-5"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <path d="M3 6h18" />
+                                        <path d="M7 12h10" />
+                                        <path d="M10 18h4" />
+                                    </svg>
+                                </span>
+
+                                <select
+                                    value={selectedState}
+                                    onChange={(e) => setSelectedState(e.target.value)}
+                                    className="w-full appearance-none rounded-2xl border border-white/10 bg-black/30 py-3 pl-12 pr-10 text-white outline-none transition focus:border-amber-400/70 focus:bg-black/40"
+                                >
+                                    {STATES.map((state) => (
+                                        <option key={state.value} value={state.value}>
+                                            {state.name}
+                                        </option>
+                                    ))}
+                                </select>
+
+                                <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </span>
+                            </div>                      
+                            
+                        </div>
+                        
 
                         <div className="mt-4 rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-neutral-300 md:hidden">
                             {filteredShops.length} result{filteredShops.length === 1 ? "" : "s"}
                         </div>
                     </div>
                 </section>
-
+                <CigarMarquee />
                 <section className="mt-10">
                     {featuredShops.length > 0 && (
                         <div className="mb-10">
@@ -835,7 +917,7 @@ export default function ShopsClientPage({
                             </div>
                         </div>
                     )}
-                    <p className="text-sm text-red-400">
+                    <p className="text-sm text-green-400">
                         Brand: {selectedBrand} | Results: {filteredShops.length}
                     </p>
                     <p className="mb-6 text-neutral-400">

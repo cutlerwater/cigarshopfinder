@@ -80,10 +80,10 @@ export default function Header() {
 
                     <div className="flex items-center gap-6">
                         <div className="hidden 2xl:block">
-                            <p className="text-xs uppercase tracking-[0.28em] text-amber-300/80">
+                            <p className="text-xs uppercase tracking-[0.28em] text-blue-400/80">
                                 Premium Directory
                             </p>
-                            <p className="text-sm text-neutral-400">
+                            <p className="text-sm text-neutral-200">
                                 Lounges and premium cigar destinations
                             </p>
                         </div>
