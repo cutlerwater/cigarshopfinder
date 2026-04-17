@@ -291,12 +291,7 @@ export default async function ShopDetailPage({ params }: Props) {
             </section>
             {/* MAIN CONTENT */}
             <section className="mx-auto max-w-6xl px-6 py-10">
-                <div className="hidden lg:block absolute top-12 left-[-400px]">
-                    <CigarComparePromo />
-                </div>
-                <div className="hidden lg:block absolute top-12 right-[-400px]">
-                    <CivicsMapPromo />
-                </div>
+                
                 <div className="mb-8">
                     <Link
                         href="/shops"
