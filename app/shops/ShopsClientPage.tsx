@@ -484,10 +484,10 @@ export default function ShopsClientPage({
         <main className="min-h-screen text-white">
             
             <div className="relative mx-auto max-w-6xl px-6">
-                <div className="hidden lg:block absolute top-12 left-[-300px]">
+                <div className="hidden xl:block absolute top-24 right-full -translate-x-6">
                     <CigarComparePromo />
                 </div>
-                <div className="hidden lg:block absolute top-12 right-[-300px]">
+                <div className="hidden xl:block absolute top-24 left-full translate-x-6">
                     <CivicsMapPromo />
                 </div>
                 <div className="w-full">
