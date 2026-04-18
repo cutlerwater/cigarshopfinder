@@ -1,0 +1,27 @@
+const [onlyPadrons, setOnlyPadrons] = useState(false);
+    const [onlyFuentes, setOnlyFuentes] = useState(false);
+    const [onlyOpusX, setOnlyOpusX] = useState(false);
+    const [onlyDavidoffs, setOnlyDavidoffs] = useState(false);
+    const [onlyAcids, setOnlyAcids] = useState(false);
+    const [onlyPerdomos, setOnlyPerdomos] = useState(false);
+    const [onlyLFDs, setOnlyLFDs] = useState(false);
+    const [onlyOlivas, setOnlyOlivas] = useState(false);
+    const [onlyAtabeys, setOnlyAtabeys] = useState(false);
+    const [onlyHouseCigars, setOnlyHouseCigars] = useState(false);
+    const [onlyAltadis, setOnlyAltadis] = useState(false);
+    const [onlyGeneralCigar, setOnlyGeneralCigar] = useState(false);
+     const [onlyRareOpusX, setOnlyRareOpusX] = useState(false);
+
+
+     <span className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-neutral-500">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="h-4 w-4"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        strokeWidth="2"
+                                    >
+                                        <path d="m6 9 6 6 6-6" />
+                                    </svg>
+                                </span>
