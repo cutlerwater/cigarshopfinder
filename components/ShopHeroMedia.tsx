@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import type { ShopMediaItem } from "@/lib/shopMedia";
+import type { ShopMediaItem } from "@/lib/shops/shopMedia";
 
 type Props = {
     shopName: string;

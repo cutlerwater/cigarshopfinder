@@ -1,4 +1,4 @@
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/shops/prisma";
 import ShopsClientPage from "./ShopsClientPage";
 
 type Props = {

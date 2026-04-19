@@ -8,33 +8,57 @@ datasource db {
 }
 
 model Shop {
-  id                String   @id @default(cuid())
-  name              String
-  slug              String   @unique
-  city              String
-  state             String
-  stateabb          String
-  zip               String
-  address           String
-  phone             String
-  website           String?
-  description       String
-  image             String?
-  hasLounge         Boolean  @default(false)
-  hasHumidor        Boolean  @default(false)
-  hasDavidoffs      Boolean  @default(false)
-  hasPadrons        Boolean  @default(false)
-  hasFuentes        Boolean  @default(false)
-  hasOpusX          Boolean  @default(false)
-  hasAcid           Boolean  @default(false)
-  hasPerdomos       Boolean  @default(false)
-  hasLFDs           Boolean  @default(false)
-  hasOlivas         Boolean  @default(false)
-  hasAtabeys        Boolean  @default(false)
-  hasHouseCigars    Boolean  @default(false)
-  hasAltadis        Boolean  @default(false)
-  hasGeneralCigar   Boolean  @default(false)
-  hasRareOpusX      Boolean  @default(false)
+  id          String  @id @default(cuid())
+  name        String
+  slug        String  @unique
+  city        String
+  state       String
+  stateabb    String
+  zip         String
+  address     String
+  phone       String
+  website     String?
+  description String
+  image       String?
+  hasLounge   Boolean @default(false)
+  hasHumidor  Boolean @default(false)
+
+  hasPadron       Boolean @default(false)
+  hasFuente       Boolean @default(false)
+  hasOpusX        Boolean @default(false)
+  hasRareOpusX    Boolean @default(false)
+  hasAshton       Boolean @default(false)
+  hasDiamond      Boolean @default(false)
+  hasAroma        Boolean @default(false)
+  hasDavidoff     Boolean @default(false)
+  hasAvo          Boolean @default(false)
+  hasLiga         Boolean @default(false)
+  hasAcid         Boolean @default(false)
+  hasTatuaje      Boolean @default(false)
+  hasPerdomo      Boolean @default(false)
+  hasLFDs         Boolean @default(false)
+  hasOliva        Boolean @default(false)
+  hasNub          Boolean @default(false)
+  hasCain         Boolean @default(false)
+  hasMyFather     Boolean @default(false)
+  hasCamacho      Boolean @default(false)
+  hasAJ           Boolean @default(false)
+  hasSanCristobal Boolean @default(false)
+  hasAtabey       Boolean @default(false)
+  hasLordByron    Boolean @default(false)
+  hasGreyCliff    Boolean @default(false)
+  hasDunhill      Boolean @default(false)
+  hasHouseCigar   Boolean @default(false)
+  hasMontecristo  Boolean @default(false)
+  hasRomeo        Boolean @default(false)
+  hasHuppman      Boolean @default(false)
+  hasCAO          Boolean @default(false)
+  hasCohiba       Boolean @default(false)
+  hasPunch        Boolean @default(false)
+  hasAging        Boolean @default(false)
+  hasMacanudo     Boolean @default(false)
+  hasGurkha       Boolean @default(false)
+
   hasMemberLockers  Boolean  @default(false)
   sellsFood         Boolean  @default(false)
   hasPipeTobacco    Boolean  @default(false)

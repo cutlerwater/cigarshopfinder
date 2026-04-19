@@ -3,12 +3,12 @@ import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import ShopMapPanel from "@/components/ShopMapPanel";
-import { prisma } from "@/lib/prisma";
+import { prisma } from "@/lib/shops/prisma";
 import ReviewForm from "@/components/ReviewForm";
 import { auth } from "@/auth";
 import { notFound } from "next/navigation";
 import ReviewActions from "@/components/ReviewActions";
-import { shopMedia } from "@/lib/shopMedia";
+import { shopMedia } from "@/lib/shops/shopMedia";
 import CigarComparePromo from "@/components/CigarComparePromo";
 import CivicsMapPromo from "@/components/CivicsMapPromo";
 
@@ -132,17 +132,12 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Humidor
                                 </span>
                             )}
-                            {shop.hasDavidoffs && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Davidoffs
-                                </span>
-                            )}
-                            {shop.hasPadrons && (
+                            {shop.hasPadron && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Padrons
                                 </span>
                             )}
-                            {shop.hasFuentes && (
+                            {shop.hasFuente && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Fuentes
                                 </span>
@@ -152,49 +147,179 @@ export default async function ShopDetailPage({ params }: Props) {
                                     OpusX
                                 </span>
                             )}
+                            {shop.hasRareOpusX && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Rare OpusX
+                                </span>
+                            )}
+                            {shop.hasAshton && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Ashton
+                                </span>
+                            )}
+                            {shop.hasDiamond && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Diamond Crown
+                                </span>
+                            )}
+                            {shop.hasAroma && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Aroma de Cuba
+                                </span>
+                            )}
+                            {shop.hasDavidoff && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Davidoffs
+                                </span>
+                            )}
+                            {shop.hasAvo && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Avo
+                                </span>
+                            )}
+                            {shop.hasLiga && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Liga Privada
+                                </span>
+                            )}
                             {shop.hasAcid && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Acid cigars
                                 </span>
                             )}
-                            {shop.hasPerdomos && (
+                            {shop.hasTatuaje && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Tatuaju
+                                </span>
+                            )}
+                            {shop.hasPerdomo && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Perdomos
                                 </span>
                             )}
-                            {shop.hasLFDs && (
+                            {shop.hasAlec && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Alec Bradley
+                                </span>
+                            )}
+                            {shop.hasHoya && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Hoya De Monterrey
+                                </span>
+                            )}
+                            {shop.hasLFD && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     LFDs
                                 </span>
                             )}
-                            {shop.hasOlivas && (
+                            {shop.hasOliva && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Olivas
                                 </span>
                             )}
-                            {shop.hasAtabeys && (
+                            {shop.hasNub && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Nub
+                                </span>
+                            )}
+                            {shop.hasCain && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Cain
+                                </span>
+                            )}
+                            {shop.hasMyFather && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    My Father
+                                </span>
+                            )}
+                            {shop.hasCamacho && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Camacho
+                                </span>
+                            )}
+                            {shop.hasAJ && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    AJ Fernandez
+                                </span>
+                            )}
+                            {shop.hasSanCristobal && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    San Cristobal
+                                </span>
+                            )}
+                            {shop.hasAtabey && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Atabeys
                                 </span>
                             )}
-                            {shop.hasHouseCigars && (
+                            {shop.hasLordByron && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Lord Byron
+                                </span>
+                            )}
+                            {shop.hasGreycliff && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Greycliff
+                                </span>
+                            )}
+                            {shop.hasDunhill && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Dunhill
+                                </span>
+                            )}
+                            {shop.hasHouseCigar && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     House Cigars
                                 </span>
                             )}
-                            {shop.hasAltadis && (
+                            {shop.hasMontecristo && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Altadis
+                                    Montecristo
                                 </span>
                             )}
-                            {shop.hasGeneralCigar && (
+                            {shop.hasRomeo && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    General Cigars
+                                    Romeo Y Julietta
                                 </span>
                             )}
-                            {shop.hasRareOpusX && (
+                            {shop.hasHuppman && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Rare Opus X
+                                    H. Uppman
+                                </span>
+                            )} 
+                            {shop.hasCAO && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    CAO
+                                </span>
+                            )}
+                            {shop.hasRP && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Rocky Patel
+                                </span>
+                            )}
+                            {shop.hasCohiba && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Cohiba (not cuban)
+                                </span>
+                            )}
+                            {shop.hasPunch && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Punch
+                                </span>
+                            )}
+                            {shop.hasAging && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Aging Room
+                                </span>
+                            )}
+                            {shop.hasMacanudo && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Macanudo
+                                </span>
+                            )}
+                            {shop.hasGurkha && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Gurkha
                                 </span>
                             )}
                             {shop.hasMemberLockers && (

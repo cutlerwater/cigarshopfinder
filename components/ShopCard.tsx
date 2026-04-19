@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Badge from "@/components/Badge";
-import type { Shop } from "@/lib/shops";
+import type { Shop } from "@/lib/shops/types";
 
 type ShopCardProps = {
     shop: Shop;
