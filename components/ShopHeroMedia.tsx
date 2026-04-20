@@ -38,7 +38,7 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
                 <Image
                     key={currentItem.src}
                     src={currentItem.src}
-                    alt={currentItem.alt}
+                    alt={currentItem.alt ?? shopName}
                     fill
                     loading="eager"
                     sizes="(max-width: 768px) 100vw, 60vw"

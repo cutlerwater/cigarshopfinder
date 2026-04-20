@@ -78,7 +78,7 @@ export const marylandShops: Shop[] = [
         longitude: -76.5434,
         image: "/images/DavidusAnnapolis/front.jpg",
         gallery: [
-            "",
+            "/images/DavidusAnnapolis/JohnS.jpg", 
             
         ],
         isFeatured: true,

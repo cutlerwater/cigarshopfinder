@@ -32,6 +32,16 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
             src: "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
             alt: "Lounge",
         },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
+            alt: "Lounge",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/Davidus_Logo.png",
+            alt: "Logo",
+        },
         
         
 ],

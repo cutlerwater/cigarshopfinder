@@ -191,7 +191,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasTatuaje && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Tatuaju
+                                    Tatuaje
                                 </span>
                             )}
                             {shop.hasPerdomo && (
