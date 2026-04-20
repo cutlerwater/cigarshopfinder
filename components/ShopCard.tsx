@@ -28,7 +28,7 @@ export default function ShopCard({ shop }: ShopCardProps) {
             <div className="mb-4 flex flex-wrap gap-2">
                 {shop.hasLounge && <Badge>Lounge</Badge>}
                 {shop.hasHumidor && <Badge>Humidor</Badge>}
-                {shop.sellsAccessories && <Badge>Accessories</Badge>}
+                {shop.sellsAccessory && <Badge>Accessories</Badge>}
             </div>
 
             <div className="space-y-1 text-sm text-neutral-400">
