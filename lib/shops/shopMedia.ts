@@ -13,14 +13,28 @@ export type ShopMediaItem =
 export const shopMedia: Record<string, ShopMediaItem[]> = {
     "davidus-cigars-annapolis": [
         {
-
+            type: "video",
+            src: "/images/DavidusAnnapolis/loun.mp4",
+            poster: "/images/DavidusAnnapolis/lounge.jpg",
+        },
+        {
             type: "image",
             src: "/images/DavidusAnnapolis/JohnS.jpg",
-            alt: "Davidus Cigars storefront",
+            alt: "John",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/front.jpg",
+            alt: "Front of the store",
+        },
+        {
+            type: "image",
+            src: "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
+            alt: "Lounge",
         },
         
-       
-    ],
+        
+],
 
     "federal-hill-cigars": [
         {

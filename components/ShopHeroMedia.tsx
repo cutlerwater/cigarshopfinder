@@ -45,17 +45,21 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
                     className="object-cover"
                 />
             ) : currentItem?.type === "video" ? (
-                <video
-                    key={currentItem.src}
-                    src={currentItem.src}
-                    poster={currentItem.poster}
-                    controls
-                    className="h-full w-full object-cover"
-                />
+                    <video
+                        key={currentItem.src}
+                        src={currentItem.src}
+                        poster={currentItem.poster}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        className="h-full w-full object-cover bg-black"
+                    />
             ) : null}
 
-            <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-black/60 to-black/20" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.16),transparent_28%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-neutral-950/50 via-black/20 to-black/10" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.10),transparent_28%)]" />
 
             {media.length > 1 && (
                 <div className="absolute bottom-4 right-4 z-10 flex gap-2 rounded-full bg-black/35 px-3 py-2 backdrop-blur">
