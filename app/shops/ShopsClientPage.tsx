@@ -309,7 +309,7 @@ export default function ShopsClientPage({
                 (selectedBrand === "SANCRISTOBOL" && shop.hasSanCristobol) ||
                 (selectedBrand === "ATABEY" && shop.hasAtabey) ||
                 (selectedBrand === "LORDBYRON" && shop.hasLordByron) ||
-                (selectedBrand === "GREYCLIFF" && shop.hasGreycliff) ||
+                (selectedBrand === "GREYCLIFF" && shop.hasGreyCliff) ||
                 (selectedBrand === "DUNHILL" && shop.hasDunhill) ||
                 (selectedBrand === "HOUSE_CIGARS" && shop.hasHouseCigar) ||
                 (selectedBrand === "MONTECRISTO" && shop.hasMontecristo) ||
