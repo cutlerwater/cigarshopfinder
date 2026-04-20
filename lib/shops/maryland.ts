@@ -76,13 +76,10 @@ export const marylandShops: Shop[] = [
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
         latitude: 38.9784,
         longitude: -76.5434,
-        image: "/images/DavidusAnnapolis/front.jpg",
+        image: "",
         gallery: [
-            "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
-            "/images/DavidusAnnapolis/Davidus_Logo.png",
-            "/images/DavidusAnnapolis/front.jpg",
-            "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
-            "/images/DavidusAnnapolis/JohnS.jpg"
+            "",
+            
         ],
         isFeatured: true,
         isSponsored: true,

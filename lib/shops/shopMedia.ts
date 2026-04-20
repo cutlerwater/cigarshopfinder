@@ -11,33 +11,15 @@ export type ShopMediaItem =
     };
 
 export const shopMedia: Record<string, ShopMediaItem[]> = {
-    "davidus-cigars": [
+    "davidus-cigars-annapolis": [
         {
 
             type: "image",
             src: "/images/DavidusAnnapolis/JohnS.jpg",
             alt: "Davidus Cigars storefront",
         },
-        {
-            type: "image",
-            src: "/images/DavidusAnnapolis/lounge.jpg",
-            alt: "Davidus Cigars lounge seating",
-        },
-        {
-            type: "image",
-            src: "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
-            alt: "Davidus Cigars lounge seating",
-        },
-        {
-            type: "image",
-            src: "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
-            alt: "Davidus Cigars lounge seating",
-        },
-        {
-            type: "video",
-            src: "/images/DavidusAnnapolis/IMG_2801.MOV",
-            poster: "/images/DavidusAnnapolis/lounge.jpg",
-        },
+        
+       
     ],
 
     "federal-hill-cigars": [

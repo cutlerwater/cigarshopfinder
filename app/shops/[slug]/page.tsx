@@ -11,6 +11,7 @@ import ReviewActions from "@/components/ReviewActions";
 import { shopMedia } from "@/lib/shops/shopMedia";
 import CigarComparePromo from "@/components/CigarComparePromo";
 import CivicsMapPromo from "@/components/CivicsMapPromo";
+import ShopHeroMedia from "@/components/ShopHeroMedia";
 
 
 type Props = {
@@ -70,10 +71,10 @@ export default async function ShopDetailPage({ params }: Props) {
         <main className="min-h-screen text-white">
             {/* hero */}
             <section className="relative overflow-hidden border-b border-white/10">
-                
+                <ShopHeroMedia shopName={shop.name} items={mediaItems} />
                 
 
-                <div className="absolute inset-x-0 bottom-0">
+                <div className="absolute inset-x-0 bottom-0 z-10">
                     <div className="mx-auto max-w-6xl px-6 pb-8 md:pb-12">
                         <div className="mb-4 flex flex-wrap gap-2">
                             {shop.isSponsored && (

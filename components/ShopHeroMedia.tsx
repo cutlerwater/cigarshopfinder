@@ -40,6 +40,7 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
                     src={currentItem.src}
                     alt={currentItem.alt}
                     fill
+                    loading="eager"
                     sizes="(max-width: 768px) 100vw, 60vw"
                     className="object-cover"
                 />
