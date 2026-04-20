@@ -144,6 +144,11 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Member Lockers
                                 </span>
                             )}
+                            {shop.hasLiveMusic && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Has Live Music
+                                </span>
+                            )}
                             {shop.hasEvents && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Has Special Events
@@ -187,6 +192,11 @@ export default async function ShopDetailPage({ params }: Props) {
                             {shop.sellsFood && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Sells Food
+                                </span>
+                            )}
+                            {shop.sellsDrink && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Sells Drinks (Sodas, Water, etc...)
                                 </span>
                             )}
                             {shop.hasPadron && (

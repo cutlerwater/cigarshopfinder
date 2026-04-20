@@ -628,7 +628,7 @@ export default function ShopsClientPage({
                                     <option value="ACCESSORY">Accessories</option>
                                     <option value="MEMBER_LOCKER">Member Lockers</option>
                                     <option value="SELLS_FOOD">Sells Food</option>
-                                    <option value="SELLS_FOOD">Sells Drinks (Sodas, Water, etc...)</option>
+                                    <option value="SELLS_DRINK">Sells Drinks (Sodas, Water, etc...)</option>
                                     <option value="LIVE_MUSIC">Live music</option>
                                     <option value="PIPE_TOBACCO">Pipe Tobacco</option>
                                     <option value="MEMBER_ACCESS">Member Access</option>
