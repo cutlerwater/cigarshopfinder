@@ -49,7 +49,7 @@ type Shop = {
     hasPerdomo?: boolean;
     hasAlec?: boolean;
     hasHoya?: boolean;
-    hasLFDs?: boolean;
+    hasLFD?: boolean;
     hasOliva?: boolean;
     hasNub?: boolean;
     hasCain?: boolean;
@@ -299,7 +299,7 @@ export default function ShopsClientPage({
                 (selectedBrand === "PERDOMO" && shop.hasPerdomo) ||
                 (selectedBrand === "ALEC" && shop.hasAlec) ||
                 (selectedBrand === "HOYA" && shop.hasHoya) ||
-                (selectedBrand === "LFD" && shop.hasLFDs) ||
+                (selectedBrand === "LFD" && shop.hasLFD) ||
                 (selectedBrand === "OLIVA" && shop.hasOliva) ||
                 (selectedBrand === "NUB" && shop.hasNub) ||
                 (selectedBrand === "CAIN" && shop.hasCain) ||
@@ -975,7 +975,7 @@ export default function ShopsClientPage({
                                                     {shop.hasPerdomo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Perdomos</span>}
                                                     {shop.hasAlec && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Alec Bradley</span>}
                                                     {shop.hasHoya && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hoya de Monterrey</span>}
-                                                    {shop.hasLFDs && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">LFDs</span>}
+                                                    {shop.hasLFD && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">LFDs</span>}
                                                     {shop.hasOliva && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Olivas</span>}
                                                     {shop.hasNub && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Nub</span>}
                                                     {shop.hasCain && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Cain</span>}
@@ -1108,7 +1108,7 @@ export default function ShopsClientPage({
                                         {shop.hasPerdomo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Perdomos</span>}
                                         {shop.hasAlec && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Alec Bradleys</span>}
                                         {shop.hasHoya && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hoya de Monterreys</span>}
-                                        {shop.hasLFDs && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Flor Dominicanas</span>}
+                                        {shop.hasLFD && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Flor Dominicanas</span>}
                                         {shop.hasOliva && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Olivas</span>}
                                         {shop.hasNub && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Nubs</span>}
                                         {shop.hasCain && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cains</span>}
