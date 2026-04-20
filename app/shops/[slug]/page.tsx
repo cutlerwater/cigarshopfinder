@@ -3,7 +3,7 @@ import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import ShopMapPanel from "@/components/ShopMapPanel";
-import { prisma } from "@lib/prisma";
+import { prisma } from "@/lib/prisma";
 import ReviewForm from "@/components/ReviewForm";
 import { auth } from "@/auth";
 import { notFound } from "next/navigation";
