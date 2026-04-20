@@ -46,7 +46,7 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         
 ],
 
-    "federal-hill-cigars": [
+    "davidus-cigars-baltimore-federal-hill": [
         {
             type: "image",
             src: "/images/fedhill/baltimore_light_st._6.jpg",

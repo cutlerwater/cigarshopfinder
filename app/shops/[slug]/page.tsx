@@ -134,6 +134,61 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Humidor
                                 </span>
                             )}
+                            {shop.hasMemberAccess && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Member Access
+                                </span>
+                            )}
+                            {shop.hasMemberLocker && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Member Lockers
+                                </span>
+                            )}
+                            {shop.hasEvents && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Has Special Events
+                                </span>
+                            )}
+                            {shop.canBringInLiquor && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Can Bring In Liquor/BYOB
+                                </span>
+                            )}
+                            {shop.hasLiquorLicense && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Liquor License
+                                </span>
+                            )}
+                            {shop.canBringInLiquor && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Bring Your Own Liquor
+                                </span>
+                            )}
+                            {shop.hasInternetAccess && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Internet Access
+                                </span>
+                            )}
+                            {shop.hasCoffeeMaker && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Coffee Maker
+                                </span>
+                            )}
+                            {shop.hasIceMaker && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Ice Maker
+                                </span>
+                            )}
+                            {shop.hasBigTV && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Big TV(s)
+                                </span>
+                            )}
+                            {shop.sellsFood && (
+                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
+                                    Sells Food
+                                </span>
+                            )}
                             {shop.hasPadron && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Padron
@@ -324,64 +379,14 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Gurkha
                                 </span>
                             )}
-                            {shop.hasMemberLocker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Lockers
-                                </span>
-                            )}
-                            {shop.sellsFood && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Sells Food
-                                </span>
-                            )}
-                            {shop.hasPipeTobacco && (
+                           {shop.hasPipeTobacco && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Pipe Tobacco
-                                </span>
-                            )}
-                            {shop.hasMemberAccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Access 
-                                </span>
-                            )}
-                            {shop.hasEvents && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Has Special Events
                                 </span>
                             )}
                             {shop.hasHooka && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Hooka
-                                </span>
-                            )}
-                            {shop.hasLiquorLicense && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Liquor License
-                                </span>
-                            )}
-                            {shop.canBringInLiquor && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Bring Your Own Liquor
-                                </span>
-                            )}
-                            {shop.hasInternetAccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Internet Access
-                                </span>
-                            )}
-                            {shop.hasCoffeeMaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Coffee Maker
-                                </span>
-                            )}
-                            {shop.hasIceMaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Ice Maker
-                                </span>
-                            )}
-                            {shop.hasBigTV && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Big TV(s)
                                 </span>
                             )}
                             {shop.sellsAccessory && (

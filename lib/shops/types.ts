@@ -22,11 +22,21 @@ export type Shop = {
     image?: string;
     latitude?: number;
     longitude?: number;
-
     hasLounge?: boolean;
     hasHumidor?: boolean;
     sellsAccessory?: boolean;
-    
+    hasMemberAccess?: boolean;
+    hasMemberLocker?: boolean;    
+    sellsFood?: boolean;
+    sellsDrink?: boolean;
+    hasLiveMusic?: boolean;
+    hasLiquorLicense?: boolean;
+    canBringInLiquor?: boolean;
+    hasInternetAccess?: boolean;
+    hasCoffeeMaker?: boolean;
+    hasIceMaker?: boolean;
+    hasBigTV?: boolean;
+    hasEvents?: boolean;
     hasPadron?: boolean;
     hasFuente?: boolean;
     hasOpusX?: boolean;
@@ -64,19 +74,9 @@ export type Shop = {
     hasPunch?: boolean;
     hasAging?: boolean;
     hasMacanudo?: boolean;
-    hasGurkha?: boolean;
-    hasMemberLocker?: boolean;
-    sellsFood?: boolean;
-    hasPipeTobacco?: boolean;
-    hasMemberAccess?: boolean;
-    hasEvents?: boolean;
-    hasHooka?: boolean;
-    hasLiquorLicense?: boolean;
-    canBringInLiquor?: boolean;
-    hasInternetAccess?: boolean;
-    hasCoffeeMaker?: boolean;
-    hasIceMaker?: boolean;
-    hasBigTV?: boolean;
+    hasGurkha?: boolean;   
+    hasPipeTobacco?: boolean;   
+    hasHooka?: boolean;   
     gallery?: string[];
     rating?: number;
     reviewCount?: number;

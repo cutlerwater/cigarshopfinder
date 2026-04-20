@@ -34,6 +34,19 @@ type Shop = {
     longitude?: number | null;
     isFeatured?: boolean;
     isSponsored?: boolean;
+    sellsFood?: boolean;
+    sellsDrink?: boolean;
+    hasLiveMusic?: boolean;
+    hasMemberAccess?: boolean;
+    hasMemberLocker?: boolean;
+    hasEvents?: boolean;
+    hasLiquorLicense?: boolean;
+    canBringInLiquor?: boolean;
+    hasInternetAccess?: boolean;
+    hasCoffeeMaker?: boolean;
+    hasIceMaker?: boolean;
+    hasBigTV?: boolean;
+    sellsAccessory: boolean;
     hasPadron?: boolean;
     hasFuente?: boolean;
     hasOpusX?: boolean;
@@ -72,20 +85,8 @@ type Shop = {
     hasAging?: boolean;
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
-    
-    hasMemberLocker?: boolean;
-    sellsFood?: boolean;
     hasPipeTobacco?: boolean;
-    hasMemberAccess?: boolean;
-    hasEvents?: boolean;
-    hasHooka?: boolean;
-    hasLiquorLicense?: boolean;
-    canBringInLiquor?: boolean;
-    hasInternetAccess?: boolean;
-    hasCoffeeMaker?: boolean;
-    hasIceMaker?: boolean;
-    hasBigTV?: boolean;
-    sellsAccessory: boolean;
+    hasHooka?: boolean;    
     distance?: number | null;
     rating?: number | null;
     reviewCount?: number | null;
@@ -329,6 +330,8 @@ export default function ShopsClientPage({
                 (selectedFeature === "MEMBER_LOCKER" && shop.hasMemberLocker) ||    
                 (selectedFeature === "MEMBER_ACCESS" && shop.hasMemberAccess) ||
                 (selectedFeature === "SELLS_FOOD" && shop.sellsFood) ||
+                (selectedFeature === "SELLS_DRINK" && shop.sellsFood) ||
+                (selectedFeature === "LIVE_MUSIC" && shop.hasLiveMusic) ||
                 (selectedFeature === "LIQUOR_LICENSE" && shop.hasLiquorLicense) ||
                 (selectedFeature === "BRING_LIQUOR" && shop.canBringInLiquor) ||
                 (selectedFeature === "INTERNET_ACCESS" && shop.hasInternetAccess) ||
@@ -625,6 +628,8 @@ export default function ShopsClientPage({
                                     <option value="ACCESSORY">Accessories</option>
                                     <option value="MEMBER_LOCKER">Member Lockers</option>
                                     <option value="SELLS_FOOD">Sells Food</option>
+                                    <option value="SELLS_FOOD">Sells Drinks (Sodas, Water, etc...)</option>
+                                    <option value="LIVE_MUSIC">Live music</option>
                                     <option value="PIPE_TOBACCO">Pipe Tobacco</option>
                                     <option value="MEMBER_ACCESS">Member Access</option>
                                     <option value="EVENTS">Special Events</option>
@@ -956,7 +961,19 @@ export default function ShopsClientPage({
                                                 <div className="mt-5 flex flex-wrap gap-2">
                                                     {shop.hasLounge && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lounge</span>}
                                                     {shop.hasHumidor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Humidor</span>}
-                                                    
+                                                    {shop.hasMemberLocker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}                                                    
+                                                    {shop.sellsAccessory && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Accessories</span>}
+                                                    {shop.sellsFood && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Food</span>}
+                                                    {shop.sellsDrink && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Drinks (Sodas, Water, etc...)</span>}
+                                                    {shop.hasLiveMusic && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Live Music</span>}
+                                                    {shop.hasMemberAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Access</span>}
+                                                    {shop.hasEvents && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Special Events</span>}
+                                                    {shop.hasLiquorLicense && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Liquor License</span>}
+                                                    {shop.canBringInLiquor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Can bring liquor</span>}
+                                                    {shop.hasInternetAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Internet Access</span>}
+                                                    {shop.hasCoffeeMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Coffee Maker</span>}
+                                                    {shop.hasIceMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Ice Maker</span>}
+                                                    {shop.hasBigTV && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Big TV(s)</span>}
                                                     {shop.hasPadron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Padron</span>}
                                                     {shop.hasFuente && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Fuente</span>}
                                                     {shop.hasOpusX && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">OpusX</span>}
@@ -995,20 +1012,10 @@ export default function ShopsClientPage({
                                                     {shop.hasAging && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aging Room</span>}
                                                     {shop.hasMacanudo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Macanudo</span>}
                                                     {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkha</span>}
-
-                                                    
-                                                    {shop.hasMemberLocker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}
-                                                    {shop.sellsFood && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Food</span>}
                                                     {shop.hasPipeTobacco && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
-                                                    {shop.hasMemberAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Access</span>}
-                                                    {shop.hasEvents && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Special Events</span>}
                                                     {shop.hasHooka && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hooka</span>}
-                                                    {shop.hasLiquorLicense && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Liquor License</span>}
-                                                    {shop.canBringInLiquor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Can bring liquor</span>}
-                                                    {shop.hasInternetAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Internet Access</span>}
-                                                    {shop.hasCoffeeMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Coffee Maker</span>}
-                                                    {shop.hasIceMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Ice Maker</span>}
-                                                    {shop.hasBigTV && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Big TV(s)</span>}
+                                                    
+                                                    
                                                 </div>
 
                                                 <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
@@ -1090,57 +1097,60 @@ export default function ShopsClientPage({
                                     <div className="mt-5 flex flex-wrap gap-2">
                                         {shop.hasLounge && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lounge</span>}
                                         {shop.hasHumidor && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Humidor</span>}
-                                        {shop.hasPadron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Padrons</span>}
-                                        {shop.hasFuente && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Fuentes</span>}
-                                        {shop.hasOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">OpusX</span>}
-                                        {shop.hasRareOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rare Opus Xs</span>}
-                                        {shop.hasAshton && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ashtons</span>}
-                                        {shop.hasDiamond && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Diamond Crowns</span>}
-                                        {shop.hasAroma && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aroma de Cubas</span>}
-                                        {shop.hasDavidoff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Davidoffs</span>}
-                                        {shop.hasAvo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Avos</span>}                                        
-                                        {shop.hasLiga && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Liga Privadas</span>}
-                                        {shop.hasAcid && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Acids/Drew Estates</span>}
-                                        {shop.hasTatuaje && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Tatuajes</span>}
-                                        {shop.hasPerdomo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Perdomos</span>}
-                                        {shop.hasAlec && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Alec Bradleys</span>}
-                                        {shop.hasHoya && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hoya de Monterreys</span>}
-                                        {shop.hasLFD && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Flor Dominicanas</span>}
-                                        {shop.hasOliva && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Olivas</span>}
-                                        {shop.hasNub && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Nubs</span>}
-                                        {shop.hasCain && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cains</span>}
-                                        {shop.hasMyFather && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">My Fathers</span>}
-                                        {shop.hasCamacho && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Camachos</span>}
-                                        {shop.hasAJ && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">AJ Fernandez</span>}
-                                        {shop.hasSanCristobol && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">San Cristobols</span>}
-                                        {shop.hasAtabey && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Atabeys</span>}
-                                        {shop.hasLordByron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lord Byrons</span>}
-                                        {shop.hasGreyCliff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">GreyCliffs</span>}
-                                        {shop.hasDunhill && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Dunhills</span>}
-                                        {shop.hasHouseCigar && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">House Cigars</span>}
-                                        {shop.hasMontecristo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Montecristo</span>}
-                                        {shop.hasRomeo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Romeo y Juliettas</span>}
-                                        {shop.hasHuppman && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">H. Uppmans</span>}
-                                        {shop.hasCAO && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">CAOs</span>}
-                                        {shop.hasRP && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rocky Patels</span>}
-                                        {shop.hasCohiba && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cohibas</span>}
-                                        {shop.hasPunch && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Punchs</span>}
-                                        {shop.hasAging && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aging Rooms</span>}
-                                        {shop.hasMacanudo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Macanudos</span>}
-                                        {shop.hasGurkha && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Gurkhas</span>}
+                                        {shop.sellsAccessory && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Accessories</span>}
                                         {shop.hasMemberLocker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Lockers</span>}
-                                        {shop.sellsFood && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Food</span>}
-                                        {shop.hasPipeTobacco && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
                                         {shop.hasMemberAccess && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Access</span>}
+                                        {shop.sellsFood && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Food</span>}
+                                        {shop.sellsDrink && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Drinks (Sodas, Water, etc...)</span>}
+                                        {shop.hasLiveMusic && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Live Music</span>}
                                         {shop.hasEvents && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Special Events</span>}
-                                        {shop.hasHooka && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hooka</span>}
                                         {shop.hasLiquorLicense && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Liquor License</span>}
                                         {shop.canBringInLiquor && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Can bring liquor</span>}
                                         {shop.hasInternetAccess && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Internet Access</span>}
                                         {shop.hasCoffeeMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Coffee Maker</span>}
                                         {shop.hasIceMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ice Maker</span>}
                                         {shop.hasBigTV && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Big TV(s)</span>}
-                                        {shop.sellsAccessory && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Accessories</span>}
+                                        {shop.hasPadron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Padron</span>}
+                                        {shop.hasFuente && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Fuente</span>}
+                                        {shop.hasOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">OpusX</span>}
+                                        {shop.hasRareOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rare Opus Xs</span>}
+                                        {shop.hasAshton && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ashton</span>}
+                                        {shop.hasDiamond && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Diamond Crown</span>}
+                                        {shop.hasAroma && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aroma de Cuba</span>}
+                                        {shop.hasDavidoff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Davidoff</span>}
+                                        {shop.hasAvo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Avos</span>}                                        
+                                        {shop.hasLiga && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Liga Privada</span>}
+                                        {shop.hasAcid && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Acid/Drew Estate</span>}
+                                        {shop.hasTatuaje && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Tatuaje</span>}
+                                        {shop.hasPerdomo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Perdomo</span>}
+                                        {shop.hasAlec && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Alec Bradley</span>}
+                                        {shop.hasHoya && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hoya de Monterrey</span>}
+                                        {shop.hasLFD && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Flor Dominicana</span>}
+                                        {shop.hasOliva && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Oliva</span>}
+                                        {shop.hasNub && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Nub</span>}
+                                        {shop.hasCain && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cain</span>}
+                                        {shop.hasMyFather && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">My Father</span>}
+                                        {shop.hasCamacho && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Camacho</span>}
+                                        {shop.hasAJ && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">AJ Fernandez</span>}
+                                        {shop.hasSanCristobol && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">San Cristobol</span>}
+                                        {shop.hasAtabey && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Atabey</span>}
+                                        {shop.hasLordByron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lord Byron</span>}
+                                        {shop.hasGreyCliff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">GreyCliff</span>}
+                                        {shop.hasDunhill && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Dunhill</span>}
+                                        {shop.hasHouseCigar && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">House Cigars</span>}
+                                        {shop.hasMontecristo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Montecristo</span>}
+                                        {shop.hasRomeo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Romeo y Julietta</span>}
+                                        {shop.hasHuppman && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">H. Uppman</span>}
+                                        {shop.hasCAO && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">CAO</span>}
+                                        {shop.hasRP && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rocky Patel</span>}
+                                        {shop.hasCohiba && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cohiba</span>}
+                                        {shop.hasPunch && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Punch</span>}
+                                        {shop.hasAging && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aging Room</span>}
+                                        {shop.hasMacanudo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Macanudo</span>}
+                                        {shop.hasGurkha && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Gurkha</span>}
+                                        {shop.hasPipeTobacco && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
+                                        {shop.hasHooka && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hooka</span>}
+                                        
                                     </div>
                                 </Link>
                             ))}
