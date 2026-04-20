@@ -136,12 +136,12 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasPadron && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Padrons
+                                    Padron
                                 </span>
                             )}
                             {shop.hasFuente && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Fuentes
+                                    Fuente
                                 </span>
                             )}
                             {shop.hasOpusX && (
@@ -171,7 +171,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasDavidoff && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Davidoffs
+                                    Davidoff
                                 </span>
                             )}
                             {shop.hasAvo && (
@@ -186,7 +186,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasAcid && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Acid cigars
+                                    Acid
                                 </span>
                             )}
                             {shop.hasTatuaje && (
@@ -196,7 +196,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasPerdomo && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Perdomos
+                                    Perdomo
                                 </span>
                             )}
                             {shop.hasAlec && (
@@ -211,12 +211,12 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasLFD && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    LFDs
+                                    La Flor Dominicana
                                 </span>
                             )}
                             {shop.hasOliva && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Olivas
+                                    Oliva
                                 </span>
                             )}
                             {shop.hasNub && (
@@ -251,7 +251,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasAtabey && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Atabeys
+                                    Atabey
                                 </span>
                             )}
                             {shop.hasLordByron && (
@@ -301,7 +301,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             )}
                             {shop.hasCohiba && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Cohiba (not cuban)
+                                    Cohiba
                                 </span>
                             )}
                             {shop.hasPunch && (

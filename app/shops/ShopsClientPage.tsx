@@ -957,30 +957,30 @@ export default function ShopsClientPage({
                                                     {shop.hasLounge && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lounge</span>}
                                                     {shop.hasHumidor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Humidor</span>}
                                                     
-                                                    {shop.hasPadron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Padrons</span>}
-                                                    {shop.hasFuente && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Fuentes</span>}
+                                                    {shop.hasPadron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Padron</span>}
+                                                    {shop.hasFuente && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Fuente</span>}
                                                     {shop.hasOpusX && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">OpusX</span>}
                                                     {shop.hasRareOpusX && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Rare Opus X</span>}
                                                     {shop.hasAshton && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Ashton</span>}
                                                     {shop.hasDiamond && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Diamond Crown</span>}
                                                     {shop.hasAroma && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aroma de Cuba</span>}
-                                                    {shop.hasDavidoff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Davidoffs</span>}
+                                                    {shop.hasDavidoff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Davidoff</span>}
                                                     {shop.hasAvo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Avos</span>}
                                                     {shop.hasLiga && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Liga Privada</span>}
                                                     {shop.hasAcid && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Acids/Drew Estate</span>}
                                                     {shop.hasTatuaje && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Tatuaje</span>}
-                                                    {shop.hasPerdomo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Perdomos</span>}
+                                                    {shop.hasPerdomo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Perdomo</span>}
                                                     {shop.hasAlec && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Alec Bradley</span>}
                                                     {shop.hasHoya && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hoya de Monterrey</span>}
-                                                    {shop.hasLFD && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">LFDs</span>}
-                                                    {shop.hasOliva && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Olivas</span>}
+                                                    {shop.hasLFD && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">La Flor Dominicana</span>}
+                                                    {shop.hasOliva && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Oliva</span>}
                                                     {shop.hasNub && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Nub</span>}
                                                     {shop.hasCain && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Cain</span>}
                                                     {shop.hasMyFather && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">My Father</span>}
                                                     {shop.hasCamacho && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Camacho</span>}
                                                     {shop.hasAJ && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">AJ Fernandez</span>}
                                                     {shop.hasSanCristobol && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">San Cristobol</span>}
-                                                    {shop.hasAtabey && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Atabeys</span>}
+                                                    {shop.hasAtabey && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Atabey</span>}
                                                     {shop.hasLordByron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lord Byron</span>}
                                                     {shop.hasGreyCliff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">GreyCliff</span>}
                                                     {shop.hasDunhill && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Dunhill</span>}
@@ -994,7 +994,7 @@ export default function ShopsClientPage({
                                                     {shop.hasPunch && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Punch</span>}
                                                     {shop.hasAging && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aging Room</span>}
                                                     {shop.hasMacanudo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Macanudo</span>}
-                                                    {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkhas</span>}
+                                                    {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkha</span>}
 
                                                     
                                                     {shop.hasMemberLocker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}
