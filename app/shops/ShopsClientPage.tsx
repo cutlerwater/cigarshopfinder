@@ -73,7 +73,7 @@ type Shop = {
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
     
-    hasMemberLockers?: boolean;
+    hasMemberLocker?: boolean;
     sellsFood?: boolean;
     hasPipeTobacco?: boolean;
     hasMemberAccess?: boolean;
@@ -85,7 +85,7 @@ type Shop = {
     hasCoffeeMaker?: boolean;
     hasIceMaker?: boolean;
     hasBigTV?: boolean;
-    sellsAccessories: boolean;
+    sellsAccessory: boolean;
     distance?: number | null;
     rating?: number | null;
     reviewCount?: number | null;
@@ -203,7 +203,7 @@ export default function ShopsClientPage({
     const [selectedBrand, setSelectedBrand] = useState("ALL");
     const [selectedFeature, setSelectedFeature] = useState("ALL");
     const [onlyBringLiquor, setOnlyBringLiquor] = useState(false);
-    const [onlyAccessories, setOnlyAccessories] = useState(false);
+    const [onlyAccessory, setOnlyAccessory] = useState(false);
     const [selectedState, setSelectedState] = useState("ALL");
     const [sortBy, setSortBy] = useState("featured");
     const [userCoords, setUserCoords] = useState<{
@@ -326,7 +326,7 @@ export default function ShopsClientPage({
                 (selectedBrand === "HOOKA" && shop.hasHooka);
             const matchesFeature =
                 selectedFeature === "ALL" ||
-                (selectedFeature === "MEMBER_LOCKERS" && shop.hasMemberLockers) ||    
+                (selectedFeature === "MEMBER_LOCKER" && shop.hasMemberLocker) ||    
                 (selectedFeature === "MEMBER_ACCESS" && shop.hasMemberAccess) ||
                 (selectedFeature === "SELLS_FOOD" && shop.sellsFood) ||
                 (selectedFeature === "LIQUOR_LICENSE" && shop.hasLiquorLicense) ||
@@ -337,8 +337,8 @@ export default function ShopsClientPage({
                 (selectedFeature === "BIG_TVS" && shop.hasBigTV); 
            const matchesBringLiquor =
                 !onlyBringLiquor || shop.canBringInLiquor;
-            const matchesAccessories =
-                !onlyAccessories || shop.sellsAccessories;
+            const matchesAccessory =
+                !onlyAccessory || shop.sellsAccessory;
 
             return (
                 matchesSearch &&
@@ -348,7 +348,7 @@ export default function ShopsClientPage({
                 matchesBrand &&
                 matchesFeature &&               
                 matchesBringLiquor &&                
-                matchesAccessories
+                matchesAccessory
             );
         });
 
@@ -359,7 +359,7 @@ export default function ShopsClientPage({
             if (shop.isFeatured) score += 500;
             if (shop.hasLounge) score += 40;
             if (shop.hasHumidor) score += 20;
-            if (shop.sellsAccessories) score += 5;
+            if (shop.sellsAccessory) score += 5;
 
             score += (shop.rating ?? 0) * 25;
             score += Math.min(shop.reviewCount ?? 0, 100);
@@ -411,7 +411,7 @@ export default function ShopsClientPage({
         userCoords,
         onlyLounge,
         onlyHumidor,
-        onlyAccessories,
+        onlyAccessory,
     ]);
 
     const featuredShops = useMemo(() => {
@@ -434,7 +434,7 @@ export default function ShopsClientPage({
         setSearch("");
         setOnlyLounge(false);
         setOnlyHumidor(false);
-        setOnlyAccessories(false);
+        setOnlyAccessory(false);
         setSelectedState("ALL");
         setSortBy("featured");
         router.push("/shops");
@@ -443,7 +443,7 @@ export default function ShopsClientPage({
     const filterButtons = [
         { label: "Lounge", active: onlyLounge, onClick: () => setOnlyLounge((prev) => !prev) },
         { label: "Humidor", active: onlyHumidor, onClick: () => setOnlyHumidor((prev) => !prev) },        
-        { label: "Accessories", active: onlyAccessories, onClick: () => setOnlyAccessories((prev) => !prev) },
+        { label: "Accessories", active: onlyAccessory, onClick: () => setOnlyAccessory((prev) => !prev) },
     ];
 
  
@@ -625,8 +625,8 @@ export default function ShopsClientPage({
                                     <option value="ALL">Filter by feature</option>
                                     <option value="LOUNGE">Lounge</option>
                                     <option value="HUMIDOR">Humidor</option>
-                                    <option value="ACCESSORIES">Accessories</option>
-                                    <option value="MEMBER_LOCKERS">Member Lockers</option>
+                                    <option value="ACCESSORY">Accessories</option>
+                                    <option value="MEMBER_LOCKER">Member Lockers</option>
                                     <option value="SELLS_FOOD">Sells Food</option>
                                     <option value="PIPE_TOBACCO">Pipe Tobacco</option>
                                     <option value="MEMBER_ACCESS">Member Access</option>
@@ -1000,7 +1000,7 @@ export default function ShopsClientPage({
                                                     {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkhas</span>}
 
                                                     
-                                                    {shop.hasMemberLockers && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}
+                                                    {shop.hasMemberLocker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}
                                                     {shop.sellsFood && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Food</span>}
                                                     {shop.hasPipeTobacco && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
                                                     {shop.hasMemberAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Access</span>}
@@ -1131,7 +1131,7 @@ export default function ShopsClientPage({
                                         {shop.hasAging && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aging Rooms</span>}
                                         {shop.hasMacanudo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Macanudos</span>}
                                         {shop.hasGurkha && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Gurkhas</span>}
-                                        {shop.hasMemberLockers && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Lockers</span>}
+                                        {shop.hasMemberLocker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Lockers</span>}
                                         {shop.sellsFood && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Food</span>}
                                         {shop.hasPipeTobacco && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
                                         {shop.hasMemberAccess && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Access</span>}
@@ -1143,7 +1143,7 @@ export default function ShopsClientPage({
                                         {shop.hasCoffeeMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Coffee Maker</span>}
                                         {shop.hasIceMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ice Maker</span>}
                                         {shop.hasBigTV && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Big TV(s)</span>}
-                                        {shop.sellsAccessories && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Accessories</span>}
+                                        {shop.sellsAccessory && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Accessories</span>}
                                     </div>
                                 </Link>
                             ))}

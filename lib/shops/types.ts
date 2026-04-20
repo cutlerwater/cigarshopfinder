@@ -25,7 +25,7 @@ export type Shop = {
 
     hasLounge?: boolean;
     hasHumidor?: boolean;
-    sellsAccessories?: boolean;
+    sellsAccessory?: boolean;
     
     hasPadron?: boolean;
     hasFuente?: boolean;
@@ -66,7 +66,7 @@ export type Shop = {
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
 
-    hasMemberLockers?: boolean;
+    hasMemberLocker?: boolean;
     sellsFood?: boolean;
     hasPipeTobacco?: boolean;
     hasMemberAccess?: boolean;

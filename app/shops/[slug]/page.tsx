@@ -3,7 +3,7 @@ import Image from "next/image";
 import GalleryLightbox from "@/components/GalleryLightBox";
 import Link from "next/link";
 import ShopMapPanel from "@/components/ShopMapPanel";
-import { prisma } from "@/lib/shops/prisma";
+import { prisma } from "@lib/prisma";
 import ReviewForm from "@/components/ReviewForm";
 import { auth } from "@/auth";
 import { notFound } from "next/navigation";
@@ -322,7 +322,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Gurkha
                                 </span>
                             )}
-                            {shop.hasMemberLockers && (
+                            {shop.hasMemberLocker && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Member Lockers
                                 </span>
@@ -382,7 +382,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                     Big TV(s)
                                 </span>
                             )}
-                            {shop.sellsAccessories && (
+                            {shop.sellsAccessory && (
                                 <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
                                     Accessories
                                 </span>

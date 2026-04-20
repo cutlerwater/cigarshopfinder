@@ -62,7 +62,7 @@ model Shop {
   hasMacanudo     Boolean @default(false)
   hasGurkha       Boolean @default(false)
 
-  hasMemberLockers  Boolean  @default(false)
+  hasMemberLocker   Boolean  @default(false)
   sellsFood         Boolean  @default(false)
   hasPipeTobacco    Boolean  @default(false)
   hasMemberAccess   Boolean  @default(false)
@@ -74,7 +74,7 @@ model Shop {
   hasCoffeeMaker    Boolean  @default(false)
   hasIceMaker       Boolean  @default(false)
   hasBigTV          Boolean  @default(false)
-  sellsAccessories  Boolean  @default(false)
+  sellsAccessory    Boolean  @default(false)
   latitude          Float?
   longitude         Float?
   isFeatured        Boolean  @default(false)

@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/shops/prisma";
+import { prisma } from "@/lib/prisma";
 import { auth } from "@/auth";
 
 type RouteContext = {
