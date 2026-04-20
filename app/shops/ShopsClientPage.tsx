@@ -59,7 +59,7 @@ type Shop = {
     hasSanCristobol?: boolean;
     hasAtabey?: boolean;
     hasLordByron?: boolean;
-    hasGreycliff?: boolean;
+    hasGreyCliff?: boolean;
     hasDunhill?: boolean;
     hasHouseCigar?: boolean;
     hasMontecristo?: boolean;
@@ -985,7 +985,7 @@ export default function ShopsClientPage({
                                                     {shop.hasSanCristobol && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">San Cristobol</span>}
                                                     {shop.hasAtabey && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Atabeys</span>}
                                                     {shop.hasLordByron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lord Byron</span>}
-                                                    {shop.hasGreycliff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Greycliff</span>}
+                                                    {shop.hasGreyCliff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">GreyCliff</span>}
                                                     {shop.hasDunhill && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Dunhill</span>}
                                                     {shop.hasHouseCigar && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">House Cigars</span>}
                                                     {shop.hasMontecristo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Montecristo</span>}
@@ -1118,7 +1118,7 @@ export default function ShopsClientPage({
                                         {shop.hasSanCristobol && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">San Cristobols</span>}
                                         {shop.hasAtabey && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Atabeys</span>}
                                         {shop.hasLordByron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lord Byrons</span>}
-                                        {shop.hasGreycliff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">GreyClifs</span>}
+                                        {shop.hasGreyCliff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">GreyCliffs</span>}
                                         {shop.hasDunhill && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Dunhills</span>}
                                         {shop.hasHouseCigar && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">House Cigars</span>}
                                         {shop.hasMontecristo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Montecristo</span>}
