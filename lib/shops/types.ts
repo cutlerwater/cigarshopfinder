@@ -65,7 +65,6 @@ export type Shop = {
     hasAging?: boolean;
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
-
     hasMemberLocker?: boolean;
     sellsFood?: boolean;
     hasPipeTobacco?: boolean;

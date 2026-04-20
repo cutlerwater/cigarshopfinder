@@ -46,23 +46,24 @@ export default async function ShopDetailPage({ params }: Props) {
     if (!shop) {
         notFound();
     }
-    const mediaItems = [
+    
+    type MediaItem =
+        | { type: "image"; src: string; alt: string }
+        | { type: "video"; src: string; poster?: string };
+
+    const mediaItems: MediaItem[] = [
         ...(shop.image
             ? [{ type: "image" as const, src: shop.image, alt: shop.name }]
             : []),
-        ...(shopMedia[shop.slug] ?? []),
+        ...((shopMedia[shop.slug] ?? []) as MediaItem[]),
     ].filter((item, index, arr) => {
-        return arr.findIndex(
-            (x) => x.type === item.type && x.src === item.src
-        ) === index;
+        return (
+            arr.findIndex((x) => x.type === item.type && x.src === item.src) === index
+        );
     });
 
-    // 👇 THIS feeds your existing GalleryLightbox
     const galleryImages = mediaItems
-        .filter(
-            (item): item is Extract<typeof item, { type: "image" }> =>
-                item.type === "image"
-        )
+        .filter((item): item is Extract<MediaItem, { type: "image" }> => item.type === "image")
         .map((item) => item.src);
 
     return (

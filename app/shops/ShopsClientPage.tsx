@@ -200,10 +200,9 @@ export default function ShopsClientPage({
     const [search, setSearch] = useState(initialQuery);
     const [onlyLounge, setOnlyLounge] = useState(false);
     const [onlyHumidor, setOnlyHumidor] = useState(false);
+    const [onlyAccessory, setOnlyAccessory] = useState(false);
     const [selectedBrand, setSelectedBrand] = useState("ALL");
     const [selectedFeature, setSelectedFeature] = useState("ALL");
-    const [onlyBringLiquor, setOnlyBringLiquor] = useState(false);
-    const [onlyAccessory, setOnlyAccessory] = useState(false);
     const [selectedState, setSelectedState] = useState("ALL");
     const [sortBy, setSortBy] = useState("featured");
     const [userCoords, setUserCoords] = useState<{
@@ -281,6 +280,7 @@ export default function ShopsClientPage({
 
             const matchesLounge = !onlyLounge || shop.hasLounge;
             const matchesHumidor = !onlyHumidor || shop.hasHumidor;
+            const matchesAccessory = !onlyAccessory || shop.sellsAccessory;
             const matchesBrand =
                 selectedBrand === "ALL" ||
                 
@@ -330,15 +330,13 @@ export default function ShopsClientPage({
                 (selectedFeature === "MEMBER_ACCESS" && shop.hasMemberAccess) ||
                 (selectedFeature === "SELLS_FOOD" && shop.sellsFood) ||
                 (selectedFeature === "LIQUOR_LICENSE" && shop.hasLiquorLicense) ||
+                (selectedFeature === "BRING_LIQUOR" && shop.canBringInLiquor) ||
                 (selectedFeature === "INTERNET_ACCESS" && shop.hasInternetAccess) ||
                 (selectedFeature === "EVENTS" && shop.hasEvents) ||
                 (selectedFeature === "COFFEE_MAKER" && shop.hasCoffeeMaker) ||
                 (selectedFeature === "ICE_MAKER" && shop.hasIceMaker) ||
                 (selectedFeature === "BIG_TVS" && shop.hasBigTV); 
-           const matchesBringLiquor =
-                !onlyBringLiquor || shop.canBringInLiquor;
-            const matchesAccessory =
-                !onlyAccessory || shop.sellsAccessory;
+            
 
             return (
                 matchesSearch &&
@@ -346,8 +344,7 @@ export default function ShopsClientPage({
                 matchesLounge &&
                 matchesHumidor &&
                 matchesBrand &&
-                matchesFeature &&               
-                matchesBringLiquor &&                
+                matchesFeature &&                   
                 matchesAccessory
             );
         });
@@ -561,7 +558,7 @@ export default function ShopsClientPage({
                                     <option value="HOYA">Hoya de Monterrey</option>
                                     <option value="LFD">LFD</option>
                                     <option value="OLIVA">Oliva</option>
-                                    <option value="NUB">Num</option>
+                                    <option value="NUB">Nub</option>
                                     <option value="CAIN">Cain</option>
                                     <option value="MYFATHER">My Father</option>
                                     <option value="CAMACHO">Camacho</option>

@@ -30,33 +30,28 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
         );
     }
 
-    const current = media[currentIndex];
+    const currentItem = media[currentIndex];
 
     return (
-        <div className="relative h-[420px] w-full md:h-[520px]">
-            {current.type === "image" ? (
+        <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[520px]">
+            {currentItem?.type === "image" ? (
                 <Image
-                    key={current.src}
-                    src={current.src}
-                    alt={current.alt ?? shopName}
+                    key={currentItem.src}
+                    src={currentItem.src}
+                    alt={currentItem.alt}
                     fill
-                    priority
+                    sizes="(max-width: 768px) 100vw, 60vw"
                     className="object-cover"
-                    sizes="100vw"
                 />
-            ) : (
+            ) : currentItem?.type === "video" ? (
                 <video
-                    key={current.src}
+                    key={currentItem.src}
+                    src={currentItem.src}
+                    poster={currentItem.poster}
+                    controls
                     className="h-full w-full object-cover"
-                    src={current.src}
-                    poster={current.poster}
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    controls={false}
                 />
-            )}
+            ) : null}
 
             <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-black/60 to-black/20" />
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.16),transparent_28%)]" />
@@ -68,7 +63,9 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
                             key={`${item.type}-${item.src}`}
                             type="button"
                             onClick={() => setCurrentIndex(index)}
-                            className={`h-2.5 w-2.5 rounded-full transition ${index === currentIndex ? "bg-amber-300" : "bg-white/40 hover:bg-white/70"
+                            className={`h-2.5 w-2.5 rounded-full transition ${index === currentIndex
+                                    ? "bg-amber-300"
+                                    : "bg-white/40 hover:bg-white/70"
                                 }`}
                             aria-label={`Go to media item ${index + 1}`}
                         />
