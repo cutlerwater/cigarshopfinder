@@ -87,7 +87,9 @@ type Shop = {
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
     hasPartagas?: boolean;
-    hasLaAurora?: boolean; 
+    hasLaAurora?: boolean;
+    hasAganorsa?: boolean;
+    hasPlasencia?: boolean; 
     hasPipeTobacco?: boolean;
     hasHooka?: boolean;    
     distance?: number | null;
@@ -328,6 +330,8 @@ export default function ShopsClientPage({
                 (selectedBrand === "GURKHA" && shop.hasGurkha) ||
                 (selectedBrand === "PARTAGAS" && shop.hasPartagas) ||
                 (selectedBrand === "LAAURORA" && shop.hasLaAurora) ||
+                (selectedBrand === "PLASENCIA" && shop.hasPlasencia) ||
+                (selectedBrand === "AGANORSA" && shop.hasAganorsa) ||
                 (selectedBrand === "PIPE_TOBACCO" && shop.hasPipeTobacco) ||
                 (selectedBrand === "HOOKA" && shop.hasHooka);
             const matchesFeature =
@@ -596,6 +600,8 @@ export default function ShopsClientPage({
                                     <option value="GURKHA">Gurkha</option>
                                     <option value="PARTAGAS">Partagas</option>
                                     <option value="LAAURORA">La Aurora</option>
+                                    <option value="PLASENCIA">Plasencia</option>
+                                    <option value="AGANORSA">Aganorsa</option>
                                     
                                     
                                 </select>
@@ -1028,6 +1034,8 @@ export default function ShopsClientPage({
                                                     {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkha</span>}
                                                     {shop.hasPartagas && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Partagas</span>}
                                                     {shop.hasLaAurora && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">La Aurora</span>}
+                                                    {shop.hasPlasencia && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Plasencia</span>}
+                                                    {shop.hasAganorsa && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aganorsa</span>}
                                                     {shop.hasPipeTobacco && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
                                                     {shop.hasHooka && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hooka</span>}
                                                     
@@ -1166,6 +1174,8 @@ export default function ShopsClientPage({
                                         {shop.hasGurkha && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Gurkha</span>}
                                         {shop.hasPartagas && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Partagas</span>}
                                         {shop.hasLaAurora && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Aurora</span>}
+                                        {shop.hasPlasencia && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Plasencia</span>}
+                                        {shop.hasAganorsa && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aganorsa</span>}
                                         {shop.hasPipeTobacco && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
                                         {shop.hasHooka && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hooka</span>}
                                         

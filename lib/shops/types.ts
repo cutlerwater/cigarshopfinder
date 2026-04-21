@@ -76,7 +76,9 @@ export type Shop = {
     hasMacanudo?: boolean;
     hasGurkha?: boolean;
     hasPartagas?: boolean;
-    hasLaAurora?: boolean;   
+    hasLaAurora?: boolean;
+    hasAganorsa?: boolean;
+    hasPlasencia?: boolean;
     hasPipeTobacco?: boolean;   
     hasHooka?: boolean;   
     gallery?: string[];
