@@ -127,8 +127,8 @@ export default async function ShopDetailPage({ params }: Props) {
         shop.hasGurkha ? "Gurkha" : null,
         shop.hasPartagas ? "Partagas" : null,
         shop.hasLaAurora ? "La Aurora" : null,
-        shop.hasPlasencia ? "Plasencia" : null
-        shop.hasAganorsa ? "Aganorsa" : null
+        shop.hasPlasencia ? "Plasencia" : null,
+        shop.hasAganorsa ? "Aganorsa" : null,
         shop.hasPipeTobacco ? "Pipe Tobacco" : null, 
         shop.hasHooka ? "Hooka" : null,
         
