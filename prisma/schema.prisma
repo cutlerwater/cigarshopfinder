@@ -61,6 +61,8 @@ model Shop {
   hasAging        Boolean @default(false)
   hasMacanudo     Boolean @default(false)
   hasGurkha       Boolean @default(false)
+  hasPartagas       Boolean @default(false)
+  hasLaAurora       Boolean @default(false)
 
   hasMemberLocker   Boolean  @default(false)
   sellsFood         Boolean  @default(false)

@@ -71,6 +71,8 @@ async function main() {
                 hasAging: shop.hasAging ?? false,
                 hasMacanudo: shop.hasMacanudo ?? false,
                 hasGurkha: shop.hasGurkha ?? false,
+                hasPartagas: shop.hasPartagas ?? false,
+                hasLaAurora: shop.hasLaAurora ?? false,
                 hasPipeTobacco: shop.hasPipeTobacco ?? false,
                 hasHooka: shop.hasHooka ?? false,                
                 latitude: "latitude" in shop ? shop.latitude ?? null : null,
