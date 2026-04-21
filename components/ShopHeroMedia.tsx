@@ -7,11 +7,14 @@ import type { ShopMediaItem } from "@/lib/shops/shopMedia";
 type Props = {
     shopName: string;
     items: ShopMediaItem[];
+    onOverlayChange?: (visible: boolean) => void;
 };
 
 export default function ShopHeroMedia({ shopName, items }: Props) {
     const media = useMemo(() => items.filter(Boolean), [items]);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [showOverlay, setShowOverlay] = useState(true);
+    const [dimOverlay, setDimOverlay] = useState(false);
 
     useEffect(() => {
         if (media.length <= 1) return;
@@ -30,10 +33,20 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
         );
     }
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setDimOverlay(true);
+        }, 4000);
+
+        return () => clearTimeout(timer);
+    }, [currentIndex]);
+
     const currentItem = media[currentIndex];
 
     return (
-        <div className="relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[520px]">
+        <div
+            className={`relative h-[420px] w-full overflow-hidden rounded-3xl md:h-[520px] transition-opacity duration-700 ${dimOverlay ? "opacity-85" : "opacity-100"
+                }`}>
             {currentItem?.type === "image" ? (
                 <Image
                     key={currentItem.src}
@@ -69,7 +82,7 @@ export default function ShopHeroMedia({ shopName, items }: Props) {
                             type="button"
                             onClick={() => setCurrentIndex(index)}
                             className={`h-2.5 w-2.5 rounded-full transition ${index === currentIndex
-                                    ? "bg-amber-300"
+                                    ? "bg-blue-400"
                                     : "bg-white/40 hover:bg-white/70"
                                 }`}
                             aria-label={`Go to media item ${index + 1}`}

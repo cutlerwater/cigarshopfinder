@@ -137,27 +137,27 @@ export default async function ShopDetailPage({ params }: Props) {
     return (
         <main className="min-h-screen text-white">
             {/* hero */}
-            <section className="relative overflow-hidden border-b border-white/10">
+            <section className="group relative overflow-hidden border-b border-white/10">
                 <ShopHeroMedia shopName={shop.name} items={mediaItems} />
                 
 
-                <div className="absolute inset-x-0 bottom-0 z-10">
+                <div className="absolute inset-x-0 bottom-0 z-10 transition-opacity duration-700 opacity-100 group-hover:opacity-100">
                     <div className="mx-auto max-w-6xl px-6 pb-8 md:pb-12">
                         <div className="mb-4 flex flex-wrap gap-2">
                             {shop.isSponsored && (
-                                <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
+                                <span className="rounded-full border border-blue-400-300/40 bg-blue-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
                                     Sponsored
                                 </span>
                             )}
 
                             {shop.isFeatured && !shop.isSponsored && (
-                                <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-md">
+                                <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black backdrop-blur-md">
                                     Featured
                                 </span>
                             )}
 
                             {shop.reviews.length > 0 && (
-                                <span className="rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-white backdrop-blur-md">
+                                <span className="rounded-full border border-blue-400-300/40 bg-blue-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
                                     ★{" "}
                                     {(
                                         shop.reviews.reduce((sum, r) => sum + r.rating, 0) /
@@ -169,7 +169,7 @@ export default async function ShopDetailPage({ params }: Props) {
                         </div>
                         <div className="fade-up">
                             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
-                                Cigar Shop
+                                Cigar 
                             </p>
                         </div>
                         <div className="fade-up-delay-1">
@@ -194,7 +194,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             {heroHighlights.map((label) => (
                                 <span
                                     key={label}
-                                    className="rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs text-white backdrop-blur-md"
+                                    className="rounded-full border bg-blue-300/40 border-white/20 px-3 py-1 text-xs text-white backdrop-blur-md"
                                 >
                                     {label}
                                 </span>
@@ -203,7 +203,7 @@ export default async function ShopDetailPage({ params }: Props) {
                     </div>
                 </div>
             </section>
-            <section className="border-b border-white/10 bg-neutral-950/70">
+            <section className="border-b border-white/10 bg-neutral-950/70 mt-6">
                 <div className="mx-auto max-w-6xl px-6 py-8">
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
                         Features & Brands
@@ -216,7 +216,7 @@ export default async function ShopDetailPage({ params }: Props) {
                         {allFeatures.map((label) => (
                             <span
                                 key={label}
-                                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white"
+                                className="rounded-full border hover:text-white border-white/10 bg-white/5 px-3 py-1 text-xs text-white/90 transition hover:bg-white/10 hover:border-white/20"
                             >
                                 {label}
                             </span>
