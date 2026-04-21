@@ -8,6 +8,7 @@ import BrandMarquee from "@/components/BrandMarquee";
 import CigarMarquee from "@/components/CigarMarquee";
 import CigarComparePromo from "@/components/CigarComparePromo";
 import CivicsMapPromo from "@/components/CivicsMapPromo";
+import CigarOfTheDayPromo from "@/components/CigarOfTheDayPromo";
 
 type Props = {
     initialQuery: string;
@@ -450,13 +451,15 @@ export default function ShopsClientPage({
     return (
         <main className="min-h-screen text-white">
             <div className="relative mx-auto max-w-6xl px-6">
-                <div className="hidden xl:block absolute top-24 right-full -translate-x-6">
+                <div className="hidden xl:block absolute top-24 right-full -translate-x-6 space-y-8">
                     <CigarComparePromo />
+                    <CigarOfTheDayPromo />
                 </div>
-
+                
                 <div className="hidden xl:block absolute top-24 left-full translate-x-6">
                     <CivicsMapPromo />
                 </div>
+
 
                 <div className="w-full">
                     <BrandMarquee />
