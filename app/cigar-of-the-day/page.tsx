@@ -24,14 +24,14 @@ export default function CigarOfTheDayPage() {
                         fill
                         priority
                         sizes="100vw"
-                        className="object-cover scale-85"
+                        className="object-contain"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-neutral-950 via-black/65 to-black/20" />
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(251,191,36,0.14),transparent_30%)]" />
                 </div>
 
                 <div className="relative mx-auto flex min-h-[520px] max-w-6xl items-end px-6 pb-12 pt-24">
-                    <div className="max-w-3xl">
+                    <div className="max-w-lg">
                         <div className="mb-4 flex flex-wrap gap-2">
                             <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
                                 Cigar of the Day

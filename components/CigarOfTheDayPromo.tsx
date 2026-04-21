@@ -21,7 +21,7 @@ export default function CigarOfTheDayPromo() {
                     alt={cigar.name}
                     fill
                     sizes="100vw"
-                    className="object-cover opacity-70 group-hover:scale-105 transition duration-700"
+                    className="object-cover opacity-85 group-hover:scale-105 transition duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
             </div>
@@ -32,7 +32,7 @@ export default function CigarOfTheDayPromo() {
                     Cigar of the Day
                 </p>
 
-                <h3 className="mt-2 text-xl font-semibold text-white group-hover:text-amber-300 transition">
+                <h3 className="mt-2 text-lg font-semibold text-white group-hover:text-amber-300 transition">
                     {cigar.name}
                 </h3>
 

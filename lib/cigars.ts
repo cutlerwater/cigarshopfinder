@@ -44,9 +44,11 @@ export const cigars: CigarDetails[] = [
         slug: "padron-1964-anniversary-toro-natural",
         name: "1964 Anniversary Series Toro Natural",
         brand: "Padrón",
-        image: "/cigars/1964ToroNat.jpg",
+        image: "/cigars/1964_T2.jpg",
         gallery: [
-            "/cigars/1964ToroNat.jpg",
+            "/cigars/1964_T2.jpg",
+            "/cigars/1964_T3.jpg",
+            "/cigars/1964_T4.jpg",
         ],
         description:
             "A rich, box-pressed Nicaraguan cigar with excellent construction, dense smoke output, and a refined profile of cocoa, cedar, earth, and roasted coffee. Smooth enough for a special occasion, but flavorful enough to remember.",
