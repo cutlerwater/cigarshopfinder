@@ -108,7 +108,7 @@ export const marylandShops: Shop[] = [
             sat: "10am - 11 PM",
             sun: "11am - 7 PM"
         },
-        hasLounge: false,
+        hasLounge: true,
         hasHumidor: true,
         hasPadron: true,
         hasFuente: true,

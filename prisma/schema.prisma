@@ -64,10 +64,12 @@ model Shop {
 
   hasMemberLocker   Boolean  @default(false)
   sellsFood         Boolean  @default(false)
+  sellsDrink        Boolean  @default(false)
   hasPipeTobacco    Boolean  @default(false)
   hasMemberAccess   Boolean  @default(false)
   hasHooka          Boolean  @default(false)
   hasEvents         Boolean  @default(false)
+  hasLiveMusic      Boolean  @default(false)
   hasLiquorLicense  Boolean  @default(false)
   canBringInLiquor  Boolean  @default(false)
   hasInternetAccess Boolean  @default(false)

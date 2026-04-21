@@ -63,6 +63,73 @@ export default async function ShopDetailPage({ params }: Props) {
         );
     });
 
+    const heroHighlights = [
+        
+        shop.hasLounge ? "Lounge" : null,
+        shop.hasLiquorLicense ? "Liquor License" : null,
+        shop.canBringInLiquor ? "Bring Your Own Liquor" : null,
+        shop.hasMemberAccess ? "Member Access" : null,
+        shop.hasEvents ? "Has Special Events" : null,
+        shop.hasRareOpusX ? "Rare OpusX" : null,
+    ].filter(Boolean) as string[];
+
+    const allFeatures = [
+        shop.hasHumidor ? "Humidor" : null,
+        shop.hasLounge ? "Lounge" : null,
+        shop.hasMemberLocker ? "Member Lockers" : null,
+        shop.sellsFood ? "Sells Food" : null,
+               
+        shop.hasEvents ? "Has Special Events" : null,
+        shop.hasLiquorLicense ? "Liquor License" : null,
+        shop.canBringInLiquor ? "Bring Your Own Liquor" : null,
+        shop.hasInternetAccess ? "Internet Access" : null,
+        shop.hasCoffeeMaker ? "Coffee Maker" : null,
+        shop.hasIceMaker ? "Ice Maker" : null,
+        shop.hasBigTV ? "Big TV(s)" : null,
+        shop.sellsAccessory ? "Accessories" : null,
+        shop.hasPadron ? "Padron" : null,
+        shop.hasFuente ? "Fuente" : null,
+        shop.hasOpusX ? "OpusX" : null,
+        shop.hasRareOpusX ? "Rare OpusX" : null,
+        shop.hasAshton ? "Ashton" : null,
+        shop.hasDiamond ? "Diamond Crown" : null,
+        shop.hasAroma ? "Aroma de Cuba" : null,
+        shop.hasDavidoff ? "Davidoff" : null,
+        shop.hasAvo ? "Avo" : null,
+        shop.hasLiga ? "Liga Privada" : null,
+        shop.hasAcid ? "Acid" : null,
+        shop.hasTatuaje ? "Tatuaje" : null,
+        shop.hasPerdomo ? "Perdomo" : null,
+        shop.hasAlec ? "Alec Bradley" : null,
+        shop.hasHoya ? "Hoya De Monterrey" : null,
+        shop.hasLFD ? "LFD" : null,
+        shop.hasOliva ? "Oliva" : null,
+        shop.hasNub ? "Nub" : null,
+        shop.hasCain ? "Cain" : null,
+        shop.hasMyFather ? "My Father" : null,
+        shop.hasCamacho ? "Camacho" : null,
+        shop.hasAJ ? "AJ Fernandez" : null,
+        shop.hasSanCristobal ? "San Cristobal" : null,
+        shop.hasAtabey ? "Atabey" : null,
+        shop.hasLordByron ? "Lord Byron" : null,
+        shop.hasGreyCliff ? "GreyCliff" : null,
+        shop.hasDunhill ? "Dunhill" : null,
+        shop.hasHouseCigar ? "House Cigars" : null,
+        shop.hasMontecristo ? "Montecristo" : null,
+        shop.hasRomeo ? "Romeo Y Julieta" : null,
+        shop.hasHuppman ? "H. Upmann" : null,
+        shop.hasCAO ? "CAO" : null,
+        shop.hasRP ? "Rocky Patel" : null,
+        shop.hasCohiba ? "Cohiba" : null,
+        shop.hasPunch ? "Punch" : null,
+        shop.hasAging ? "Aging Room" : null,
+        shop.hasMacanudo ? "Macanudo" : null,
+        shop.hasGurkha ? "Gurkha" : null,
+        shop.hasPipeTobacco ? "Pipe Tobacco" : null, 
+        shop.hasHooka ? "Hooka" : null,
+        
+    ].filter(Boolean) as string[];
+
     const galleryImages = mediaItems
         .filter((item): item is Extract<MediaItem, { type: "image" }> => item.type === "image")
         .map((item) => item.src);
@@ -124,291 +191,39 @@ export default async function ShopDetailPage({ params }: Props) {
                         </div>
                         
                         <div className="mt-6 flex flex-wrap gap-2">
-                            {shop.hasLounge && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Lounge
+                            {heroHighlights.map((label) => (
+                                <span
+                                    key={label}
+                                    className="rounded-full border border-white/10 bg-black/35 px-3 py-1 text-xs text-white backdrop-blur-md"
+                                >
+                                    {label}
                                 </span>
-                            )}
-                            {shop.hasHumidor && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Humidor
-                                </span>
-                            )}
-                            {shop.hasMemberAccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Access
-                                </span>
-                            )}
-                            {shop.hasMemberLocker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Member Lockers
-                                </span>
-                            )}
-                            {shop.hasLiveMusic && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Has Live Music
-                                </span>
-                            )}
-                            {shop.hasEvents && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Has Special Events
-                                </span>
-                            )}
-                            {shop.canBringInLiquor && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Can Bring In Liquor/BYOB
-                                </span>
-                            )}
-                            {shop.hasLiquorLicense && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Liquor License
-                                </span>
-                            )}
-                            {shop.canBringInLiquor && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Bring Your Own Liquor
-                                </span>
-                            )}
-                            {shop.hasInternetAccess && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Internet Access
-                                </span>
-                            )}
-                            {shop.hasCoffeeMaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Coffee Maker
-                                </span>
-                            )}
-                            {shop.hasIceMaker && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Ice Maker
-                                </span>
-                            )}
-                            {shop.hasBigTV && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Big TV(s)
-                                </span>
-                            )}
-                            {shop.sellsFood && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Sells Food
-                                </span>
-                            )}
-                            {shop.sellsDrink && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Sells Drinks (Sodas, Water, etc...)
-                                </span>
-                            )}
-                            {shop.hasPadron && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Padron
-                                </span>
-                            )}
-                            {shop.hasFuente && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Fuente
-                                </span>
-                            )}
-                            {shop.hasOpusX && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    OpusX
-                                </span>
-                            )}
-                            {shop.hasRareOpusX && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Rare OpusX
-                                </span>
-                            )}
-                            {shop.hasAshton && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Ashton
-                                </span>
-                            )}
-                            {shop.hasDiamond && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Diamond Crown
-                                </span>
-                            )}
-                            {shop.hasAroma && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Aroma de Cuba
-                                </span>
-                            )}
-                            {shop.hasDavidoff && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Davidoff
-                                </span>
-                            )}
-                            {shop.hasAvo && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Avo
-                                </span>
-                            )}
-                            {shop.hasLiga && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Liga Privada
-                                </span>
-                            )}
-                            {shop.hasAcid && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Acid
-                                </span>
-                            )}
-                            {shop.hasTatuaje && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Tatuaje
-                                </span>
-                            )}
-                            {shop.hasPerdomo && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Perdomo
-                                </span>
-                            )}
-                            {shop.hasAlec && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Alec Bradley
-                                </span>
-                            )}
-                            {shop.hasHoya && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Hoya De Monterrey
-                                </span>
-                            )}
-                            {shop.hasLFD && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    La Flor Dominicana
-                                </span>
-                            )}
-                            {shop.hasOliva && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Oliva
-                                </span>
-                            )}
-                            {shop.hasNub && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Nub
-                                </span>
-                            )}
-                            {shop.hasCain && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Cain
-                                </span>
-                            )}
-                            {shop.hasMyFather && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    My Father
-                                </span>
-                            )}
-                            {shop.hasCamacho && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Camacho
-                                </span>
-                            )}
-                            {shop.hasAJ && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    AJ Fernandez
-                                </span>
-                            )}
-                            {shop.hasSanCristobal && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    San Cristobal
-                                </span>
-                            )}
-                            {shop.hasAtabey && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Atabey
-                                </span>
-                            )}
-                            {shop.hasLordByron && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Lord Byron
-                                </span>
-                            )}
-                            {shop.hasGreyCliff && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    GreyCliff
-                                </span>
-                            )}
-                            {shop.hasDunhill && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Dunhill
-                                </span>
-                            )}
-                            {shop.hasHouseCigar && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    House Cigars
-                                </span>
-                            )}
-                            {shop.hasMontecristo && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Montecristo
-                                </span>
-                            )}
-                            {shop.hasRomeo && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Romeo Y Julietta
-                                </span>
-                            )}
-                            {shop.hasHuppman && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    H. Uppman
-                                </span>
-                            )} 
-                            {shop.hasCAO && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    CAO
-                                </span>
-                            )}
-                            {shop.hasRP && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Rocky Patel
-                                </span>
-                            )}
-                            {shop.hasCohiba && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Cohiba
-                                </span>
-                            )}
-                            {shop.hasPunch && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Punch
-                                </span>
-                            )}
-                            {shop.hasAging && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Aging Room
-                                </span>
-                            )}
-                            {shop.hasMacanudo && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Macanudo
-                                </span>
-                            )}
-                            {shop.hasGurkha && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Gurkha
-                                </span>
-                            )}
-                           {shop.hasPipeTobacco && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Pipe Tobacco
-                                </span>
-                            )}
-                            {shop.hasHooka && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Hooka
-                                </span>
-                            )}
-                            {shop.sellsAccessory && (
-                                <span className="rounded-full border border-white/10 bg-black/30 px-3 py-1 text-xs text-white">
-                                    Accessories
-                                </span>
-                            )}
+                            ))}
                         </div>
                     </div>
                 </div>
             </section>
+            <section className="border-b border-white/10 bg-neutral-950/70">
+                <div className="mx-auto max-w-6xl px-6 py-8">
+                    <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
+                        Features & Brands
+                    </p>
+                    <h2 className="mt-2 text-2xl font-semibold text-white">
+                        What you’ll find here
+                    </h2>
 
+                    <div className="mt-6 flex flex-wrap gap-2">
+                        {allFeatures.map((label) => (
+                            <span
+                                key={label}
+                                className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-white"
+                            >
+                                {label}
+                            </span>
+                        ))}
+                    </div>
+                </div>
+            </section>
             {/* gallery */}
             <section className="border-b border-white/10 bg-neutral-950/80">
                 <div className="mx-auto max-w-6xl px-6 py-6">
