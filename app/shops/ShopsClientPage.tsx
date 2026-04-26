@@ -468,11 +468,7 @@ export default function ShopsClientPage({
                     <CivicsMapPromo />
                 </div>
 
-                <div className="mt-8 space-y-6 xl:hidden">
-                    <CigarComparePromo />
-                    <CigarOfTheDayPromo />
-                    <CivicsMapPromo />
-                </div>
+                
 
                 <div className="w-full">
                     <BrandMarquee />
@@ -1185,6 +1181,11 @@ export default function ShopsClientPage({
                         </div>
                     )}
                 </section>
+                <div className="mt-8 space-y-6 xl:hidden">
+                    <CigarComparePromo />
+                    <CigarOfTheDayPromo />
+                    <CivicsMapPromo />
+                </div>
             </div>
         </main>
     );
