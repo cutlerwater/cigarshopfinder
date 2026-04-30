@@ -195,7 +195,7 @@ const STATES = [
     { name: "West Virginia", value: "WV" },
     { name: "Wisconsin", value: "WI" },
     { name: "Wyoming", value: "WY" },
-    { name: "Washington D.C.", value: "DC"}
+    { name: "Washington, D.C.", value: "DC"}
 ];
 
 export default function ShopsClientPage({
