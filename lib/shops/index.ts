@@ -60,6 +60,7 @@ export const shops = [
     ...arkansasShops,
     ...coloradoShops,
     ...californiaShops,
+    ...washingtondcShops,
     ...washingtonShops,
     ...newmexicoShops,
     ...newjerseyShops,
