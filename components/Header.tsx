@@ -6,6 +6,7 @@ import { useState, useRef, useEffect } from "react";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
+
 export default function Header() {
     const pathname = usePathname();
     const router = useRouter();
@@ -14,6 +15,7 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [query, setQuery] = useState("");
     const inputRef = useRef<HTMLInputElement | null>(null);
+    const [email, setEmail] = useState("")
 
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
@@ -128,13 +130,30 @@ export default function Header() {
                                 </button>
                             </>
                         ) : (
-                            <button
-                                onClick={() => signIn("google", { callbackUrl: "/account" })}
-                                className="rounded-xl bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-2 text-sm font-semibold text-black whitespace-nowrap"
-                            >
-                                Sign in
-                            </button>
-                        )}
+                            <div className="flex items-center gap-2">
+                                <button
+                                    onClick={() => signIn("google", { callbackUrl: "/account" })}
+                                    className="rounded-xl bg-gradient-to-b from-amber-400 to-amber-500 px-4 py-2 text-sm font-semibold text-black whitespace-nowrap"
+                                >
+                                    Continue with Google
+                                </button>
+
+                                <input
+                                    type="email"
+                                    placeholder="Email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="rounded-xl border border-white/20 bg-black/30 px-3 py-2 text-sm text-white placeholder:text-white/50"
+                                />
+
+                                <button
+                                    onClick={() => signIn("email", { email, callbackUrl: "/account" })}
+                                    className="rounded-xl bg-white/10 px-3 py-2 text-sm font-semibold text-white hover:bg-white/20 whitespace-nowrap"
+                                >
+                                    Email
+                                </button>
+                            </div>
+                        ) }
 
                         {/* SEARCH */}
                         <form
