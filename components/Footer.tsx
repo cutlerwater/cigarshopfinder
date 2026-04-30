@@ -43,10 +43,10 @@ export default function Footer() {
                                 Albums Catalog
                             </a>
                             <a
-                                href="https://civicsmap.vercel.app/"
+                                href="https://civicsmap.com/"
                                 target="_blank"
                                 className="hover:text-white"
-                            >Civics Map- Find your Congressional representation</a>
+                            >Civics Map- Find your Congressional representation and much more</a>
                             <a
                                 href="https://cutlerwater-profile.netlify.app/"
                                 target="_blank"
