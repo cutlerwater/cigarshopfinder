@@ -2582,9 +2582,9 @@ export const marylandShops: Shop[] = [
         description: "Great cigar lounge",
         latitude: 38.979253,
         longitude: -76.535463,
-        image: "/images/tinderMD/i.jpg",
+        image: "/images/tinderMD/1.jpg",
         gallery: [
-            "/images/tinderMD/i.jpg",
+            "/images/tinderMD/1.jpg",
             
         ],
         isFeatured: true,
