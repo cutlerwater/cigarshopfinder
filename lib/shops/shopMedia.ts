@@ -68,4 +68,22 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
             alt: "Federal Hill Cigars interior",
         },
     ],
+    "easton-cigar-and-smoke-shop": [
+        {
+            type: "image",
+            src: "/images/eastonMD/1.jpg",
+            alt: "Easton outside",
+        },
+        {
+            type: "image",
+            src: "/images/eastonMD/2.jpg",
+            alt: "Easton inside",
+        },
+        {
+            type: "image",
+            src: "/images/eastonMD/3.jpg",
+            alt: "Easton inside",
+        },
+        
+    ],
 };
