@@ -159,7 +159,7 @@ export const floridaShops: Shop[] = [
         hasIceMaker: false,
         hasBigTV: true,
         sellsAccessory: true,
-        description: "The \"World Famous\" Cigar Bar is Southwest Florida's Original Cigar Bar with locations at Hendry Street in Historic Downtown Fort Myers, Gulf Coast Town Center and Cape Coral. Members of the CRA, IPCPR and TAA.",
+        description: "The 'World Famous' Cigar Bar is Southwest Florida's Original Cigar Bar with locations at Hendry Street in Historic Downtown Fort Myers, Gulf Coast Town Center and Cape Coral. Members of the CRA, IPCPR and TAA.",
         latitude: 26.4876403808594,
         longitude: -81.7908096313477,
         image: "/images/worldFL/1.jpg",
