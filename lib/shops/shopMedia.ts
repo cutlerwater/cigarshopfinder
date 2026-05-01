@@ -100,6 +100,41 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         {
             type: "image",
             src: "/images/worldFL/3.jpg",
+            alt: "3rd",
+        },
+    ],
+    "burn-by-rocky-patel-naples": [
+        {
+            type: "image",
+            src: "/images/burnNaples/1.jpg",
+            alt: "Front of lounge",
+        },
+        {
+            type: "image",
+            src: "/images/burnNaples/3.jpg",
+            alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/burnNaples/2.jpg",
+            alt: "3rd image",
+        },
+
+    ],
+    "corona-cigar-company-and-diamond-crown-lounge": [
+        {
+            type: "image",
+            src: "/images/coronaFL/1.jpg",
+            alt: "1st image",
+        },
+        {
+            type: "image",
+            src: "/images/coronaFL/2.jpg",
+            alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/coronaFL/3.jpg",
             alt: "3rd image",
         },
 

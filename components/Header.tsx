@@ -15,7 +15,7 @@ export default function Header() {
     const [menuOpen, setMenuOpen] = useState(false);
     const [query, setQuery] = useState("");
     const inputRef = useRef<HTMLInputElement | null>(null);
-    const [email, setEmail] = useState("")
+    const [email, setEmail] = useState("");
 
     useEffect(() => {
         function handleKeyDown(e: KeyboardEvent) {
