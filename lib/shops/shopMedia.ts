@@ -137,6 +137,51 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
             src: "/images/coronaFL/3.jpg",
             alt: "3rd image",
         },
-
+    ],
+    "cigars-cigars-sarasota-florida": [
+        {
+            type: "image",
+            src: "/images/cigarcigarFL/1.jpg",
+            alt: "1st image",
+        },
+        {
+            type: "image",
+            src: "/images/cigarcigarFL/2.jpg",
+            alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/cigarcigarFL/3.jpg",
+            alt: "3rd image",
+        },
+    ],
+    "cigars-cigars-sarasota-clark": [
+        {
+            type: "image",
+            src: "/images/cigarcigarFL/ClarkRd.jpg",
+            alt: "1st image",
+        },
+        {
+            type: "image",
+            src: "/images/cigarcigarFL/ClarkRd2.jpg",
+            alt: "2nd image",
+        },
+    ],
+    "corona-cigar-company-sarasota": [
+        {
+            type: "image",
+            src: "/images/coronaSarasota/1.jpg",
+            alt: "1st image",
+        },
+        {
+            type: "image",
+            src: "/images/coronaSarasota/2.jpg",
+            alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/coronaSarasota/3.jpg",
+            alt: "2nd image",
+        },
     ],
 };

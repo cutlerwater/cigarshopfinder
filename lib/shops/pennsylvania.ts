@@ -87,4 +87,5 @@ export const pennsylvaniaShops: Shop[] = [
         rating: 4.1,
         reviewCount: 1123,
     },
+    
     ]
