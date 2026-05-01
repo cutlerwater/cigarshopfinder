@@ -202,7 +202,7 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         },
         {
             type: "image",
-            src: "/images/CIPA/4.png",
+            src: "/images/CIPA/logo.Png",
             alt: "4th image",
         },
     ],
