@@ -2,11 +2,11 @@ import type { Shop } from "./types";
 
 export const floridaShops: Shop[] = [
     {
-        id: "1",
+        id: "fla-1",
         slug: "bonita-smoke-shop-and-cigar-lounge",
         name: "Bonita Smoke Shop & Cigar Lounge",
         city: "Estero",
-        stateabb: "FL",
+        stateabb: "FLA",
         state: "Florida",
         zip: "33928",
         address: "23050 Via Villagio Pkwy, Estero, FL 33928",
@@ -87,11 +87,11 @@ export const floridaShops: Shop[] = [
         reviewCount: 102,
     },
     {
-        id: "fl-50",
+        id: "fla-50",
         slug: "the-world-famous-cigar-bar-fort-myers",
-        name: "The World Famous Cigar Bar - Fort Myers",
+        name: "The World Famous Cigar Bar-Fort Myers",
         city: "Fort Myers",
-        stateabb: "FL",
+        stateabb: "FLA",
         state: "Florida",
         zip: "33913",
         address: "10045 Gulf Center Dr, Fort Myers, FL 33913",
