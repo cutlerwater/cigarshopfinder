@@ -83,7 +83,7 @@ export const pennsylvaniaShops: Shop[] = [
             "/images/ashtonpa/logo.svg"
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.1,
         reviewCount: 1123,
     },
@@ -91,7 +91,7 @@ export const pennsylvaniaShops: Shop[] = [
         id: "2",
         slug: "cigars-international-superstore-hamburg",
         name: "Cigars International Superstore",
-        city: "Behtlehem",
+        city: "Hamburg",
         stateabb: "PA",
         state: "Pennsylvania",
         zip: "19526",
