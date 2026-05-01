@@ -181,7 +181,29 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         {
             type: "image",
             src: "/images/coronaSarasota/3.jpg",
+            alt: "3rd image",
+        },
+    ],
+    "cigars-international-superstore-hamburg": [
+        {
+            type: "image",
+            src: "/images/CIPA/1.jpg",
+            alt: "1st image",
+        },
+        {
+            type: "image",
+            src: "/images/CIPA/1.jpg",
             alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/CIPA/1.jpg",
+            alt: "3rd image",
+        },
+        {
+            type: "image",
+            src: "/images/CIPA/4.png",
+            alt: "34th image",
         },
     ],
 };
