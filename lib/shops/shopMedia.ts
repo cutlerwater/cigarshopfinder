@@ -86,4 +86,22 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         },
         
     ],
+    "the-world-famous-cigar-bar-fort-myers": [
+        {
+            type: "image",
+            src: "/images/worldFL/1.jpg",
+            alt: "Bar",
+        },
+        {
+            type: "image",
+            src: "/images/worldFL/2.jpg",
+            alt: "2nd image",
+        },
+        {
+            type: "image",
+            src: "/images/worldFL/3.jpg",
+            alt: "3rd image",
+        },
+
+    ],
 };
