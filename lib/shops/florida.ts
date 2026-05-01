@@ -2,7 +2,7 @@ import type { Shop } from "./types";
 
 export const floridaShops: Shop[] = [
     {
-        id: "fl1",
+        id: "3",
         slug: "bonita-smoke-shop-and-cigar-lounge",
         name: "Bonita Smoke Shop & Cigar Lounge",
         city: "Estero",
@@ -87,7 +87,7 @@ export const floridaShops: Shop[] = [
         reviewCount: 102,
     },
     {
-        id: "fl2",
+        id: "4",
         slug: "the-world-famous-cigar-bar-fort-myers",
         name: "The World Famous Cigar Bar-Fort Myers",
         city: "Fort Myers",
