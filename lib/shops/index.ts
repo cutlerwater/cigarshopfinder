@@ -7,6 +7,7 @@ import { coloradoShops } from "./colorado";
 import { connecticutShops } from "./connecticut";
 import { washingtondcShops } from "./dc";
 import { delawareShops } from "./delaware";
+import { floridaShops } from "./florida";
 import { hawaiiShops } from "./hawaii";
 import { idahoShops } from "./idaho";
 import { illinoisShops } from "./illinois";
@@ -64,7 +65,8 @@ export const shops = [
     ...washingtonShops,
     ...newmexicoShops,
     ...newjerseyShops,
-    ...delawareShops, 
+    ...delawareShops,
+    ...floridaShops, 
     ...oregonShops,
     ...idahoShops,
     ...montanaShops,
