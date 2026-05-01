@@ -154,7 +154,7 @@ const STATES = [
     { name: "Colorado", value: "CO" },
     { name: "Connecticut", value: "CT" },
     { name: "Delaware", value: "DE" },
-    { name: "Florida", value: "FL" },
+    { name: "Florida", value: "FLA" },
     { name: "Georgia", value: "GA" },
     { name: "Hawaii", value: "HI" }, 
     { name: "Idaho", value: "ID" },
