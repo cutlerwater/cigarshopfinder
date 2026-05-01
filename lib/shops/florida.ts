@@ -87,9 +87,9 @@ export const floridaShops: Shop[] = [
         reviewCount: 102,
     },
     {
-        id: "50",
+        id: "fl-50",
         slug: "the-world-famous-cigar-bar-fort-myers",
-        name: "The World Famous Cigar Bar- Fort Myers",
+        name: "The World Famous Cigar Bar - Fort Myers",
         city: "Fort Myers",
         stateabb: "FL",
         state: "Florida",
