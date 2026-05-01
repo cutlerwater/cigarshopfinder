@@ -192,18 +192,18 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         },
         {
             type: "image",
-            src: "/images/CIPA/1.jpg",
+            src: "/images/CIPA/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/CIPA/1.jpg",
+            src: "/images/CIPA/3.jpg",
             alt: "3rd image",
         },
         {
             type: "image",
             src: "/images/CIPA/4.png",
-            alt: "34th image",
+            alt: "4th image",
         },
     ],
 };
