@@ -82,7 +82,7 @@ export const alaskaShops: Shop[] = [
             "",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },

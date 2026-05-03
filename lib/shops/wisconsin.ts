@@ -83,7 +83,7 @@ export const wisconsinShops: Shop[] = [
             "/images/public/appletonWI/img2.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },

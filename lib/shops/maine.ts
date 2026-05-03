@@ -83,7 +83,7 @@ export const maineShops: Shop[] = [
             "/images/cafeME/2.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },

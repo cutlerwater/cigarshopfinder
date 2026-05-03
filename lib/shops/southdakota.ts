@@ -83,7 +83,7 @@ export const southdakotaShops: Shop[] = [
             "/images/deadwoodSD/img2.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },

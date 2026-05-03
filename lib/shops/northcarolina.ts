@@ -169,7 +169,7 @@ export const northcarolinaShops: Shop[] = [
             "/images/salemNC/img2.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.1,
         reviewCount: 1123,
     },
@@ -255,7 +255,7 @@ export const northcarolinaShops: Shop[] = [
 
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.1,
         reviewCount: 1123,
     },

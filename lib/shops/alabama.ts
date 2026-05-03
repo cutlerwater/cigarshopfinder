@@ -83,7 +83,7 @@ export const alabamaShops: Shop[] = [
             "/images/humidorAL/2.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },

@@ -81,7 +81,7 @@ export const georgiaShops: Shop[] = [
         gallery: [
             "/images/atlantaprime/InteriorShot-scaled.jpg",
         ],
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.1,
         reviewCount: 54,
     },

@@ -88,7 +88,7 @@ export const marylandShops: Shop[] = [
             
         ],
         isFeatured: true,
-        isSponsored: true,
+        isSponsored: false,
         rating: 2.5,
         reviewCount: 131,
     },
@@ -181,7 +181,7 @@ export const marylandShops: Shop[] = [
 
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 100,
     },
@@ -460,7 +460,7 @@ export const marylandShops: Shop[] = [
             "/images/BLT/bltlounge1.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 122,
     },
@@ -1202,7 +1202,7 @@ export const marylandShops: Shop[] = [
             "/images/owings/cl-owingsmills-2.jpg"
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.7,
         reviewCount: 70,
     },
@@ -1296,7 +1296,7 @@ export const marylandShops: Shop[] = [
             "/images/Daviduslittleitaly/image_13.jpg"
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 100,
     },
@@ -1390,7 +1390,7 @@ export const marylandShops: Shop[] = [
             "/images/rockville/cl-rockvillepike-7.jpg"
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 100,
     },
@@ -1484,7 +1484,7 @@ export const marylandShops: Shop[] = [
             "/images/eldersburg/cl-eldersburg-5.jpg"
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 100,
     },{
@@ -1576,7 +1576,7 @@ export const marylandShops: Shop[] = [
             "/images/tobaccoleaf/front.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.2,
         reviewCount: 102,
     },
@@ -2587,8 +2587,8 @@ export const marylandShops: Shop[] = [
             "/images/tinderMD/1.jpg",
             
         ],
-        isFeatured: true,
-        isSponsored: true,
+        isFeatured: false,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 102,
     },
@@ -2682,7 +2682,7 @@ export const marylandShops: Shop[] = [
 
         ],
         isFeatured: true,
-        isSponsored: true,
+        isSponsored: false,
         rating: 4.2,
         reviewCount: 102,
     },

@@ -83,7 +83,7 @@ export const washingtonShops: Shop[] = [
             "/images/cigardaddieswa/img1.jpg",
         ],
         isFeatured: false,
-        isSponsored: true,
+        isSponsored: false,
         rating: 3.0,
         reviewCount: 12,
     },
