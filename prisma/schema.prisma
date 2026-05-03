@@ -91,6 +91,32 @@ model Shop {
   reviews Review[]
 }
 
+model ShopSubmission {
+  id          String   @id @default(cuid())
+  name        String
+  address     String
+  city        String
+  state       String
+  stateabb    String
+  zip         String?
+  phone       String?
+  website     String?
+  description String?
+
+  hasLounge        Boolean @default(false)
+  hasHumidor       Boolean @default(false)
+  sellsAccessories Boolean @default(false)
+  canBringInLiquor Boolean @default(false)
+  hasEvents        Boolean @default(false)
+
+  contactName  String?
+  contactEmail String
+
+  status     String   @default("pending")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
 model Review {
   id         String   @id @default(cuid())
   rating     Int
@@ -140,32 +166,6 @@ model Account {
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
-}
-
-model ShopSubmission {
-  id          String   @id @default(cuid())
-  name        String
-  address     String
-  city        String
-  state       String
-  stateabb    String
-  zip         String?
-  phone       String?
-  website     String?
-  description String?
-
-  hasLounge        Boolean @default(false)
-  hasHumidor       Boolean @default(false)
-  sellsAccessories Boolean @default(false)
-  canBringInLiquor Boolean @default(false)
-  hasEvents        Boolean @default(false)
-
-  contactName  String?
-  contactEmail String
-
-  status     String   @default("pending")
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @updatedAt
 }
 
 model Session {

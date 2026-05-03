@@ -13,6 +13,7 @@ import CigarOfTheDayPromo from "@/components/CigarOfTheDayPromo";
 type Props = {
     initialQuery: string;
     initialShops: Shop[];
+    featuredShops?: any[];
 };
 
 
@@ -201,6 +202,7 @@ const STATES = [
 export default function ShopsClientPage({
     initialQuery,
     initialShops,
+    featuredShops = [],
 }: Props) {
     const router = useRouter();
 
@@ -424,12 +426,6 @@ export default function ShopsClientPage({
         onlyAccessory,
     ]);
 
-    const featuredShops = useMemo(() => {
-        return filteredShops
-            .filter((shop) => shop.isSponsored || shop.isFeatured)
-            .slice(0, 3);
-    }, [filteredShops]);
-
     const nonFeaturedShops = useMemo(() => {
         return filteredShops.filter(
             (shop) => !featuredShops.some((featuredShop) => featuredShop.id === shop.id)
@@ -478,7 +474,7 @@ export default function ShopsClientPage({
 
                 <section className="mt-8 max-w-3xl">
                     <p className="text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
-                        Cigar Shops
+                        Discover
                     </p>
 
                     <h1 className="mt-4 text-5xl font-bold tracking-tight">
@@ -490,6 +486,61 @@ export default function ShopsClientPage({
                         details, featured retailers, and premium shop highlights.
                     </p>
                 </section>
+
+                {featuredShops.length > 0 && (
+                    <section className="mt-12">
+                        <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-300">
+                            Featured Shops
+                        </p>
+
+                        <h2 className="mt-2 text-3xl font-bold text-white">
+                            Top lounge picks
+                        </h2>
+
+                        <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                            {featuredShops.map((shop) => (
+                                <div
+                                    key={shop.id}
+                                    className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-amber-300/40 hover:shadow-[0_0_60px_rgba(255,200,0,0.25)]"
+                                >
+                                    {/* Glow effect */}
+                                    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-amber-300 to-yellow-500 opacity-10 blur-2xl group-hover:opacity-20" />
+
+                                    {/* Badge */}
+                                    <span className={`mb-4 inline-block rounded-full px-3 py-1 text-xs font-bold ${shop.isSponsored
+                                            ? "bg-amber-400 text-black"
+                                            : "border border-amber-300/40 text-amber-200"
+                                        }`}>
+                                        {shop.isSponsored ? "Sponsored" : "Featured"}
+                                    </span>
+
+                                    {/* Content */}
+                                    <h3 className="text-xl font-bold text-white">
+                                        {shop.name}
+                                    </h3>
+
+                                    <p className="mt-1 text-sm text-neutral-400">
+                                        {shop.city}, {shop.stateabb}
+                                    </p>
+
+                                    {shop.rating && (
+                                        <p className="mt-2 text-sm text-amber-300">
+                                            ⭐ {shop.rating} ({shop.reviewCount})
+                                        </p>
+                                    )}
+
+                                    <p className="mt-4 line-clamp-3 text-sm leading-7 text-neutral-300">
+                                        {shop.description}
+                                    </p>
+
+                                    <p className="mt-6 text-sm font-bold text-amber-300">
+                                        View shop →
+                                    </p>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
+                )}
 
                 <section className="sticky top-4 z-30 mt-8 rounded-[28px] border border-white/10 bg-white/5 p-4 shadow-2xl shadow-black/30 backdrop-blur-xl md:p-5">
                     <div className="pointer-events-none absolute inset-0 rounded-[28px] bg-gradient-to-br from-amber-400/10 via-transparent to-white/5" />

@@ -1,21 +1,58 @@
-// app/account/page.tsx
-import { auth } from "@/auth";
-import { redirect } from "next/navigation";
+"use client";
 
-export default async function AccountPage() {
-    const session = await auth();
+import { useSession } from "next-auth/react";
+import { useState, useEffect } from "react";
 
-    if (!session?.user) {
-        redirect("/login");
-    }
+export default function AccountPage() {
+    const { data: session } = useSession();
+
+    const [name, setName] = useState("");
+    const [saving, setSaving] = useState(false);
+
+    useEffect(() => {
+        if (session?.user?.name) {
+            setName(session.user.name);
+        }
+    }, [session]);
+
+    if (!session) return <div className="text-white">Loading...</div>;
+    if (!session.user) return null;
 
     return (
-        <main className="mx-auto max-w-3xl px-6 py-12 text-white">
-            <h1 className="text-3xl font-bold">My Account</h1>
-            <div className="mt-6 rounded-2xl border border-neutral-800 bg-neutral-900 p-6">
-                <p><strong>Name:</strong> {session.user.name ?? "—"}</p>
-                <p><strong>Email:</strong> {session.user.email ?? "—"}</p>
+        <div>
+            <h1>My Account</h1>
+
+            <div className="space-y-4">
+                <div>
+                    <p className="text-sm text-neutral-400">Email</p>
+                    <p className="text-white">{session.user.email}</p>
+                </div>
+
+                <div>
+                    <p className="text-sm text-neutral-400">Name</p>
+
+                    <input
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        placeholder="Enter your name"
+                        className="mt-1 w-full rounded-xl border border-white/20 bg-black/30 px-4 py-2 text-white"
+                    />
+                </div>
+
+                <button
+                    onClick={async () => {
+                        setSaving(true);
+                        await fetch("/api/user/update", {
+                            method: "PATCH",
+                            body: JSON.stringify({ name }),
+                        });
+                        setSaving(false);
+                    }}
+                    className="rounded-xl bg-amber-400 px-4 py-2 font-semibold text-black"
+                >
+                    {saving ? "Saving..." : "Save"}
+                </button>
             </div>
-        </main>
+        </div>
     );
 }
