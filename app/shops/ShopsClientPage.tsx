@@ -499,6 +499,7 @@ export default function ShopsClientPage({
 
                         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
                             {featuredShops.map((shop) => (
+                                <Link key={shop.id} href={`/shops/${shop.slug}`}>
                                 <div
                                     key={shop.id}
                                     className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-amber-300/40 hover:shadow-[0_0_60px_rgba(255,200,0,0.25)]"
@@ -533,12 +534,19 @@ export default function ShopsClientPage({
                                         {shop.description}
                                     </p>
 
-                                    <p className="mt-6 text-sm font-bold text-amber-300">
-                                        View shop →
+                                    <p className="mt-6 text-sm font-bold text-amber-300 transition">
+                                            <span className="transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-90">
+                                            View shop
+                                            <span className="transition-transform group-hover:translate-x-1">
+                                                →
+                                            </span>
+                                        </span>
                                     </p>
                                 </div>
+                                </Link>
                             ))}
                         </div>
+                        
                     </section>
                 )}
 
