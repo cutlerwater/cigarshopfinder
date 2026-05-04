@@ -78,10 +78,6 @@ export const iowaShops: Shop[] = [
         latitude: 41.594296,
         longitude: -93.735401,
         image: "/images/shops/iowacigarIA/img1.jpg",
-        gallery: [
-            "/images/shops/iowacigarIA/img1.jpg", 
-            "/images/shops/iowacigarIA/img2.jpg",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 3.0,

@@ -8,7 +8,6 @@ import ReviewForm from "@/components/ReviewForm";
 import { auth } from "@/auth";
 import { notFound } from "next/navigation";
 import ReviewActions from "@/components/ReviewActions";
-import { shopMedia } from "@/lib/shops/shopMedia";
 import CigarComparePromo from "@/components/CigarComparePromo";
 import CivicsMapPromo from "@/components/CivicsMapPromo";
 import ShopHeroMedia from "@/components/ShopHeroMedia";
@@ -128,12 +127,12 @@ export default async function ShopDetailPage({ params }: Props) {
     const autoImages = getShopImages(shop.slug);
 
     const imagePaths = [
-        shop.image,
+        ...(shop.image ? [shop.image] : []),
         ...autoImages.filter((src) => src !== shop.image),
-    ].filter(Boolean) as string[];
+    ];
 
     const mediaItems: MediaItem[] = imagePaths.map((src) => ({
-        type: "image" as const,
+        type: "image",
         src,
         alt: shop.name,
     }));

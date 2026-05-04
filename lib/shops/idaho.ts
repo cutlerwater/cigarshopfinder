@@ -78,10 +78,6 @@ export const idahoShops: Shop[] = [
         latitude: 43.633686,
         longitude: -116.263362,
         image: "/images/shops/bigsmokeidaho/img1.jpg",
-        gallery: [
-            "/images/shops/bigsmokeidaho/img1.jpg",
-            "/images/shops/bigsmokeidaho/big-smoke-logo.svg",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 3.0,

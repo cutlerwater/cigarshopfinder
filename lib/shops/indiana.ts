@@ -78,10 +78,6 @@ export const indianaShops: Shop[] = [
         latitude: 61.217821,
         longitude: -149.874144,
         image: "/images/shops/rockyIN/img1.jpg",
-        gallery: [
-            "/images/shops/rockyIN/img1.jpg",
-            "/images/shops/rockyIN/img2.jpg",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 3.0,

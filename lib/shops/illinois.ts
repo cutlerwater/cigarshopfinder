@@ -78,9 +78,6 @@ export const illinoisShops: Shop[] = [
         latitude: 41.816167,
         longitude: -87.620028,
         image: "",
-        gallery: [
-            "",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 0.1,

@@ -78,10 +78,6 @@ export const kansasShops: Shop[] = [
         latitude: 37.724312,
         longitude: -97.441916,
         image: "/images/shops/humidorKS/img1.jpg",
-        gallery: [
-            "/images/shops/humidorKS/img1.jpg",
-            "/images/shops/humidorKS/img2.jpg",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 3.0,

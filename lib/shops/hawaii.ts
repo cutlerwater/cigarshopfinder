@@ -78,11 +78,6 @@ export const hawaiiShops: Shop[] = [
         latitude: 21.295983,
         longitude: -157.828801,
         image: "/images/shops/tobaccosofhawaii/image1.jpg",
-        gallery: [
-            "/images/shops/tobaccosofhawaii/image1.jpg",
-            "/images/shops/tobaccosofhawaii/image2.jpg",
-            "/images/shops/tobaccosofhawaii/image3.jpg"
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 3.0,

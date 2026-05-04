@@ -490,7 +490,7 @@ export default function ShopsClientPage({
                 {featuredShops.length > 0 && (
                     <section className="mt-12">
                         <p className="text-xs font-semibold uppercase tracking-[0.35em] text-amber-300">
-                            Featured Shops
+                            Featured and Sponsored Shops
                         </p>
 
                         <h2 className="mt-2 text-3xl font-bold text-white">
@@ -501,54 +501,80 @@ export default function ShopsClientPage({
                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                 
                                                                                                                                                                                                                                                                                                 
-                                {featuredShops.map((shop) => (
-                                <Link key={shop.id} href={`/shops/${shop.slug}`}>
-                                <div
-                                    key={shop.id}
-                                    className="group relative overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-amber-300/40 hover:shadow-[0_0_60px_rgba(255,200,0,0.25)]"
-                                >
-                                    {/* Glow effect */}
-                                    <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-gradient-to-br from-amber-300 to-yellow-500 opacity-10 blur-2xl group-hover:opacity-20" />
+                            {featuredShops.map((shop) => {
+                                const highlights = [
+                                    shop.hasLounge && "Lounge",
+                                    shop.hasHumidor && "Humidor",
+                                    shop.canBringInLiquor && "BYOB",
+                                    shop.hasEvents && "Events",
+                                ]
+                                    .filter(Boolean)
+                                    .slice(0, 3);
 
-                                    {/* Badge */}
-                                    <span className={`mb-4 inline-block rounded-full px-3 py-1 text-xs font-bold ${shop.isSponsored
-                                            ? "bg-amber-400 text-black"
-                                            : "border border-amber-300/40 text-amber-200"
-                                        }`}>
-                                        {shop.isSponsored ? "Sponsored" : "Featured"}
-                                    </span>
+                                return (
+                                    <Link key={shop.id} href={`/shops/${shop.slug}`}>
+                                        <div className="group relative flex flex-col h-full overflow-hidden rounded-3xl border border-white/10 bg-black/50 p-6 shadow-[0_20px_70px_rgba(0,0,0,0.6)] backdrop-blur-xl transition duration-300 hover:-translate-y-2 hover:border-amber-300/40 hover:shadow-[0_0_60px_rgba(255,200,0,0.25)]">
 
-                                    {/* Content */}
-                                    <h3 className="text-xl font-bold text-white">
-                                        {shop.name}
-                                    </h3>
+                                            {/* Image */}
+                                            <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
+                                                <Image
+                                                    src={shop.image || "/images/shops/davidus-cigars-annapolis/front.jpg"}
+                                                    alt={shop.name}
+                                                    fill
+                                                    className="object-cover transition duration-300 group-hover:scale-105"
+                                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                                />
+                                            </div>
+                                            
+                                            <div className="mb-3 flex flex-wrap gap-2">
+                                                {shop.isFeatured && !shop.isSponsored && (
+                                                    <span className="rounded-full bg-amber-300/20 px-3 py-1 text-xs font-bold text-amber-200 shadow-[0_0_10px_rgba(251,191,36,0.4)]">
+                                                        Featured
+                                                    </span>
+                                                )}
 
-                                    <p className="mt-1 text-sm text-neutral-400">
-                                        {shop.city}, {shop.stateabb}
-                                    </p>
+                                                {shop.isSponsored && (
+                                                    <span className="rounded-full bg-amber-400 px-3 py-1 text-xs font-bold text-black">
+                                                        Sponsored
+                                                    </span>
+                                                )}
+                                            </div>
 
-                                    {shop.rating && (
-                                        <p className="mt-2 text-sm text-amber-300">
-                                            ⭐ {shop.rating} ({shop.reviewCount})
-                                        </p>
-                                    )}
+                                            {/* Content */}
+                                            <div className="flex flex-col flex-grow">
+                                            <h3 className="text-xl font-bold text-yellow-300">{shop.name}</h3>
+                                            <p className="mt-1 text-md text-neutral-400">
+                                                {shop.address}
+                                            </p>
+                                            <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
+                                                {shop.description}
+                                            </p>
+                                                {shop.rating != null && (
+                                                    <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200">
+                                                        ★ {shop.rating} ({shop.reviewCount})
+                                                    </span>
+                                                )}
+                                            </div>
 
-                                    <p className="mt-4 line-clamp-3 text-sm leading-7 text-neutral-300">
-                                        {shop.description}
-                                    </p>
+                                            {/* ⭐ Highlights HERE */}
+                                            <div className="mt-4 flex flex-wrap gap-2">
+                                                {highlights.map((label) => (
+                                                    <span
+                                                        key={label}
+                                                        className="rounded-full bg-black/30 px-3 py-1 text-xs text-white"
+                                                    >
+                                                        {label}
+                                                    </span>
+                                                ))}
+                                            </div>
 
-                                    <p className="mt-6 text-sm font-bold text-amber-300 transition">
-                                        <span className="transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-90">
-                                            View shop
-                                            <span className="transition-transform group-hover:translate-x-1">
-                                                →
-                                            </span>
-                                        </span>
-                                    </p>
-                                </div>
-                                </Link>
-                            ))}
+                                        </div>
+                                    </Link>
+                                    
+                                );
+                            })}
                         </div>
+                        
                         
                     </section>
                 )}
@@ -944,11 +970,14 @@ export default function ShopsClientPage({
                 </section>
                 <CigarMarquee />
                 <section className="mt-10">
+                    <h2 className="mb-4 text-xl font-semibold text-white">
+                        All shops
+                    </h2>
                     <p className="text-sm text-green-400">
-                        Brand: {selectedBrand} | Results: {filteredShops.length}
+                        Brand: {selectedBrand} 
                     </p>
                     <p className="mb-6 text-neutral-400">
-                        Showing {filteredShops.length} {filteredShops.length === 1 ? "shop" : "shops"}
+                        {filteredShops.length} results found
                     </p>
 
                     {filteredShops.length === 0 ? (
@@ -1011,68 +1040,7 @@ export default function ShopsClientPage({
                                         {shop.description}
                                     </p>
 
-                                    <div className="mt-5 flex flex-wrap gap-2">
-                                        {shop.hasLounge && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lounge</span>}
-                                        {shop.hasHumidor && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Humidor</span>}
-                                        {shop.sellsAccessory && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Accessories</span>}
-                                        {shop.hasMemberLocker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Lockers</span>}
-                                        {shop.hasMemberAccess && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Member Access</span>}
-                                        {shop.sellsFood && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Food</span>}
-                                        {shop.sellsDrink && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Sells Drinks (Sodas, Water, etc...)</span>}
-                                        {shop.hasLiveMusic && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Live Music</span>}
-                                        {shop.hasEvents && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Special Events</span>}
-                                        {shop.hasLiquorLicense && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Liquor License</span>}
-                                        {shop.canBringInLiquor && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Can bring liquor</span>}
-                                        {shop.hasInternetAccess && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Internet Access</span>}
-                                        {shop.hasCoffeeMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Coffee Maker</span>}
-                                        {shop.hasIceMaker && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ice Maker</span>}
-                                        {shop.hasBigTV && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Big TV(s)</span>}
-                                        {shop.hasPadron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Padron</span>}
-                                        {shop.hasFuente && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Fuente</span>}
-                                        {shop.hasOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">OpusX</span>}
-                                        {shop.hasRareOpusX && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rare Opus Xs</span>}
-                                        {shop.hasAshton && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Ashton</span>}
-                                        {shop.hasDiamond && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Diamond Crown</span>}
-                                        {shop.hasAroma && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aroma de Cuba</span>}
-                                        {shop.hasDavidoff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Davidoff</span>}
-                                        {shop.hasAvo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Avos</span>}                                        
-                                        {shop.hasLiga && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Liga Privada</span>}
-                                        {shop.hasAcid && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Acid/Drew Estate</span>}
-                                        {shop.hasTatuaje && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Tatuaje</span>}
-                                        {shop.hasPerdomo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Perdomo</span>}
-                                        {shop.hasAlec && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Alec Bradley</span>}
-                                        {shop.hasHoya && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hoya de Monterrey</span>}
-                                        {shop.hasLFD && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Flor Dominicana</span>}
-                                        {shop.hasOliva && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Oliva</span>}
-                                        {shop.hasNub && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Nub</span>}
-                                        {shop.hasCain && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cain</span>}
-                                        {shop.hasMyFather && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">My Father</span>}
-                                        {shop.hasCamacho && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Camacho</span>}
-                                        {shop.hasAJ && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">AJ Fernandez</span>}
-                                        {shop.hasSanCristobol && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">San Cristobol</span>}
-                                        {shop.hasAtabey && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Atabey</span>}
-                                        {shop.hasLordByron && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Lord Byron</span>}
-                                        {shop.hasGreyCliff && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">GreyCliff</span>}
-                                        {shop.hasDunhill && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Dunhill</span>}
-                                        {shop.hasHouseCigar && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">House Cigars</span>}
-                                        {shop.hasMontecristo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Montecristo</span>}
-                                        {shop.hasRomeo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Romeo y Julietta</span>}
-                                        {shop.hasHuppman && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">H. Uppman</span>}
-                                        {shop.hasCAO && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">CAO</span>}
-                                        {shop.hasRP && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Rocky Patel</span>}
-                                        {shop.hasCohiba && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Cohiba</span>}
-                                        {shop.hasPunch && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Punch</span>}
-                                        {shop.hasAging && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aging Room</span>}
-                                        {shop.hasMacanudo && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Macanudo</span>}
-                                        {shop.hasGurkha && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Gurkha</span>}
-                                        {shop.hasPartagas && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Partagas</span>}
-                                        {shop.hasLaAurora && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">La Aurora</span>}
-                                        {shop.hasPlasencia && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Plasencia</span>}
-                                        {shop.hasAganorsa && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Aganorsa</span>}
-                                        {shop.hasPipeTobacco && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
-                                        {shop.hasHooka && <span className="rounded-full bg-neutral-800 px-3 py-1 text-xs text-white">Hooka</span>}
-                                        
-                                    </div>
+                                    
                                 </Link>
                             ))}
                         </div>

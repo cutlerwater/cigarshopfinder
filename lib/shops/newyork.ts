@@ -77,9 +77,6 @@ export const newyorkShops: Shop[] = [
         latitude: 40.757073,
         longitude: -73.966604,
         image: "",
-        gallery: [
-            "",
-        ],
         isFeatured: false,
         isSponsored: false,
         rating: 0.1,
