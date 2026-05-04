@@ -77,10 +77,10 @@ export const michiganShops: Shop[] = [
         description: "WELCOME TO Cigar Sanctuary",
         latitude: 42.33664,
         longitude: -83.046024,
-        image: "/images/lacasaMI/img1.jpg",
+        image: "/images/shops/lacasaMI/img1.jpg",
         gallery: [
-            "/images/lacasaMI/img1.jpg",
-            "/images/lacasaMI/img2.jpg",
+            "/images/shops/lacasaMI/img1.jpg",
+            "/images/shops/lacasaMI/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

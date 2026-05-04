@@ -77,10 +77,10 @@ export const alabamaShops: Shop[] = [
         description: "The Humidor Room offers a Full Bar to accompany a Wide Variety of Fine Cigars and Tobacco Products from around the World. Specialty Cocktails and a Fine Selection of Wines are also offered by the Glass or Bottle.",
         latitude: 33.506719,
         longitude: -86.797695,
-        image: "/images/humidorAL/1.jpg",
+        image: "/images/shops/humidorAL/1.jpg",
         gallery: [
-            "/images/humidorAL/1.jpg",
-            "/images/humidorAL/2.jpg",
+            "/images/shops/humidorAL/1.jpg",
+            "/images/shops/humidorAL/2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

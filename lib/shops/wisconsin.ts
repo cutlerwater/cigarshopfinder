@@ -77,10 +77,10 @@ export const wisconsinShops: Shop[] = [
         description: "Appleton Souvenir & Cigar Co. (ASCC) opened on April 1st, 1997, as a souvenir, apparel, and small selection of premium cigar store under the ownership of Mary Weidert.",
         latitude: 44.261542,
         longitude: -88.411363,
-        image: "/images/public/appletonWI/img1.jpg",
+        image: "/images/shops/public/appletonWI/img1.jpg",
         gallery: [
-            "/images/public/appletonWI/img1.jpg",
-            "/images/public/appletonWI/img2.jpg",
+            "/images/shops/public/appletonWI/img1.jpg",
+            "/images/shops/public/appletonWI/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

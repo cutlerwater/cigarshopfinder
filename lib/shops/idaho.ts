@@ -77,10 +77,10 @@ export const idahoShops: Shop[] = [
         description: "An outdoor patio of tables and chairs with a big screen tv, 20 taps for beer, shelves of great wine, a merchandise store with apparel and accessories and of course walls of cigars of every type.",
         latitude: 43.633686,
         longitude: -116.263362,
-        image: "/images/bigsmokeidaho/img1.jpg",
+        image: "/images/shops/bigsmokeidaho/img1.jpg",
         gallery: [
-            "/images/bigsmokeidaho/img1.jpg",
-            "/images/bigsmokeidaho/big-smoke-logo.svg",
+            "/images/shops/bigsmokeidaho/img1.jpg",
+            "/images/shops/bigsmokeidaho/big-smoke-logo.svg",
         ],
         isFeatured: false,
         isSponsored: false,

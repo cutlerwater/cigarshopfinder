@@ -77,9 +77,9 @@ export const georgiaShops: Shop[] = [
         description: "Welcome to Atlanta’s Most Premier Cigar Lounge. Let’s dine, drink, smoke.  Enjoy from a selection of our handcrafted cocktails or one of your favorite premium drinks. Our bartender will be sure to have you coming back all night long.",
         latitude: 33.782868,
         longitude: -84.383753,
-        image: "/images/atlantaprime/InteriorShot-scaled.jpg",
+        image: "/images/shops/atlantaprime/InteriorShot-scaled.jpg",
         gallery: [
-            "/images/atlantaprime/InteriorShot-scaled.jpg",
+            "/images/shops/atlantaprime/InteriorShot-scaled.jpg",
         ],
         isSponsored: false,
         rating: 3.1,

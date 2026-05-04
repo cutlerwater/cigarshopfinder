@@ -77,10 +77,10 @@ export const texasShops: Shop[] = [
         description: "Habana House Cigar Lounge is a well-established haven for cigar enthusiasts, proudly serving our community for 25 years. With two inviting lounges and a third on the horizon, we offer a sophisticated atmosphere for aficionados to relax, connect, and enjoy premium cigars. ",
         latitude: 30.227653,
         longitude: -97.760545,
-        image: "/images/habanaTX/img1.jpg",
+        image: "/images/shops/habanaTX/img1.jpg",
         gallery: [
-            "/images/habanaTX/img1.jpg",
-            "/images/habanaTX/img2.jpg",
+            "/images/shops/habanaTX/img1.jpg",
+            "/images/shops/habanaTX/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

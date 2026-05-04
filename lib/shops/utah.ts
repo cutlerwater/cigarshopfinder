@@ -77,10 +77,10 @@ export const utahShops: Shop[] = [
         description: "An outdoor patio of tables and chairs with a big screen tv, 20 taps for beer, shelves of great wine, a merchandise store with apparel and accessories and of course walls of cigars of every type.",
         latitude: 43.633686,
         longitude: -116.263362,
-        image: "/images/beehiveut/me2.avif",
+        image: "/images/shops/beehiveut/me2.avif",
         gallery: [
-            "/images/beehiveut/me2.avif",
-            "/images/beehiveut/tayler.avif",
+            "/images/shops/beehiveut/me2.avif",
+            "/images/shops/beehiveut/tayler.avif",
         ],
         isFeatured: false,
         isSponsored: false,

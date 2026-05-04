@@ -77,10 +77,10 @@ export const newhampshireShops: Shop[] = [
         description: "Friends, fun, tomfoolery, entertainment, relaxation, adult beverages, and premium cigars. Definitely not your average cigar lounge!!",
         latitude: 44.031324,
         longitude: -71.119992,
-        image: "/images/cigarNH/img1.jpg",
+        image: "/images/shops/cigarNH/img1.jpg",
         gallery: [
-            "/images/cigarNH/1.jpg",
-            "/images/cigarNH/2.jpg",
+            "/images/shops/cigarNH/1.jpg",
+            "/images/shops/cigarNH/2.jpg",
             
         ],
         isFeatured: false,

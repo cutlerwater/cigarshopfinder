@@ -77,10 +77,10 @@ export const arizonaShops: Shop[] = [
         description: "Our full craft bar in Phoenix (Ahwatukee) is designed for the discerning spirits enthusiast. From world-renowned whiskies + bourbons, to boutique and small batch releases - we've curated an amazing selection for you to enjoy.",
         latitude: 33.330843,
         longitude: -111.978521,
-        image: "/images/castroaz/img1.jpg",
+        image: "/images/shops/castroaz/img1.jpg",
         gallery: [
-            "/images/castroaz/img1.jpg",
-            "/images/castroaz/img2.jpg",
+            "/images/shops/castroaz/img1.jpg",
+            "/images/shops/castroaz/img2.jpg",
 
         ],
         isFeatured: false,

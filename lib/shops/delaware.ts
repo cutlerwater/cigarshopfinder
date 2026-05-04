@@ -77,10 +77,10 @@ export const delawareShops: Shop[] = [
         description: "Delaware's premiere cigar lounge located in the heart of Trolley Square!.",
         latitude: 39.757679,
         longitude: -75.562577,
-        image: "/images/sikarde/img1.jpg",
+        image: "/images/shops/sikarde/img1.jpg",
         gallery: [
-            "/images/sikarde/img1.jpg",
-            "/images/sikarde/img2.jpg",
+            "/images/shops/sikarde/img1.jpg",
+            "/images/shops/sikarde/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

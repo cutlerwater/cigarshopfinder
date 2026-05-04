@@ -77,10 +77,10 @@ export const indianaShops: Shop[] = [
         description: "Welcome to BURN Indianapolis, where luxury and sophistication converge to offer an unparalleled experience for aficionados of premium cigars, fine spirits, craft cocktails and live entertainment.",
         latitude: 61.217821,
         longitude: -149.874144,
-        image: "/images/rockyIN/img1.jpg",
+        image: "/images/shops/rockyIN/img1.jpg",
         gallery: [
-            "/images/rockyIN/img1.jpg",
-            "/images/rockyIN/img2.jpg",
+            "/images/shops/rockyIN/img1.jpg",
+            "/images/shops/rockyIN/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

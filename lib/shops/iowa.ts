@@ -77,10 +77,10 @@ export const iowaShops: Shop[] = [
         description: "Founded in 1996, Iowa Cigar Company, formerly known as Pars & Cigars, is a local cigar shop in West Des Moines, Iowa. We have the largest cigar selection in Iowa. We also have a great smoking lounge and clientele which often meet for a premium cigar or two. Come join us for some excellent cigars.",
         latitude: 41.594296,
         longitude: -93.735401,
-        image: "/images/iowacigarIA/img1.jpg",
+        image: "/images/shops/iowacigarIA/img1.jpg",
         gallery: [
-            "/images/iowacigarIA/img1.jpg", 
-            "/images/iowacigarIA/img2.jpg",
+            "/images/shops/iowacigarIA/img1.jpg", 
+            "/images/shops/iowacigarIA/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

@@ -76,10 +76,10 @@ export const wyomingShops: Shop[] = [
         description: "This warm environment features comfortable seating, stately furniture and a games table for those looking to enjoy a fun game of poker.",
         latitude: 47.505713,
         longitude: -111.300533,
-        image: "/images/colWY/img1.jpg",
+        image: "/images/shops/colWY/img1.jpg",
         gallery: [
-            "/images/colWY/img1.jpg",
-            "/images/colWY/img2.jpg"
+            "/images/shops/colWY/img1.jpg",
+            "/images/shops/colWY/img2.jpg"
         ],
         isFeatured: false,
         isSponsored: false,

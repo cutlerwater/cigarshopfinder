@@ -89,34 +89,34 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
     "the-world-famous-cigar-bar-fort-myers": [
         {
             type: "image",
-            src: "/images/worldFL/1.jpg",
+            src: "/images/shops/worldFL/1.jpg",
             alt: "Bar",
         },
         {
             type: "image",
-            src: "/images/worldFL/2.jpg",
+            src: "/images/shops/worldFL/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/worldFL/3.jpg",
+            src: "/images/shops/worldFL/3.jpg",
             alt: "3rd",
         },
     ],
     "burn-by-rocky-patel-naples": [
         {
             type: "image",
-            src: "/images/burnNaples/1.jpg",
+            src: "/images/shops/burnNaples/1.jpg",
             alt: "Front of lounge",
         },
         {
             type: "image",
-            src: "/images/burnNaples/3.jpg",
+            src: "/images/shops/burnNaples/3.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/burnNaples/2.jpg",
+            src: "/images/shops/burnNaples/2.jpg",
             alt: "3rd image",
         },
 
@@ -124,85 +124,85 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
     "corona-cigar-company-and-diamond-crown-lounge": [
         {
             type: "image",
-            src: "/images/coronaFL/1.jpg",
+            src: "/images/shops/coronaFL/1.jpg",
             alt: "1st image",
         },
         {
             type: "image",
-            src: "/images/coronaFL/2.jpg",
+            src: "/images/shops/coronaFL/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/coronaFL/3.jpg",
+            src: "/images/shops/coronaFL/3.jpg",
             alt: "3rd image",
         },
     ],
     "cigars-cigars-sarasota-florida": [
         {
             type: "image",
-            src: "/images/cigarcigarFL/1.jpg",
+            src: "/images/shops/cigarcigarFL/1.jpg",
             alt: "1st image",
         },
         {
             type: "image",
-            src: "/images/cigarcigarFL/2.jpg",
+            src: "/images/shops/cigarcigarFL/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/cigarcigarFL/3.jpg",
+            src: "/images/shops/cigarcigarFL/3.jpg",
             alt: "3rd image",
         },
     ],
     "cigars-cigars-sarasota-clark": [
         {
             type: "image",
-            src: "/images/cigarcigarFL/ClarkRd.jpg",
+            src: "/images/shops/cigarcigarFL/ClarkRd.jpg",
             alt: "1st image",
         },
         {
             type: "image",
-            src: "/images/cigarcigarFL/ClarkRd2.jpg",
+            src: "/images/shops/cigarcigarFL/ClarkRd2.jpg",
             alt: "2nd image",
         },
     ],
     "corona-cigar-company-sarasota": [
         {
             type: "image",
-            src: "/images/coronaSarasota/1.jpg",
+            src: "/images/shops/coronaSarasota/1.jpg",
             alt: "1st image",
         },
         {
             type: "image",
-            src: "/images/coronaSarasota/2.jpg",
+            src: "/images/shops/coronaSarasota/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/coronaSarasota/3.jpg",
+            src: "/images/shops/coronaSarasota/3.jpg",
             alt: "3rd image",
         },
     ],
     "cigars-international-superstore-hamburg": [
         {
             type: "image",
-            src: "/images/CIPA/1.jpg",
+            src: "/images/shops/CIPA/1.jpg",
             alt: "1st image",
         },
         {
             type: "image",
-            src: "/images/CIPA/2.jpg",
+            src: "/images/shops/CIPA/2.jpg",
             alt: "2nd image",
         },
         {
             type: "image",
-            src: "/images/CIPA/3.jpg",
+            src: "/images/shops/CIPA/3.jpg",
             alt: "3rd image",
         },
         {
             type: "image",
-            src: "/images/CIPA/logo.Png",
+            src: "/images/shops/CIPA/logo.Png",
             alt: "4th image",
         },
     ],

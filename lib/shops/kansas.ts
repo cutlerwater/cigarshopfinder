@@ -77,10 +77,10 @@ export const kansasShops: Shop[] = [
         description: "Humidor Cocktail Lounge, the largest premium cigar and cocktail lounge in Wichita, Kansas, featuring live music every Friday and Saturday, beginning at 8 pm.",
         latitude: 37.724312,
         longitude: -97.441916,
-        image: "/images/humidorKS/img1.jpg",
+        image: "/images/shops/humidorKS/img1.jpg",
         gallery: [
-            "/images/humidorKS/img1.jpg",
-            "/images/humidorKS/img2.jpg",
+            "/images/shops/humidorKS/img1.jpg",
+            "/images/shops/humidorKS/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

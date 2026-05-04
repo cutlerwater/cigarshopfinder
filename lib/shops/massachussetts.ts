@@ -77,10 +77,10 @@ export const massachussettsShops: Shop[] = [
         description: "Discover an unparalleled escape at Boston Cigar Club & Shop, a sophisticated destination where the worlds of premium cigars, exquisite spirits, and gourmet cuisine unite. Explore our extensive selection of fine tobacco in the dedicated cigar shop, boasting its own humidor. Then, unwind in our refined lounge, featuring a …",
         latitude: 42.373532,
         longitude: -71.061562,
-        image: "/images/bostoncigar/bostonlounge1.jpg",
+        image: "/images/shops/bostoncigar/bostonlounge1.jpg",
         gallery: [
-            "/images/bostoncigar/bostonlounge1.jpg",
-            "/images/bostoncigar/lounge2.jpg",
+            "/images/shops/bostoncigar/bostonlounge1.jpg",
+            "/images/shops/bostoncigar/lounge2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

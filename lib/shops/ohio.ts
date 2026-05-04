@@ -77,10 +77,10 @@ export const ohioShops: Shop[] = [
         description: "Premium Cigars and much more at Pipes & Pleasures..",
         latitude: 39.95601,
         longitude: -82.885167,
-        image: "/images/pipesOH/img1.jpg",
+        image: "/images/shops/pipesOH/img1.jpg",
         gallery: [
-            "/images/pipesOH/img1.jpg",
-            "/images/pipesOH/img2.jpg",
+            "/images/shops/pipesOH/img1.jpg",
+            "/images/shops/pipesOH/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

@@ -77,10 +77,10 @@ export const louisianaShops: Shop[] = [
         description: "Welcome to Cuban Creations the best bar in New Orleans, where our delectable drinks and large variety of the finest premium and handmade sticks await you",
         latitude: 29.956509,
         longitude: -90.064252,
-        image: "/images/cubanla/img1.jpeg",
+        image: "/images/shops/cubanla/img1.jpeg",
         gallery: [
-            "/images/cubanla/img1.jpeg",
-            "/images/cubanla/img2.jpeg",
+            "/images/shops/cubanla/img1.jpeg",
+            "/images/shops/cubanla/img2.jpeg",
         ],
         isFeatured: false,
         isSponsored: false,

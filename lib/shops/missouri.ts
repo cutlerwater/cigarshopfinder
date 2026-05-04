@@ -77,10 +77,10 @@ export const missouriShops: Shop[] = [
         description: "LEATHERWOOD Handmade Cigars is an internationally acclaimed luxury cigar lounge and curated humidor in St. James, Missouri. ",
         latitude: 37.997468,
         longitude: -91.615353,
-        image: "/images/leatherwoodMO/img1.jpg",
+        image: "/images/shops/leatherwoodMO/img1.jpg",
         gallery: [
-            "/images/leatherwoodMO/img1.jpg",
-            "/images/leatherwoodMO/img2.jpg",
+            "/images/shops/leatherwoodMO/img1.jpg",
+            "/images/shops/leatherwoodMO/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

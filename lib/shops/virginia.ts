@@ -77,10 +77,10 @@ export const virginiaShops: Shop[] = [
         description: "Magoo's Cigar Lounge is a Cigar shop located in Norfolk.",
         latitude: 42.37747,
         longitude: -71.06699,
-        image: "/images/magoos/magooslogo.jpg",
+        image: "/images/shops/magoos/magooslogo.jpg",
         gallery: [
-            "/images/magoos/magooslogo.jpg",
-            "/images/magoos/lounge1.jpg",
+            "/images/shops/magoos/magooslogo.jpg",
+            "/images/shops/magoos/lounge1.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

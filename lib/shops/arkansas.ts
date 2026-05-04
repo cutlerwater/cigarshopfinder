@@ -77,10 +77,10 @@ export const arkansasShops: Shop[] = [
         description: "Arkansas' Largest Walk-In Humidor",
         latitude: 34.766697,
         longitude: -92.386303,
-        image: "/images/republicAR/img1.jpg",
+        image: "/images/shops/republicAR/img1.jpg",
         gallery: [
-            "/images/republicAR/img1.jpg",
-            "/images/republicAR/img2.jpg",
+            "/images/shops/republicAR/img1.jpg",
+            "/images/shops/republicAR/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

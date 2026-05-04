@@ -77,10 +77,10 @@ export const oklahomaShops: Shop[] = [
         description: "Enjoy a wide selection of cigars from our humidor or bring your own.",
         latitude: 35.474585,
         longitude: -97.513847,
-        image: "/images/ashOK/img1.jpg",
+        image: "/images/shops/ashOK/img1.jpg",
         gallery: [
-            "/images/ashOK/img1.jpg",
-            "/images/ashOK/img2.jpg",
+            "/images/shops/ashOK/img1.jpg",
+            "/images/shops/ashOK/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

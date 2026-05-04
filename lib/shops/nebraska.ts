@@ -77,10 +77,10 @@ export const nebraskaShops: Shop[] = [
         description: "Creating the most unique and pleasurable cigar smoking experience in Omaha.",
         latitude: 41.291113,
         longitude: -96.119094,
-        image: "/images/safarine/img1.jpg",
+        image: "/images/shops/safarine/img1.jpg",
         gallery: [
-            "/images/safarine/img1.jpg",
-            "/images/safarine/img2.jpg",
+            "/images/shops/safarine/img1.jpg",
+            "/images/shops/safarine/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

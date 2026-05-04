@@ -77,9 +77,9 @@ export const nevadaShops: Shop[] = [
         description: "An outdoor patio of tables and chairs with a big screen tv, 20 taps for beer, shelves of great wine, a merchandise store with apparel and accessories and of course walls of cigars of every type.",
         latitude: 36.112243,
         longitude: -115.17042,
-        image: "/images/montenv/image.jpg",
+        image: "/images/shops/montenv/image.jpg",
         gallery: [
-            "/images/montenv/image.jpg",
+            "/images/shops/montenv/image.jpg",
 
         ],
         isFeatured: false,

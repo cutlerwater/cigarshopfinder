@@ -77,10 +77,10 @@ export const washingtonShops: Shop[] = [
         description: "We Believe that wanting the best should never get in the way of wanting to relax..",
         latitude: 47.036296,
         longitude: -122.826037,
-        image: "/images/cigardaddieswa/img1.jpg",
+        image: "/images/shops/cigardaddieswa/img1.jpg",
         gallery: [
-            "/images/cigardaddieswa/img2.jpg",
-            "/images/cigardaddieswa/img1.jpg",
+            "/images/shops/cigardaddieswa/img2.jpg",
+            "/images/shops/cigardaddieswa/img1.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

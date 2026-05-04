@@ -77,10 +77,10 @@ export const rhodeislandShops: Shop[] = [
         description: "Nestled in the heart of Pawtucket, our sophisticated cigar lounge strikes the perfect balance between refined elegance and welcoming comfort..",
         latitude: 41.884641,
         longitude: -71.365507,
-        image: "/images/whiteashRI/img1.png",
+        image: "/images/shops/whiteashRI/img1.png",
         gallery: [
-            "/images/whiteashRI/img1.png",
-            "/images/whiteashRI/img2.jpg",
+            "/images/shops/whiteashRI/img1.png",
+            "/images/shops/whiteashRI/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

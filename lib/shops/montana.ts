@@ -77,10 +77,10 @@ export const montanaShops: Shop[] = [
         description: "Welcome to Omerta Cigar Lounge Great Falls, MT",
         latitude: 47.505713,
         longitude: -111.300533,
-        image: "/images/omertaMT/img1.jpg",
+        image: "/images/shops/omertaMT/img1.jpg",
         gallery: [
-            "/images/omertaMT/img1.jpg",
-            "/images/omertaMT/img2.jpg",
+            "/images/shops/omertaMT/img1.jpg",
+            "/images/shops/omertaMT/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

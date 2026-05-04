@@ -77,10 +77,10 @@ export const pennsylvaniaShops: Shop[] = [
         description: "Modern, upscale cigar lounge and cocktail bar with an extensive menu of whiskey, cocktails, spirits, and cigars. Located above Holt’s Cigar Shop in downtown Philadelphia. You can still purchase cigars from the Holt's Cigar Shop online and in store.",
         latitude: 39.949464,
         longitude: -75.167106,
-        image: "/images/ashtonpa/ashtonpa1.jpg",
+        image: "/images/shops/ashtonpa/ashtonpa1.jpg",
         gallery: [
-            "/images/ashtonpa/ashtonpa1.jpg",
-            "/images/ashtonpa/logo.svg"
+            "/images/shops/ashtonpa/ashtonpa1.jpg",
+            "/images/shops/ashtonpa/logo.svg"
         ],
         isFeatured: false,
         isSponsored: false,
@@ -163,12 +163,12 @@ export const pennsylvaniaShops: Shop[] = [
         description: "With three locations in the Sarasota, Florida area, Cigar Cigars offers a premium cigar experience built on decades of expertise. Established in 1995, we grew to become one of the largest cigar retailers in the Philadelphia region before bringing our passion for cigars to Florida in 2020. Today, we are proud to call Sarasota home.",
         latitude: 40.560164,
         longitude: -76.005147,
-        image: "/images/CIPA/1.jpg",
+        image: "/images/shops/CIPA/1.jpg",
         gallery: [
-            "/images/CIPA/1.jpg",
-            "/images/CIPA/3.jpg",
-            "/images/CIPA/2.jpg",
-            "/images/CIPA/4.png",
+            "/images/shops/CIPA/1.jpg",
+            "/images/shops/shops/CIPA/3.jpg",
+            "/images/shops/shops/CIPA/2.jpg",
+            "/images/shops/shops/CIPA/4.png",
         ],
         isFeatured: false,
         isSponsored: false,

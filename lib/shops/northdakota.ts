@@ -77,10 +77,10 @@ export const northdakotaShops: Shop[] = [
         description: "Located in legendary downtown Mandan.  Big Stick Cigar Lounge is North Dakota's coolest vintage cigar lounge.",
         latitude: 46.826512,
         longitude: -100.892579,
-        image: "/images/BigStickND/img1.avif",
+        image: "/images/shops/BigStickND/img1.avif",
         gallery: [
-            "/images/BigStickND/img1.avif",
-            "/images/BigStickND/img2.avif",
+            "/images/shops/BigStickND/img1.avif",
+            "/images/shops/BigStickND/img2.avif",
         ],
         isFeatured: false,
         isSponsored: false,

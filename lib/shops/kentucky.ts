@@ -77,10 +77,10 @@ export const kentuckyShops: Shop[] = [
         description: "Whether you’re new to the cigar scene or you’ve been enjoying premium hand-rolled cigars for many years, Leaf & Barrel Cigar and Bourbon Lounge is excited for you to visit us in Georgetown or in our NEW location at 103 Big Hill Ave. in Richmond!",
         latitude: 38.217645,
         longitude: -84.537132,
-        image: "/images/leafky/img1.jpg",
+        image: "/images/shops/leafky/img1.jpg",
         gallery: [
-            "/images/leafky/img1.jpg",
-            "/images/leafky/img2.jpg",
+            "/images/shops/leafky/img1.jpg",
+            "/images/shops/leafky/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,

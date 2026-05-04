@@ -77,9 +77,9 @@ export const vermontShops: Shop[] = [
         description: "We are located in the heart of downtown Burlington on the Church Street Marketplace.",
         latitude: 44.477695,
         longitude: -73.212802,
-        image: "/images/garcia/img1.jpg",
+        image: "/images/shops/garcia/img1.jpg",
         gallery: [
-            "/images/garcia/img1.jpg",
+            "/images/shops/garcia/img1.jpg",
             
         ],
         isFeatured: false,

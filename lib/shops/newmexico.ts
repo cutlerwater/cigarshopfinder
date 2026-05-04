@@ -77,10 +77,10 @@ export const newmexicoShops: Shop[] = [
         description: "Our full craft bar in Phoenix (Ahwatukee) is designed for the discerning spirits enthusiast. From world-renowned whiskies + bourbons, to boutique and small batch releases - we've curated an amazing selection for you to enjoy.",
         latitude: 35.226303,
         longitude: -106.614444,
-        image: "/images/padresnm/img1.jpg",
+        image: "/images/shops/padresnm/img1.jpg",
         gallery: [
-            "/images/padresnm/img1.jpg",
-            "/images/padresnm/img2.jpg",
+            "/images/shops/padresnm/img1.jpg",
+            "/images/shops/padresnm/img2.jpg",
 
         ],
         isFeatured: false,

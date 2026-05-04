@@ -77,11 +77,11 @@ export const hawaiiShops: Shop[] = [
         description: "At Tobaccos of Hawaii, we believe that Hawaii tobacco lovers deserve the very best quality and service from their smoke shop. We are tobacco enthusiasts just like you, and our staff is knowledgeable and courteous, friendly, and always professional.",
         latitude: 21.295983,
         longitude: -157.828801,
-        image: "/images/tobaccosofhawaii/image1.jpg",
+        image: "/images/shops/tobaccosofhawaii/image1.jpg",
         gallery: [
-            "/images/tobaccosofhawaii/image1.jpg",
-            "/images/tobaccosofhawaii/image2.jpg",
-            "/images/tobaccosofhawaii/image3.jpg"
+            "/images/shops/tobaccosofhawaii/image1.jpg",
+            "/images/shops/tobaccosofhawaii/image2.jpg",
+            "/images/shops/tobaccosofhawaii/image3.jpg"
         ],
         isFeatured: false,
         isSponsored: false,

@@ -77,10 +77,10 @@ export const minnesotaShops: Shop[] = [
         description: "5th Avenue Cigars is Alaska's premier purveyor of fine tobacco products. We welcome you to Alaska's largest walk-in humidor, and largest cigar selection.",
         latitude: 44.94659,
         longitude: -93.288292,
-        image: "/images/anthonyMN/img1.jpg",
+        image: "/images/shops/anthonyMN/img1.jpg",
         gallery: [
-            "/images/anthonyMN/img1.jpg",
-            "/images/anthonyMN/img2.jpg",
+            "/images/shops/anthonyMN/img1.jpg",
+            "/images/shops/anthonyMN/img2.jpg",
         ],
         isFeatured: false,
         isSponsored: false,
