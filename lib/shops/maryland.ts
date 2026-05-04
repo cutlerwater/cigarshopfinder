@@ -2685,7 +2685,7 @@ export const marylandShops: Shop[] = [
             "/images/shops/shops/eastonMD/3.jpg",
 
         ],
-        isFeatured: true,
+        isFeatured: false,
         isSponsored: false,
         rating: 4.2,
         reviewCount: 102,
