@@ -36,6 +36,13 @@ export default function Footer() {
                         <p className="text-sm font-semibold text-white">Projects</p>
                         <div className="mt-3 flex flex-col gap-2 text-sm text-neutral-400">
                             <a
+                                href="https://www.cigarshopfinder.live/admin/shops"
+                                target="_blank"
+                                className="hover:text-white"
+                            >
+                                Admin Shops
+                            </a>
+                            <a
                                 href="https://albums-catalog.vercel.app/"
                                 target="_blank"
                                 className="hover:text-white"
