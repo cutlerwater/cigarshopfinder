@@ -14,32 +14,32 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
     "davidus-cigars-annapolis": [
         {
             type: "video",
-            src: "/images/DavidusAnnapolis/loun.mp4",
-            poster: "/images/DavidusAnnapolis/lounge.jpg",
+            src: "/images/shops/DavidusAnnapolis/loun.mp4",
+            poster: "/images/shops/DavidusAnnapolis/lounge.jpg",
         },
         {
             type: "image",
-            src: "/images/DavidusAnnapolis/JohnS.jpg",
+            src: "/images/shops/DavidusAnnapolis/JohnS.jpg",
             alt: "John",
         },
         {
             type: "image",
-            src: "/images/DavidusAnnapolis/front.jpg",
+            src: "/images/shops/DavidusAnnapolis/front.jpg",
             alt: "Front of the store",
         },
         {
             type: "image",
-            src: "/images/DavidusAnnapolis/cl-annapolis-3.jpg",
+            src: "/images/shops/DavidusAnnapolis/cl-annapolis-3.jpg",
             alt: "Lounge",
         },
         {
             type: "image",
-            src: "/images/DavidusAnnapolis/cl-annapolis-11.jpg",
+            src: "/images/shops/DavidusAnnapolis/cl-annapolis-11.jpg",
             alt: "Lounge",
         },
         {
             type: "image",
-            src: "/images/DavidusAnnapolis/Davidus_Logo.png",
+            src: "/images/shops/DavidusAnnapolis/Davidus_Logo.png",
             alt: "Logo",
         },
         
@@ -49,39 +49,39 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
     "davidus-cigars-baltimore-federal-hill": [
         {
             type: "image",
-            src: "/images/fedhill/baltimore_light_st._6.jpg",
+            src: "/images/shops/fedhill/baltimore_light_st._6.jpg",
             alt: "Federal Hill Cigars interior",
         },
         {
             type: "image",
-            src: "/images/fedhill/wedsite-managerBAL-LS.jpeg",
+            src: "/images/shops/fedhill/wedsite-managerBAL-LS.jpeg",
             alt: "Federal Hill Cigars humidor",
         },
         {
             type: "image",
-            src: "/images/fedhill/baltimore_light_st._7.jpg",
+            src: "/images/shops/fedhill/baltimore_light_st._7.jpg",
             alt: "Federal Hill Cigars interior",
         },
         {
             type: "image",
-            src: "/images/fedhill/baltimore_light_st._8.jpg",
+            src: "/images/shops/fedhill/baltimore_light_st._8.jpg",
             alt: "Federal Hill Cigars interior",
         },
     ],
     "easton-cigar-and-smoke-shop": [
         {
             type: "image",
-            src: "/images/eastonMD/1.jpg",
+            src: "/images/shops/eastonMD/1.jpg",
             alt: "Easton outside",
         },
         {
             type: "image",
-            src: "/images/eastonMD/2.jpg",
+            src: "/images/shops/eastonMD/2.jpg",
             alt: "Easton inside",
         },
         {
             type: "image",
-            src: "/images/eastonMD/3.jpg",
+            src: "/images/shops/eastonMD/3.jpg",
             alt: "Easton inside",
         },
         
