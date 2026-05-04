@@ -43,6 +43,20 @@ export default function Footer() {
                                 Admin Shops
                             </a>
                             <a
+                                href="https://www.cigarshopfinder.live/add-your-shop"
+                                target="_blank"
+                                className="hover:text-white"
+                            >
+                                Add shops
+                            </a>
+                            <a
+                                href="https://www.cigarshopfinder.live/admin/submissions"
+                                target="_blank"
+                                className="hover:text-white"
+                            >
+                                Approve or reject shops
+                            </a>
+                            <a
                                 href="https://albums-catalog.vercel.app/"
                                 target="_blank"
                                 className="hover:text-white"

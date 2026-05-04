@@ -22,6 +22,8 @@ model Shop {
   image       String?
   hasLounge   Boolean @default(false)
   hasHumidor  Boolean @default(false)
+  heroVideo  String?
+  heroPoster String?
 
   hasPadron       Boolean @default(false)
   hasFuente       Boolean @default(false)

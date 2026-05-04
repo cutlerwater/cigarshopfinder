@@ -51,6 +51,8 @@ export async function PUT(
             stateabb: body.stateabb,
             zip: body.zip,
             image: body.image || null,
+            heroVideo: body.heroVideo || null,
+            heroPoster: body.heroPoster || null,
 
             isFeatured: body.isFeatured,
             isSponsored: body.isSponsored,

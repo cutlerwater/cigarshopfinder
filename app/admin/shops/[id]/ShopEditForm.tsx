@@ -15,6 +15,8 @@ export default function ShopEditForm({ shop }: any) {
         stateabb: shop.stateabb ?? "",
         zip: shop.zip ?? "",
         image: shop.image ?? "",
+        heroVideo: shop.heroVideo ?? "",
+        heroPoster: shop.heroPoster ?? "",
 
         isFeatured: shop.isFeatured ?? false,
         isSponsored: shop.isSponsored ?? false,
@@ -176,6 +178,21 @@ export default function ShopEditForm({ shop }: any) {
                         />
                     </div>
                 )}
+                <input
+                    name="heroVideo"
+                    value={form.heroVideo || ""}
+                    onChange={handleChange}
+                    placeholder="/images/shops/slug/video.mp4"
+                    className="w-full rounded-xl bg-black/30 p-3"
+                />
+
+                <input
+                    name="heroPoster"
+                    value={form.heroPoster || ""}
+                    onChange={handleChange}
+                    placeholder="/images/shops/slug/poster.jpg"
+                    className="w-full rounded-xl bg-black/30 p-3"
+                />
                 <div className="flex flex-wrap gap-6">
                 <label className="flex items-center gap-2">
                 <input
