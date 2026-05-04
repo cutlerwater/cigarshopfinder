@@ -38,8 +38,8 @@ export default async function ShopsPage({ searchParams }: Props) {
             },
         },
         orderBy: [
-            { isSponsored: "desc" },
             { isFeatured: "desc" },
+            { isSponsored: "desc" },
             { name: "asc" },
         ],
         take: 6,

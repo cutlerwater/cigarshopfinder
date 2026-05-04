@@ -498,7 +498,10 @@ export default function ShopsClientPage({
                         </h2>
 
                         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                                                                                                                                                                                                                                                                                                {featuredShops.map((shop) => (
+                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                
+                                                                                                                                                                                                                                                                                                
+                                {featuredShops.map((shop) => (
                                 <Link key={shop.id} href={`/shops/${shop.slug}`}>
                                 <div
                                     key={shop.id}
@@ -941,174 +944,6 @@ export default function ShopsClientPage({
                 </section>
                 <CigarMarquee />
                 <section className="mt-10">
-                    {featuredShops.length > 0 && (
-                        <div className="mb-10">
-                            <div className="mb-4 flex items-end justify-between gap-4">
-                                <div>
-                                    <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
-                                        Featured Shops
-                                    </p>
-
-                                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-white">
-                                        Top lounge picks
-                                    </h2>
-                                </div>
-
-                                <div className="hidden text-sm text-neutral-400 md:block">
-                                    Premium cigar lounges, featured retailers, and standout humidors.
-                                </div>
-                            </div>
-
-                            <div className="grid gap-6 lg:grid-cols-3">
-                                {featuredShops.map((shop) => (
-                                    <Link
-                                        key={`featured-${shop.id}`}
-                                        href={`/shops/${shop.slug}`}
-                                        className="group relative overflow-hidden rounded-[28px] border border-white/10 bg-white/5 shadow-xl shadow-black/20 backdrop-blur-xl transition hover:-translate-y-1 hover:border-amber-400/50 hover:shadow-2xl hover:shadow-amber-500/10"
-                                    >
-                                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-
-                                        <div className="relative">
-                                            <div className="relative h-56 overflow-hidden rounded-t-[28px]">
-                                                {shop.image ? (
-                                                    <Image
-                                                        src={shop.image}
-                                                        alt={shop.name}
-                                                        fill
-                                                        className="object-cover transition duration-500 group-hover:scale-105"
-                                                        sizes="(max-width: 1024px) 100vw, 33vw"
-                                                    />
-                                                ) : (
-                                                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-neutral-800 via-neutral-900 to-black">
-                                                        <div className="text-center">
-                                                            <p className="text-sm uppercase tracking-[0.25em] text-amber-300/80">
-                                                                Featured Lounge
-                                                            </p>
-                                                            <p className="mt-2 text-lg font-semibold text-white">
-                                                                {shop.name}
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                )}
-
-                                                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-
-                                                <div className="absolute left-4 top-4 flex flex-wrap gap-2">
-                                                    {shop.isSponsored && (
-                                                        <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
-                                                            Sponsored
-                                                        </span>
-                                                    )}
-
-                                                    {shop.isFeatured && !shop.isSponsored && (
-                                                        <span className="rounded-full border border-white/10 bg-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur-md">
-                                                            Featured
-                                                        </span>
-                                                    )}
-
-                                                    {(() => {
-                                                        const highlight = getShopHighlight(shop);
-                                                        if (!highlight) return null;
-
-                                                        return (
-                                                            <span
-                                                                className={`rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-wide backdrop-blur-md ${highlight.className}`}
-                                                            >
-                                                                {highlight.label}
-                                                            </span>
-                                                        );
-                                                    })()}
-                                                </div>
-                                            </div>
-
-                                            <div className="p-6">
-                                                <h3 className="text-2xl font-semibold text-white transition group-hover:text-amber-200">
-                                                    {shop.name}
-                                                </h3>
-
-                                                <p className="mt-2 text-sm text-neutral-400">
-                                                    {shop.city}, {shop.stateabb}
-                                                </p>
-
-                                                <p className="mt-4 line-clamp-4 text-sm leading-7 text-neutral-300">
-                                                    {shop.description}
-                                                </p>
-
-                                                <div className="mt-5 flex flex-wrap gap-2">
-                                                    {shop.hasLounge && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lounge</span>}
-                                                    {shop.hasHumidor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Humidor</span>}
-                                                    {shop.hasMemberLocker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Lockers</span>}                                                    
-                                                    {shop.sellsAccessory && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Accessories</span>}
-                                                    {shop.sellsFood && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Food</span>}
-                                                    {shop.sellsDrink && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Sells Drinks (Sodas, Water, etc...)</span>}
-                                                    {shop.hasLiveMusic && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Live Music</span>}
-                                                    {shop.hasMemberAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Member Access</span>}
-                                                    {shop.hasEvents && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Special Events</span>}
-                                                    {shop.hasLiquorLicense && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Liquor License</span>}
-                                                    {shop.canBringInLiquor && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Can bring liquor</span>}
-                                                    {shop.hasInternetAccess && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Internet Access</span>}
-                                                    {shop.hasCoffeeMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Coffee Maker</span>}
-                                                    {shop.hasIceMaker && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Ice Maker</span>}
-                                                    {shop.hasBigTV && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Big TV(s)</span>}
-                                                    {shop.hasPadron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Padron</span>}
-                                                    {shop.hasFuente && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Fuente</span>}
-                                                    {shop.hasOpusX && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">OpusX</span>}
-                                                    {shop.hasRareOpusX && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Rare Opus X</span>}
-                                                    {shop.hasAshton && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Ashton</span>}
-                                                    {shop.hasDiamond && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Diamond Crown</span>}
-                                                    {shop.hasAroma && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aroma de Cuba</span>}
-                                                    {shop.hasDavidoff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Davidoff</span>}
-                                                    {shop.hasAvo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Avos</span>}
-                                                    {shop.hasLiga && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Liga Privada</span>}
-                                                    {shop.hasAcid && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Acids/Drew Estate</span>}
-                                                    {shop.hasTatuaje && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Tatuaje</span>}
-                                                    {shop.hasPerdomo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Perdomo</span>}
-                                                    {shop.hasAlec && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Alec Bradley</span>}
-                                                    {shop.hasHoya && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hoya de Monterrey</span>}
-                                                    {shop.hasLFD && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">La Flor Dominicana</span>}
-                                                    {shop.hasOliva && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Oliva</span>}
-                                                    {shop.hasNub && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Nub</span>}
-                                                    {shop.hasCain && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Cain</span>}
-                                                    {shop.hasMyFather && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">My Father</span>}
-                                                    {shop.hasCamacho && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Camacho</span>}
-                                                    {shop.hasAJ && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">AJ Fernandez</span>}
-                                                    {shop.hasSanCristobol && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">San Cristobol</span>}
-                                                    {shop.hasAtabey && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Atabey</span>}
-                                                    {shop.hasLordByron && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Lord Byron</span>}
-                                                    {shop.hasGreyCliff && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">GreyCliff</span>}
-                                                    {shop.hasDunhill && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Dunhill</span>}
-                                                    {shop.hasHouseCigar && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">House Cigars</span>}
-                                                    {shop.hasMontecristo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Montecristo</span>}
-                                                    {shop.hasRomeo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Romeo y Julietta</span>}
-                                                    {shop.hasHuppman && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">H. Uppman</span>}
-                                                    {shop.hasCAO && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">CAO</span>}
-                                                    {shop.hasRP && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Rocky Patel</span>}
-                                                    {shop.hasCohiba && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Cohiba</span>}
-                                                    {shop.hasPunch && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Punch</span>}
-                                                    {shop.hasAging && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aging Room</span>}
-                                                    {shop.hasMacanudo && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Macanudo</span>}
-                                                    {shop.hasGurkha && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Gurkha</span>}
-                                                    {shop.hasPartagas && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Partagas</span>}
-                                                    {shop.hasLaAurora && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">La Aurora</span>}
-                                                    {shop.hasPlasencia && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Plasencia</span>}
-                                                    {shop.hasAganorsa && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Aganorsa</span>}
-                                                    {shop.hasPipeTobacco && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Pipe Tobacco</span>}
-                                                    {shop.hasHooka && <span className="rounded-full bg-black/30 px-3 py-1 text-xs text-white">Hooka</span>}
-                                                    
-                                                    
-                                                </div>
-
-                                                <div className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-amber-300">
-                                                    View shop
-                                                    <span className="transition group-hover:translate-x-1">→</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </Link>
-                                ))}
-                            </div>
-                        </div>
-                    )}
                     <p className="text-sm text-green-400">
                         Brand: {selectedBrand} | Results: {filteredShops.length}
                     </p>
@@ -1139,17 +974,19 @@ export default function ShopsClientPage({
                                     </div>
 
                                     <div className="mb-3 flex flex-wrap gap-2">
+                                        {shop.isFeatured && !shop.isSponsored && (
+                                            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
+                                                Featured
+                                            </span>
+                                        )}
+                                        
                                         {shop.isSponsored && (
                                             <span className="rounded-full border border-amber-300/40 bg-amber-400 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-black">
                                                 Sponsored
                                             </span>
                                         )}
 
-                                        {shop.isFeatured && !shop.isSponsored && (
-                                            <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white">
-                                                Featured
-                                            </span>
-                                        )}
+                                        
 
                                         {shop.rating != null && (
                                             <span className="rounded-full border border-white/10 bg-black/20 px-3 py-1 text-xs text-neutral-200">
