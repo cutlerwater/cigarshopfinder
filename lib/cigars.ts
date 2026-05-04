@@ -40,6 +40,78 @@ export type CigarDetails = {
 
 export const cigars: CigarDetails[] = [
     {
+        id: "padron-5000-natural",
+        slug: "padron-5000-natural",
+        name: "5000 Natural",
+        brand: "Padrón",
+        image: "/cigars/5000nat.jpg",
+        gallery: [
+            "/cigars/5000nat.jpg",
+            "/cigars/5000nat2.jpg",
+        ],
+        description:
+            "These medium-to full-bodied, long-filler robusto cigars are wrapped in sun-grown habano tobacco that is aged for a minimum of two-and-one-half years. Their exceptional aroma and taste is guaranteed by the traditional Cuban Cigar making process that Padron sets as its standard. Rated 89 by Cigar Aficionado.",
+        strength: "Medium-Full",
+        wrapper: "Nicaraguan",
+        binder: "Nicaraguan",
+        filler: "Nicaraguan",
+        size: "5.5 x 52",
+        gauge: "56",
+        shape: "Robusto",
+        country: "Nicaragua",
+        price: "$11–$13",
+        availability: "Somewhat available",
+        highlights: [
+            "Smooth",
+            "Good Flavor",
+            "Consistent"
+        ],
+        pairings: {
+            bourbon: "Elijah Craig Small Batch",
+            coffee: "Dark roast espresso",
+            beer: "Imperial stout",
+            dessert: "Dark chocolate",
+        },
+        rating: 89,
+        isFeaturedToday: true,
+    },
+    {
+        id: "padron-5000-maduro",
+        slug: "padron-5000-maduro",
+        name: "5000 Natural",
+        brand: "Padrón",
+        image: "/cigars/5000nat.jpg",
+        gallery: [
+            "/cigars/5000mad.jpg",
+            "/cigars/5000mad2.jpg",
+        ],
+        description:
+            "These medium-to full-bodied, long-filler robusto cigars are wrapped in sun-grown habano tobacco that is aged for a minimum of two-and-one-half years. Their exceptional aroma and taste is guaranteed by the traditional Cuban Cigar making process that Padron sets as its standard. Rated 89 by Cigar Aficionado.",
+        strength: "Medium-Full",
+        wrapper: "Nicaraguan",
+        binder: "Nicaraguan Sun Grown" ,
+        filler: "Nicaraguan",
+        size: "5.5 x 52",
+        gauge: "56",
+        shape: "Robusto",
+        country: "Nicaragua",
+        price: "$11–$13",
+        availability: "Somewhat available",
+        highlights: [
+            "Smooth",
+            "Good Flavor",
+            "Consistent"
+        ],
+        pairings: {
+            bourbon: "Elijah Craig Small Batch",
+            coffee: "Dark roast espresso",
+            beer: "Imperial stout",
+            dessert: "Dark chocolate",
+        },
+        rating: 89,
+        isFeaturedToday: true,
+    },
+    {
         id: "padron-1964-anniversary-toro-natural",
         slug: "padron-1964-anniversary-toro-natural",
         name: "1964 Anniversary Series Toro Natural",
@@ -77,6 +149,7 @@ export const cigars: CigarDetails[] = [
         rating: 94,
         isFeaturedToday: true,
     },
+
 ];
 
 export function getFeaturedCigar() {
