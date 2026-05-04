@@ -12,6 +12,7 @@ import { shopMedia } from "@/lib/shops/shopMedia";
 import CigarComparePromo from "@/components/CigarComparePromo";
 import CivicsMapPromo from "@/components/CivicsMapPromo";
 import ShopHeroMedia from "@/components/ShopHeroMedia";
+import { getShopImages } from "@/lib/getShopImages";
 
 
 type Props = {
@@ -47,21 +48,12 @@ export default async function ShopDetailPage({ params }: Props) {
     if (!shop) {
         notFound();
     }
+
+    
     
     type MediaItem =
         | { type: "image"; src: string; alt: string }
         | { type: "video"; src: string; poster?: string };
-
-    const mediaItems: MediaItem[] = [
-        ...(shop.image
-            ? [{ type: "image" as const, src: shop.image, alt: shop.name }]
-            : []),
-        ...((shopMedia[shop.slug] ?? []) as MediaItem[]),
-    ].filter((item, index, arr) => {
-        return (
-            arr.findIndex((x) => x.type === item.type && x.src === item.src) === index
-        );
-    });
 
     const heroHighlights = [
         
@@ -77,8 +69,7 @@ export default async function ShopDetailPage({ params }: Props) {
         shop.hasHumidor ? "Humidor" : null,
         shop.hasLounge ? "Lounge" : null,
         shop.hasMemberLocker ? "Member Lockers" : null,
-        shop.sellsFood ? "Sells Food" : null,
-               
+        shop.sellsFood ? "Sells Food" : null,               
         shop.hasEvents ? "Has Special Events" : null,
         shop.hasLiquorLicense ? "Liquor License" : null,
         shop.canBringInLiquor ? "Bring Your Own Liquor" : null,
@@ -133,6 +124,19 @@ export default async function ShopDetailPage({ params }: Props) {
         shop.hasHooka ? "Hooka" : null,
         
     ].filter(Boolean) as string[];
+
+    const autoImages = getShopImages(shop.slug);
+
+    const imagePaths = [
+        shop.image,
+        ...autoImages.filter((src) => src !== shop.image),
+    ].filter(Boolean) as string[];
+
+    const mediaItems: MediaItem[] = imagePaths.map((src) => ({
+        type: "image" as const,
+        src,
+        alt: shop.name,
+    }));
 
     const galleryImages = mediaItems
         .filter((item): item is Extract<MediaItem, { type: "image" }> => item.type === "image")
@@ -247,7 +251,9 @@ export default async function ShopDetailPage({ params }: Props) {
                         </p>
                     </div>
 
-                    <GalleryLightbox images={galleryImages} shopName={shop.name} />
+                    {/* 
+                        <GalleryLightbox images={galleryImages} shopName={shop.name} />
+                    */}
                 </div>
             </section>
             {/* MAIN CONTENT */}
@@ -270,19 +276,19 @@ export default async function ShopDetailPage({ params }: Props) {
                         <h2 className="mt-3 text-2xl font-semibold text-white">
                             About this shop
                         </h2>
-                        <p className="mt-4 leading-8 text-neutral-300">
+                        <p className="mt-4 leading-8 text-white">
                             {shop.description}
                         </p>
                     </div>
 
                     <aside className="rounded-[28px] border border-white/10 bg-white/5 p-6 shadow-xl shadow-black/20 backdrop-blur-xl">
-                        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-300">
-                            Visit Info
+                        <p className="text-md font-semibold uppercase tracking-[0.2em] text-red-500">
+                            Store Info
                         </p>
 
                         <div className="mt-5 space-y-5 text-sm text-neutral-300">
                             <div>
-                                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                                <p className="text-xs uppercase tracking-wide text-blue-400">
                                     Address
                                 </p>
                                 <p className="mt-1">
@@ -292,7 +298,7 @@ export default async function ShopDetailPage({ params }: Props) {
                             </div>
 
                             <div>
-                                <p className="text-xs uppercase tracking-wide text-neutral-500">
+                                <p className="text-xs uppercase tracking-wide text-blue-400">
                                     Phone
                                 </p>
                                 <p className="mt-1">{shop.phone}</p>
@@ -300,7 +306,7 @@ export default async function ShopDetailPage({ params }: Props) {
 
                             {shop.website && (
                                 <div>
-                                    <p className="text-xs uppercase tracking-wide text-neutral-500">
+                                    <p className="text-xs uppercase tracking-wide text-blue-400">
                                         Website
                                     </p>
                                     <a
@@ -336,11 +342,11 @@ export default async function ShopDetailPage({ params }: Props) {
                             >
                                 <div className="flex flex-wrap items-start justify-between gap-3">
                                     <div>
-                                        <h3 className="text-lg font-semibold text-white">
+                                        <h3 className="text-lg font-semibold text-red-500">
                                             {review.title || "Untitled Review"}
                                         </h3>
 
-                                        <div className="mt-1 flex items-center gap-2 text-sm text-neutral-400">
+                                        <div className="mt-1 flex items-center gap-2 text-sm text-lime-400">
                                             {review.user?.image ? (
                                                 <img
                                                     src={review.user.image}
@@ -363,7 +369,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                         </div>
                                     </div>
 
-                                    <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-amber-300">
+                                    <div className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-sm text-green-500">
                                         {"★".repeat(review.rating)}
                                         <span className="text-neutral-600">
                                             {"☆".repeat(5 - review.rating)}
@@ -384,7 +390,7 @@ export default async function ShopDetailPage({ params }: Props) {
                                     </p>
                                 )}
 
-                                <p className="mt-4 text-xs uppercase tracking-wide text-neutral-500">
+                                <p className="mt-4 text-xs uppercase tracking-wide text-green-200">
                                     {new Date(review.createdAt).toLocaleDateString()}
                                 </p>
                                 {review.userId === currentUserId ? (

@@ -1130,7 +1130,7 @@ export default function ShopsClientPage({
                                 >
                                     <div className="relative mb-4 h-40 overflow-hidden rounded-xl">
                                         <Image
-                                            src={shop.image || "/images/DavidusAnnapolis/front.jpg"}
+                                            src={shop.image || "/images/shops/davidus-cigars-annapolis/front.jpg"}  
                                             alt={shop.name}
                                             fill
                                             className="object-cover transition duration-300 group-hover:scale-105"

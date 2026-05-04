@@ -82,9 +82,13 @@ export const marylandShops: Shop[] = [
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
         latitude: 38.9784,
         longitude: -76.5434,
-        image: "/images/shops/DavidusAnnapolis/front.jpg",
+        
         gallery: [
-            "/images/shops/DavidusAnnapolis/JohnS.jpg", 
+            "/images/shops/davidus-cigars-annapolis/JohnS.jpg",
+            "/images/shops/davidus-cigars-annapolis/front.jpg",
+            "/images/shops/davidus-cigars-annapolis/1.jpg",
+            "/images/shops/davidus-cigars-annapolis/2.jpg",
+            "/images/shops/davidus-cigars-annapolis/logo.png",
             
         ],
         isFeatured: true,
@@ -818,12 +822,12 @@ export const marylandShops: Shop[] = [
         description: "The world's best cigars in twelve Maryland locations. Visit Davidus Cigars today and relax in our LORD BALTIMORE CIGAR lounges. Home of Castro Brothers cigars and pipe tobaccos.",
         latitude: 39.574814,
         longitude: -76.995304,
-        image: "/images/shops/westminster/cl-westminster-1.jpg",
+        image: "/images/shops/davidus-cigars-westminster/cl-westminster-1.jpg",
         gallery: [
-            "/images/shops/westminster/wedsite-managerWES.jpg",
-            "/images/shops/westminster/cl-westminster-8.jpg",
-            "/images/shops/westminster/cl-westminster-4.jpeg",
-            "/images/shops/westminster/cl-westminster-1.jpg"
+            "/images/shops/davidus-cigars-westminster/wedsite-managerWES.jpg",
+            "/images/shops/davidus-cigars-westminster/cl-westminster-8.jpg",
+            "/images/shops/davidus-cigars-westminster/cl-westminster-4.jpeg",
+            "/images/shops/davidus-cigars-westminster/cl-westminster-1.jpg"
 
         ],
         isFeatured: false,

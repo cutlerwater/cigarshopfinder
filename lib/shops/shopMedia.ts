@@ -15,31 +15,31 @@ export const shopMedia: Record<string, ShopMediaItem[]> = {
         {
             type: "video",
             src: "/images/shops/DavidusAnnapolis/loun.mp4",
-            poster: "/images/shops/DavidusAnnapolis/lounge.jpg",
+            poster: "/images/shops/davidus-annapolis/lounge.jpg",
         },
         {
             type: "image",
-            src: "/images/shops/DavidusAnnapolis/JohnS.jpg",
+            src: "/images/shops/davidus-annapolis/JohnS.jpg",
             alt: "John",
         },
         {
             type: "image",
-            src: "/images/shops/DavidusAnnapolis/front.jpg",
+            src: "/images/shops/davidus-annapolis/front.jpg",
             alt: "Front of the store",
         },
         {
             type: "image",
-            src: "/images/shops/DavidusAnnapolis/cl-annapolis-3.jpg",
+            src: "/images/shops/davidus-annapolis/cl-annapolis-3.jpg",
             alt: "Lounge",
         },
         {
             type: "image",
-            src: "/images/shops/DavidusAnnapolis/cl-annapolis-11.jpg",
+            src: "/images/shops/davidus-annapolis/cl-annapolis-11.jpg",
             alt: "Lounge",
         },
         {
             type: "image",
-            src: "/images/shops/DavidusAnnapolis/Davidus_Logo.png",
+            src: "/images/shops/davidus-annapolis/Davidus_Logo.png",
             alt: "Logo",
         },
         
