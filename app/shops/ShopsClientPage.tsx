@@ -498,7 +498,7 @@ export default function ShopsClientPage({
                         </h2>
 
                         <div className="mt-8 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-                            {featuredShops.map((shop) => (
+                                                                                                                                                                                                                                                                                                {featuredShops.map((shop) => (
                                 <Link key={shop.id} href={`/shops/${shop.slug}`}>
                                 <div
                                     key={shop.id}
@@ -535,7 +535,7 @@ export default function ShopsClientPage({
                                     </p>
 
                                     <p className="mt-6 text-sm font-bold text-amber-300 transition">
-                                            <span className="transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-90">
+                                        <span className="transition-all duration-200 group-hover:translate-x-1 group-hover:opacity-90">
                                             View shop
                                             <span className="transition-transform group-hover:translate-x-1">
                                                 →
